@@ -1,0 +1,52 @@
+h1
+{
+	color: red;
+}
+
+
+body
+{
+	background-color: royalblue;
+}
+
+#zone_acceuil
+{
+	width: 800px;
+	margin: 0 auto;
+	background-color: white;
+	text-align: center;
+	align-content: center;
+}
+
+#connexion
+{
+	width: 300px;
+	margin: 0 auto;
+	background-color: ghostwhite;
+	text-align: center;
+	align-content: center;	
+}
+
+#saut_para
+{
+
+	width: 300px;
+	margin: 0 auto;
+	background-color: skyblue;
+	text-align: center;
+	align-content: center;
+}
+
+#best-of_guada
+{
+	width: 300px;
+	margin: 0 auto;
+	background-color: skyblue;
+	text-align: center;
+	align-content: center;
+}
+
+ul li
+{
+	list-style-type: tigre;
+}
