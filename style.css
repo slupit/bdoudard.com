@@ -1,11 +1,8 @@
-body
-{
+body{
 	background-color: royalblue;
 }
 
-#zone_acceuil
-{
-
+#zone_acceuil{
 
 	width: 800px;
 	margin: 0 auto;
@@ -14,8 +11,8 @@ body
 	align-content: center;
 }
 
-#connexion
-{
+#connexion{
+
 	width: 300px;
 	margin: 0 auto;
 	background-color: ghostwhite;
@@ -23,8 +20,7 @@ body
 	align-content: center;	
 }
 
-#saut_para
-{
+#saut_para{
 
 	width: 300px;
 	margin: 0 auto;
@@ -33,8 +29,15 @@ body
 	align-content: center;
 }
 
-#best-of_guada
-{
+#best-of_guada{
+	width: 300px;
+	margin: 0 auto;
+	background-color: skyblue;
+	text-align: center;
+	align-content: center;
+}
+
+#logo{
 	width: 300px;
 	margin: 0 auto;
 	background-color: skyblue;
