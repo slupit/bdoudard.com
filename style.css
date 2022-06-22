@@ -1,5 +1,11 @@
 body{
-	background-color: royalblue;
+	background: url("img/wave_bg.png") no-repeat top center;
+	background-size: cover;
+}
+
+img {
+max-width : 100%;
+height : auto;
 }
 
 #zone_acceuil{
