@@ -1,6 +1,7 @@
 body{
 	background: url("img/wave_bg-min.png") no-repeat top center;
-	background-size: cover;
+	background-size: 3050px;
+	font-family: 'time new roman';
 }
 
 img {
