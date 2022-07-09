@@ -16,6 +16,7 @@ height : auto;
 	background-color: white;
 	text-align: center;
 	align-content: center;
+	border-radius: 10px;
 }
 
 #work_in_progress{
@@ -25,6 +26,7 @@ height : auto;
 	background-color: white;
 	text-align: center;
 	align-content: center;
+	border-radius: 10px;
 }
 
 #connexion{
