@@ -27,6 +27,18 @@ height : auto;
 	text-align: center;
 	align-content: center;
 	border-radius: 10px;
+	font-family: 'dm sans';
+}
+
+#vacances_corse{
+
+	width: 800px;
+	margin: 0 auto;
+	background-color: white;
+	text-align: center;
+	align-content: center;
+	border-radius: 10px;
+	font-family: 'yeseva one';
 }
 
 #connexion{
@@ -53,6 +65,17 @@ height : auto;
 	background-color: skyblue;
 	text-align: center;
 	align-content: center;
+}
+
+#powerpoint_corse{
+
+	width: 800px;
+	margin: 0 auto;
+	background-color: white;
+	text-align: center;
+	align-content: center;
+	border-radius: 10px;
+	font-family: 'yeseva one';
 }
 
 #logo{
