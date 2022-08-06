@@ -1,17 +1,31 @@
 body{
 	background: url("img/wave_bg-min.png") no-repeat top center;
 	background-size: 3050px;
-	font-family: 'time new roman';
 }
 
 img {
 max-width : 100%;
 height : auto;
+vertical-align: middle;
+text-align: center;
 }
 
-#zone_acceuil{
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
 
-	width: 800px;
+.banner
+{
+	background-color: white;
+	text-align: center;
+	align-content: center;
+}
+
+.para-type_1
+{
+	width: 600px;
 	margin: 0 auto;
 	background-color: white;
 	text-align: center;
@@ -19,25 +33,9 @@ height : auto;
 	border-radius: 10px;
 }
 
-#work_in_progress{
 
-	width: 800px;
-	margin: 0 auto;
-	background-color: white;
-	text-align: center;
-	align-content: center;
-	border-radius: 10px;
-	font-family: 'dm sans';
-}
-
-#vacances_corse{
-
-	width: 800px;
-	margin: 0 auto;
-	background-color: white;
-	text-align: center;
-	align-content: center;
-	border-radius: 10px;
+.corse
+{
 	font-family: 'yeseva one';
 }
 
@@ -67,17 +65,6 @@ height : auto;
 	align-content: center;
 }
 
-#powerpoint_corse{
-
-	width: 800px;
-	margin: 0 auto;
-	background-color: white;
-	text-align: center;
-	align-content: center;
-	border-radius: 10px;
-	font-family: 'yeseva one';
-}
-
 #logo{
 	width: 300px;
 	margin: 0 auto;
@@ -89,4 +76,12 @@ height : auto;
 ul li
 {
 	list-style-type: tigre;
+}
+
+.site-footer {
+  position: relative;
+  z-index: 0 auto;
+  padding: 100px 0 40px 0;
+  margin-top: -70px;
+  text-align: center;
 }
