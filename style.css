@@ -15,6 +15,11 @@ html, body{
 height: 100%;
 }
 
+@font-face {
+	font-family: 'Yeseva one';
+	src: url('font/YesevaOne-Regular.ttf') format('truetype');
+}
+
 #contenu{
 	min-height: 100%;
 	position: relative;
@@ -41,7 +46,7 @@ height: 100%;
 
 .corse
 {
-	font-family: 'yeseva one';
+	font-family: 'Yeseva one';
 }
 
 #connexion{
