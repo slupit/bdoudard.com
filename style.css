@@ -1,20 +1,11 @@
 /* color : #243763 (blue) #FF6E31 (orange) #FFEBB7 (creme) #AD8E70 (marron) */
 
-body{
-	background: url("img/wave_bg-min.png") no-repeat top center;
-	background-size: 3050px;
-	margin: 0px;
-}
-
-img {
-max-width : 100%;
-height : auto;
-vertical-align: middle;
-text-align: center;
-}
-
-html, body{
-height: 100%;
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Alegreya';
+	background-color: #243763;
 }
 
 @font-face {
@@ -24,10 +15,56 @@ height: 100%;
 	src: url('font/Alegreya-Regular.ttf') format('truetype');
 }
 
-#contenu{
-	min-height: 100%;
-	position: relative;
+.contenu{
+	margin-top: 130px;
+	max-width: 600px;
 }
+
+.contenu h3{
+	color: #FF6E31;
+}
+
+nav{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 0;
+}
+
+nav ul li{
+	display: inline-block;
+	list-style: none;
+	margin: 10px 30px;
+	font-size: 30px;
+}
+
+nav ul li a{
+	text-decoration: none;
+	color: #FF6E31;
+}
+
+.header {
+	justify-content: center;
+	color: #FF6E31;
+	width: 100%;
+	height: 100vh;
+	padding: 0 10%;
+	text-align: center;
+}
+
+.footer {
+	justify-content: center;
+	color: #ffebb7;
+	margin-bottom: 0%;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+
+
+
 
 .banner
 {
@@ -89,20 +126,3 @@ height: 100%;
 	align-content: center;
 }
 
-ul li
-{
-	list-style-type: tigre;
-}
-
-.site-footer {
-	min-width: 600px;
-	width: 100%;
-	height: 80px;
-	justify-content: center;
-	color: #ffebb7;
-	background-color: #243763;
-	bottom: 0px;
-	left: 0px;
-	position: absolute;
-	text-align: center;
-}
