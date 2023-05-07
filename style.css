@@ -16,12 +16,21 @@
 }
 
 .contenu{
-	margin-top: 130px;
-	max-width: 600px;
+	padding-top: 20px;
+	padding-bottom: 100%;
+	margin: 0;
+	background-image: url('img/topography.png');
+	background-size: contain;
+	background-repeat: repeat;
+
+
+
 }
 
 .contenu h3{
 	color: #FF6E31;
+	justify-content: center;
+	text-align: center;
 }
 
 nav{
@@ -36,7 +45,7 @@ nav ul li{
 	display: inline-block;
 	list-style: none;
 	margin: 10px 30px;
-	font-size: 30px;
+	font-size: 25px;
 }
 
 nav ul li a{
@@ -48,12 +57,13 @@ nav ul li a{
 	justify-content: center;
 	color: #FF6E31;
 	width: 100%;
-	height: 100vh;
+	height: 100px;
 	padding: 0 10%;
 	text-align: center;
 }
 
 .footer {
+	height: 80px;
 	justify-content: center;
 	color: #ffebb7;
 	margin-bottom: 0%;
@@ -77,13 +87,10 @@ nav ul li a{
 
 .para-type_1
 {
-	width: 600px;
-	margin: 0 auto;
 	background-color: #243763;
-	text-align: center;
-	align-content: center;
-	border-radius: 15px;
-	font-family: 'Alegreya';
+	border-radius: 7px;
+	padding: 20px;
+	margin: 0 20% 0 20%;
 }
 
 
