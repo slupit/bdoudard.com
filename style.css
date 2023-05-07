@@ -17,14 +17,13 @@
 
 .contenu{
 	padding-top: 20px;
-	padding-bottom: 100%;
-	margin: 0;
+	padding-bottom: 450px;
 	background-image: url('img/topography.png');
-	background-size: contain;
+	background-size: 450px;
 	background-repeat: repeat;
-
-
-
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	border-color: black;
 }
 
 .contenu h3{
