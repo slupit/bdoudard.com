@@ -26,17 +26,21 @@
 
         <h1>Formulaire de contact</h1>
         <form method="post">
-            <label>Email</label>
-            <input type="email" name="email" required>
-            <label>Sujet</label>
-            <input type="text" name="sujet" required>
-            <textarea name="message" required></textarea>
+            <input type="nom" name="nom" placeholder="Nom" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="sujet" placeholder="Sujet" required>
+            <textarea name="message" placeholder="Message" required></textarea>
             <input type="submit" value="envoyer le message" required>           
         </form>
 
         <?php
         if (isset($_POST["message"])){
-        $retour = mail("bastien.doudard@gmail.com", "$_POST["sujet"]", "$_POST["message"]", "From:". $_POST["email"]);
+        $message = 
+        "Nom : " .$_POST["nom"]."
+        Email : " .$_POST["email"]."
+        Message : " .$_POST["message"];
+        
+        $retour = mail("bastien.doudard@gmail.com", $_POST["sujet"], $message, "From:contact@bdoudard.com"."\r\n"."Reply-to:". $_POST["email"]);
             if($retour){
                 echo "Le message à bien été envoyé";
             }
@@ -46,7 +50,6 @@
 		</div>
 
 		<div class="footer">
-            <h1>Contact</h1>
 			<h3>Site en construction</h3>
 			<p>Copyright &copy; 2023 Bastien DOUDARD</p>
 		</div>
