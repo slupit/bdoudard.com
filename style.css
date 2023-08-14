@@ -78,12 +78,13 @@ nav ul li a{
 	margin: auto;
 	align-items: center;
 	transition: opacity 0.3s ease;
+	background: none;
 }
 
 #precedent, #suivant{
 	font-size: 100px;
 	position: absolute;
-	background-color: #243763c6;
+	background-color: #243763c9;
 	color: #FF6E31;
 	cursor: pointer;
 	opacity: 0;
