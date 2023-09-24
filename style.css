@@ -53,6 +53,12 @@ nav ul li a{
 	color: #FF6E31;
 }
 
+a:hover{
+	color: #ffebb7;
+	text-decoration: underline; 
+	text-underline-offset: 1rem;
+}
+
 .header {
 	justify-content: center;
 	color: #FF6E31;
