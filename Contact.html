@@ -3,7 +3,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width" />
 		<meta charset="utf-8">
-		<title>Formulaire de contact</title>
+		<title>Acceuil - Bastien Doudard</title>
 		<link rel="stylesheet" href="style.css">
 		<link rel="icon" type="image/png" sizes="50x50" href="img/AMBD_Web_4.png">
 	</head>
@@ -23,15 +23,40 @@
 		</div>
 
 		<div class="contenu">
-            
+
+        <h1>Formulaire de contact</h1>
+        <form method="post">
+            <input type="nom" name="nom" placeholder="Nom" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="sujet" placeholder="Sujet" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <input type="submit" value="envoyer le message" required>           
+        </form>
+		
+        <script>
+        if (isset($_POST["message"])){
+        $message = 
+        "Nom : " .$_POST["nom"]."
+        Email : " .$_POST["email"]."
+        Message : " .$_POST["message"];
+        
+        $retour = mail("bastien.doudard@gmail.com", $_POST["sujet"], $message, "From:contact@bdoudard.com"."\r\n"."Reply-to:". $_POST["email"]);
+            if($retour){
+                echo "Le message à bien été envoyé";
+            }
+        }
+		</script>   
 
 		</div>
 
 		<div class="footer">
-				<h3>Site en construction</h3>
-				<p>Copyright &copy; 2023 Bastien DOUDARD</p>
+			<h3>Site en construction</h3>
+			<p>Copyright &copy; 2023 Bastien DOUDARD</p>
 		</div>
     	 
 	</body>
 
 </html>
+
+
+
