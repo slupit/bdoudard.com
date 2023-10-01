@@ -64,11 +64,33 @@ nav ul li a{
 	color: #FF6E31;
 }
 
-a:hover{
+ul li a:hover{
 	color: #ffebb7;
 	text-decoration: underline; 
 	text-underline-offset: 1rem;
 }
+
+nav img{
+	position: absolute;
+	top: 25px;
+}
+
+#logo_2{
+	opacity: 0;
+}
+
+.logo:hover #logo_1{
+	opacity: 0;
+}
+
+.logo:hover #logo_2{
+	opacity: 1;
+}
+
+.logo img{
+	transition: opacity 0.2s ease-in-out;
+}
+
 
 .header {
 	justify-content: center;
