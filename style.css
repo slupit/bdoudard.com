@@ -4,15 +4,15 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Alegreya', sans-serif;
+	font-family: 'Alegreya-regular', sans-serif;
 	background-color: #243763;
 }
 
 @font-face {
 	font-family: 'Yeseva one';
 	src: url('font/YesevaOne-Regular.ttf') format('truetype');
-	font-family: 'Alegreya';
-	src: url('font/Alegreya-Regular.ttf') format('truetype');
+	font-family: 'Alegreya-regular';
+	src: url('font/Alegreya-regular.ttf') format('truetype');
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
@@ -56,7 +56,7 @@ nav ul li{
 	display: inline-block;
 	list-style: none;
 	margin: 10px 30px;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 nav ul li a{
