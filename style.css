@@ -101,7 +101,7 @@ nav img{
 	margin-bottom: 0%;
 	text-align: center;
 	padding-top: 10px;
-	padding-bottom: 20px;
+	padding-bottom: 30px;
 }
 
 #slider{
@@ -133,21 +133,6 @@ nav img{
 
 #slider:hover #precedent, #slider:hover #suivant{
 	opacity: 1;
-}
-
-
-/* 
-###########################################
-old work 
-###########################################
-*/
-.banner
-{
-	min-width: 600px;
-	background-color: #243763;
-	text-align: center;
-	align-content: center;
-	font-family: 'Alegreya';
 }
 
 .para-type_1
@@ -185,6 +170,30 @@ old work
 	text-underline-offset: 1rem;
 }
 
+.footer a{
+	text-decoration: none;
+	color: #ffebb7;
+}
+
+.footer a:hover{
+	color:#FF6E31;
+	text-decoration: underline; 
+	text-underline-offset: 0.3rem;
+}
+
+/* 
+###########################################
+old work 
+###########################################
+*/
+.banner
+{
+	min-width: 600px;
+	background-color: #243763;
+	text-align: center;
+	align-content: center;
+	font-family: 'Alegreya';
+}
 
 .corse
 {
