@@ -165,17 +165,20 @@ nav img{
 
 .para-type_1 h1, h2{
 	text-align: center;
-	padding-bottom: 2rem;
+	padding-bottom: 1rem;
 	padding-top: 0.5rem;
 	color: #FF6E31;
 	text-underline-offset: 0.8rem;
 	padding-top: 1rem;
 }
 
-.para-type_1 h1{
-	text-decoration: underline wavy 2px;
-}
 
+.line_wavy{
+	border-top: 4px double #FF6E31;
+	width: 100%;
+	margin-bottom: 1rem;
+	padding-top: -1rem;
+}
 
 .para-type_1 a{
 	text-decoration: none;
