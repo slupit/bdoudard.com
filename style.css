@@ -56,12 +56,13 @@ nav ul li{
 nav ul li a{
 	text-decoration: none;
 	color: #FF6E31;
+	text-underline-offset: 1rem;
 }
 
 ul li a:hover{
 	color: #ffebb7;
 	text-decoration: underline; 
-	text-underline-offset: 1rem;
+	text-underline-offset: 0.4rem;
 }
 
 nav img{
@@ -162,23 +163,29 @@ nav img{
 	}
 }
 
-.para-type_1 h1{
+.para-type_1{
 	text-align: center;
 	padding-bottom: 2rem;
 	padding-top: 0.5rem;
 	color: #FF6E31;
-	text-decoration: underline;
 	text-underline-offset: 1rem;
+	padding-top: 1rem;
 }
+
+.para-type_1 h1{
+	text-decoration: underline;
+}
+
 
 .para-type_1 a{
 	text-decoration: none;
+	color: #ff6e31;
 }
 
 .para-type_1 a:hover{
 	color:#FFebb7;
 	text-decoration: underline; 
-	text-underline-offset: 0.3rem;
+	text-underline-offset: 0.4rem;
 }
 
 .footer a{
