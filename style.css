@@ -171,12 +171,22 @@ nav img{
 	text-underline-offset: 1rem;
 }
 
-.footer, .para-type_1 a{
+.para-type_1 a{
+	text-decoration: none;
+}
+
+.para-type_1 a:hover{
+	color:#FFebb7;
+	text-decoration: underline; 
+	text-underline-offset: 0.3rem;
+}
+
+.footer a{
 	text-decoration: none;
 	color: #ffebb7;
 }
 
-.footer, .para-type_1 a:hover{
+.footer a:hover{
 	color:#FF6E31;
 	text-decoration: underline; 
 	text-underline-offset: 0.3rem;
