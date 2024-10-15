@@ -83,7 +83,7 @@ nav img{
 }
 
 .logo img{
-	transition: opacity 0.2s ease-in-out;
+	transition: opacity 0.35s ease-in-out;
 }
 
 
@@ -140,6 +140,7 @@ nav img{
 .para-type_1
 {
 	padding: 10px;
+	transition: margin 0.5s ease-in-out;
 }
 
 @media screen and (max-width: 860px){
@@ -169,11 +170,9 @@ nav img{
 	padding-top: 0.5rem;
 	color: #FF6E31;
 	text-underline-offset: 0.8rem;
-	padding-top: 1rem;
 }
 
-
-.line_wavy{
+.double_line{
 	border-top: 4px double #FF6E31;
 	width: 100%;
 	margin-bottom: 1rem;
@@ -182,7 +181,7 @@ nav img{
 
 .para-type_1 a{
 	text-decoration: none;
-	color: #ff6e31;
+	color: #FF6E31;
 }
 
 .para-type_1 a:hover{
