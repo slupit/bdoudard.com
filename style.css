@@ -87,12 +87,17 @@ nav img{
 }
 
 
-.header {
+.header{
 	justify-content: center;
 	color: #FF6E31;
 	width: 100%;
 	min-height: 100px;
 	padding: 0 10%;
+	text-align: center;
+}
+
+h1{
+	color: #FF6E31;
 	text-align: center;
 }
 
@@ -137,8 +142,7 @@ nav img{
 	opacity: 1;
 }
 
-.para-type_1
-{
+.para-type_1{
 	padding: 10px;
 	transition: margin 0.5s ease-in-out;
 }
@@ -201,58 +205,3 @@ nav img{
 	text-decoration: underline; 
 	text-underline-offset: 0.3rem;
 }
-
-/* 
-###########################################
-old work 
-###########################################
-*/
-.banner
-{
-	min-width: 600px;
-	background-color: #243763;
-	text-align: center;
-	align-content: center;
-	font-family: 'Alegreya';
-}
-
-.corse
-{
-	font-family: 'Yeseva one';
-}
-
-#connexion{
-
-	width: 300px;
-	margin: 0 auto;
-	background-color: ghostwhite;
-	text-align: center;
-	align-content: center;	
-}
-
-#saut_para{
-
-	width: 300px;
-	margin: 0 auto;
-	background-color: skyblue;
-	text-align: center;
-	align-content: center;
-}
-
-#best-of_guada{
-	width: 300px;
-	margin: 0 auto;
-	background-color: skyblue;
-	text-align: center;
-	align-content: center;
-}
-
-#logo{
-	width: 300px;
-	margin: 0 auto;
-	background-color: skyblue;
-	text-align: center;
-	align-content: center;
-}
-
-
