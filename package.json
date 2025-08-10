@@ -1,0 +1,29 @@
+{
+  "name": "bdoudard.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slupit/bdoudard.com.git"
+  },
+  "author": "Bastien Doudard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slupit/bdoudard.com/issues"
+  },
+  "homepage": "https://github.com/slupit/bdoudard.com#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.7",
+    "framer-motion": "^12.23.12",
+    "react": "^19.1.1",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.1.1",
+    "react-scripts": "^0.0.0"
+  },
+  "keywords": []
+}
