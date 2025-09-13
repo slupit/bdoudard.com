@@ -1,54 +1,1112 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width" />
-		<meta charset="utf-8">
-		<title>bdoudard.com</title>
-		<link rel="icon" type="image/png" sizes="50x50" href="img/Logo_2_V1.png">
-		<link rel="stylesheet" href="style.css">
-		<link rel="stylesheet" href="mediaqueries.css">
-		<script src="script.js"></script>
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .card-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 57, 129, 0.9);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        .card-popup-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .active-tab {
+            border-bottom: 3px solid #E38E49;
+            color: #1F509A;
+            font-weight: 600;
+        }
+        .carousel-item {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.1s ease-in-out;
+            position: absolute;
+            width: 100%;
+        }
+        .carousel-item.active {
+            display: block;
+            opacity: 1;
+            position: relative;
+        }
+        .carousel-container {
+            position: relative;
+            min-height: 400px; /* Adjust based on your content */
+        }
+        @media (max-width: 768px) {
+            .mobile-carousel {
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+            }
+            
+            .mobile-carousel-inner {
+                display: flex;
+                transition: transform 0.3s ease-in-out;
+                width: 100%;
+            }
+            
+            .mobile-carousel-item {
+                flex: 0 0 100%;
+                width: 100%;
+                padding: 0 1rem;
+            }
+            
+            .mobile-nav {
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                margin-top: 1rem;
+            }
+            
+            .mobile-nav-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: #D4EBF8;
+                transition: background-color 0.3s ease;
+            }
+            
+            .mobile-nav-dot.active {
+                background-color: #E38E49;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#D4EBF8]">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <i data-feather="user" class="h-8 w-8 text-[#E38E49]"></i>
+                    <span class="ml-2 text-xl font-semibold text-[#1F509A]">My Portfolio</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#highlights" class="text-[#0A3981] hover:text-[#E38E49] transition">Highlights</a>
+                    <div class="relative group">
+                        <button class="text-[#0A3981] hover:text-[#E38E49] transition flex items-center">
+                            Portfolio <i data-feather="chevron-down" class="ml-1 h-4 w-4"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-1 w-48">
+                            <a href="#projects" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Projects</a>
+                            <a href="#education" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Education</a>
+                            <a href="#experience" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Experience</a>
+                            <a href="#skills" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Skills</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="text-[#0A3981] hover:text-[#E38E49] transition flex items-center">
+                            Resources <i data-feather="chevron-down" class="ml-1 h-4 w-4"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-1 w-48">
+                            <a href="#recipes" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Recipes</a>
+                            <a href="#vacations" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Vacations</a>
+                        </div>
+                    </div>
+                    <a href="#footer" class="text-[#0A3981] hover:text-[#E38E49] transition">Contact</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-[#0A3981] hover:text-[#E38E49] focus:outline-none">
+                        <i data-feather="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#highlights" class="block px-3 py-2 text-[#0A3981] hover:bg-blue-50 hover:text-[#E38E49]">Highlights</a>
+                <div>
+                    <button id="portfolio-dropdown" class="w-full flex justify-between items-center px-3 py-2 text-[#0A3981] hover:bg-blue-50 hover:text-[#E38E49]">
+                        Portfolio <i data-feather="chevron-down" class="h-4 w-4"></i>
+                    </button>
+                    <div id="portfolio-submenu" class="hidden pl-4">
+                        <a href="#projects" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Projects</a>
+                        <a href="#education" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Education</a>
+                        <a href="#experience" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Experience</a>
+                        <a href="#skills" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Skills</a>
+                    </div>
+                </div>
+                <div>
+                    <button id="resources-dropdown" class="w-full flex justify-between items-center px-3 py-2 text-[#0A3981] hover:bg-blue-50 hover:text-[#E38E49]">
+                        Resources <i data-feather="chevron-down" class="h-4 w-4"></i>
+                    </button>
+                    <div id="resources-submenu" class="hidden pl-4">
+                        <a href="#recipes" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Recipes</a>
+                        <a href="#vacations" class="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500">Vacations</a>
+                    </div>
+                </div>
+                <a href="#footer" class="block px-3 py-2 text-[#0A3981] hover:bg-blue-50 hover:text-[#E38E49]">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-	<body>
-		<div class="header">
-			<nav>
-				<div class="logo">
-				<a href='index.html'>
-					<img id="logo_1" src='img/Logo_2_V1.png' style="max-width: 40px;">
-					<img id="logo_2" src='img/Logo_2_V2.png' style="max-width: 40px;">
-				</a></div>
-				<ul>
-					<li><a href='index.html'><h3>Home</h3></a></li>
-					<li><a href='Portfolio.html'><h3>Portfolio</h3></a></li>
-					<li><a href='Ressources.html'><h3>Ressources</h3></a></li>
-				</ul>
-			</nav>
-			
-		</div>
+    <!-- Highlights Carousel -->
+    <section id="highlights" class="py-16 bg-gradient-to-r from-[#D4EBF8] to-[#1F509A]/10">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Highlights</h2>
+            
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Add carousel-container class -->
+                <div class="carousel-container">
+                    <!-- Carousel Items -->
+                    <div class="carousel-item active" data-aos="fade-up">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <div class="md:flex">
+                                <div class="md:w-1/2">
+                                    <img src="http://static.photos/travel/1024x576/1" alt="Highlight 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-8 md:w-1/2">
+                                    <h3 class="text-2xl font-bold mb-4">Conference Speaker</h3>
+                                    <p class="text-gray-600 mb-6">I recently spoke at the International Tech Conference about the future of AI in everyday applications. It was an amazing opportunity to share my research with industry leaders.</p>
+                                    <div class="flex items-center text-gray-500">
+                                        <i data-feather="calendar" class="mr-2"></i>
+                                        <span>June 15, 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item" data-aos="fade-up">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <div class="md:flex">
+                                <div class="md:w-1/2">
+                                    <img src="http://static.photos/technology/1024x576/2" alt="Highlight 2" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-8 md:w-1/2">
+                                    <h3 class="text-2xl font-bold mb-4">Project Launch</h3>
+                                    <p class="text-gray-600 mb-6">Our team successfully launched the new productivity app that helps remote teams collaborate more effectively. The app has already received 10,000+ downloads in the first month.</p>
+                                    <div class="flex items-center text-gray-500">
+                                        <i data-feather="calendar" class="mr-2"></i>
+                                        <span>May 3, 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Controls -->
+                <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white p-2 rounded-full shadow-md hover:bg-[#D4EBF8]">
+                    <i data-feather="chevron-left" class="h-6 w-6 text-[#1F509A]"></i>
+                </button>
+                <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white p-2 rounded-full shadow-md hover:bg-[#D4EBF8]">
+                    <i data-feather="chevron-right" class="h-6 w-6 text-[#1F509A]"></i>
+                </button>
+                
+                <!-- Indicators -->
+                <div class="flex justify-center mt-6 space-x-2">
+                    <button class="carousel-indicator w-3 h-3 rounded-full bg-blue-300 active" data-index="0"></button>
+                    <button class="carousel-indicator w-3 h-3 rounded-full bg-blue-300" data-index="1"></button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<div class="contenu">
-			
-<!--
-			<div id="slider">
-				<img src="img/wave_bg-min.png" style="max-width: 1280px;" id="slide">
-				<div id="precedent" onclick="ChangeSlide(-1)">&lt;</div>
-				<div id="suivant" onclick="ChangeSlide(1)">&gt;</div>
-			</div>
--->
-			<div class="para-type_1">
-				<h1>Playlist de la semaine</h1>
-				<div class="double_line"></div>
-				<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5ZXEL0qCHpOVEe0C6ifMM6?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-			</div>
-		</div>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Portfolio</h2>
+            
+            <!-- Tab Menu -->
+            <div class="flex justify-center mb-8 border-b border-gray-200">
+                <button class="tab-btn px-6 py-3 active-tab" data-tab="projects">Projects</button>
+                <button class="tab-btn px-6 py-3" data-tab="education">Education</button>
+                <button class="tab-btn px-6 py-3" data-tab="experience">Experience</button>
+                <button class="tab-btn px-6 py-3" data-tab="skills">Skills</button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div id="projects" class="tab-content">
+                <div class="hidden md:grid md:grid-cols-3 gap-8">
+                    <!-- Project Cards -->
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-card-type="project">
+                        <img src="http://static.photos/technology/640x360/1" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                            <p class="text-gray-600 mb-4">A full-stack e-commerce solution with payment integration and inventory management.</p>
+                            <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100" data-card-type="project">
+                        <img src="http://static.photos/technology/640x360/2" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Health Tracker App</h3>
+                            <p class="text-gray-600 mb-4">Mobile application for tracking fitness metrics and health goals with data visualization.</p>
+                            <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200" data-card-type="project">
+                        <img src="http://static.photos/technology/640x360/3" alt="Project 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">AI Chatbot</h3>
+                            <p class="text-gray-600 mb-4">Natural language processing chatbot for customer service automation.</p>
+                            <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden mobile-carousel">
+                    <div class="mobile-carousel-inner" id="projectsCarousel">
+                        <div class="mobile-carousel-item">
+                            <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-card-type="project">
+                                <img src="http://static.photos/technology/640x360/1" alt="Project 1" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                                    <p class="text-gray-600 mb-4">A full-stack e-commerce solution with payment integration and inventory management.</p>
+                                    <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-carousel-item">
+                            <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100" data-card-type="project">
+                                <img src="http://static.photos/technology/640x360/2" alt="Project 2" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">Health Tracker App</h3>
+                                    <p class="text-gray-600 mb-4">Mobile application for tracking fitness metrics and health goals with data visualization.</p>
+                                    <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-carousel-item">
+                            <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200" data-card-type="project">
+                                <img src="http://static.photos/technology/640x360/3" alt="Project 3" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">AI Chatbot</h3>
+                                    <p class="text-gray-600 mb-4">Natural language processing chatbot for customer service automation.</p>
+                                    <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-nav" id="projectsNav"></div>
+                </div>
+            </div>
+            
+            <div id="education" class="tab-content hidden">
+                <div class="hidden md:grid md:grid-cols-3 gap-8">
+                    <!-- Education Cards -->
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-card-type="education">
+                        <img src="http://static.photos/education/640x360/1" alt="University" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Master's in Computer Science</h3>
+                            <p class="text-gray-600 mb-2">Stanford University</p>
+                            <p class="text-gray-500 text-sm">2018 - 2020</p>
+                            <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium mt-2">Read More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100" data-card-type="education">
+                        <img src="http://static.photos/education/640x360/2" alt="University" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Bachelor's in Software Engineering</h3>
+                            <p class="text-gray-600 mb-2">MIT</p>
+                            <p class="text-gray-500 text-sm">2014 - 2018</p>
+                            <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden mobile-carousel">
+                    <div class="mobile-carousel-inner">
+                        <div class="mobile-carousel-item">
+                            <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-card-type="education">
+                                <img src="http://static.photos/education/640x360/1" alt="University" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">Master's in Computer Science</h3>
+                                    <p class="text-gray-600 mb-2">Stanford University</p>
+                                    <p class="text-gray-500 text-sm">2018 - 2020</p>
+                                    <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium mt-2">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-carousel-item">
+                            <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100" data-card-type="education">
+                                <img src="http://static.photos/education/640x360/2" alt="University" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">Bachelor's in Software Engineering</h3>
+                                    <p class="text-gray-600 mb-2">MIT</p>
+                                    <p class="text-gray-500 text-sm">2014 - 2018</p>
+                                    <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium mt-2">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-nav"></div>
+                </div>
+            </div>
+            
+            <div id="experience" class="tab-content hidden grid md:grid-cols-3 gap-8">
+                <!-- Experience Cards -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-card-type="experience">
+                    <img src="http://static.photos/office/640x360/1" alt="Company" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Senior Developer</h3>
+                        <p class="text-gray-600 mb-2">Tech Solutions Inc.</p>
+                        <p class="text-gray-500 text-sm">2020 - Present</p>
+                        <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium mt-2">Read More</button>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100" data-card-type="experience">
+                    <img src="http://static.photos/office/640x360/2" alt="Company" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Software Engineer</h3>
+                        <p class="text-gray-600 mb-2">Digital Innovations</p>
+                        <p class="text-gray-500 text-sm">2018 - 2020</p>
+                        <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium mt-2">Read More</button>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200" data-card-type="experience">
+                    <img src="http://static.photos/office/640x360/3" alt="Company" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Intern</h3>
+                        <p class="text-gray-600 mb-2">StartUp Labs</p>
+                        <p class="text-gray-500 text-sm">Summer 2017</p>
+                        <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium mt-2">Read More</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="skills" class="tab-content hidden grid md:grid-cols-3 gap-8">
+                <!-- Skills Cards -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-card-type="skill">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i data-feather="code" class="h-8 w-8 text-[#E38E49] mr-3"></i>
+                            <h3 class="text-xl font-bold">Programming</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>JavaScript</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="w-full bg-[#D4EBF8] rounded-full h-2">
+                                    <div class="bg-[#E38E49] h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Python</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="w-full bg-[#D4EBF8] rounded-full h-2">
+                                    <div class="bg-[#E38E49] h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Java</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="w-full bg-[#D4EBF8] rounded-full h-2">
+                                    <div class="bg-[#E38E49] h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100" data-card-type="skill">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i data-feather="layers" class="h-8 w-8 text-[#E38E49] mr-3"></i>
+                            <h3 class="text-xl font-bold">Frameworks</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>React</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="w-full bg-[#D4EBF8] rounded-full h-2">
+                                    <div class="bg-[#E38E49] h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Node.js</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="w-full bg-[#D4EBF8] rounded-full h-2">
+                                    <div class="bg-[#E38E49] h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Django</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="w-full bg-[#D4EBF8] rounded-full h-2">
+                                    <div class="bg-[#E38E49] h-2 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200" data-card-type="skill">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i data-feather="tool" class="h-8 w-8 text-[#E38E49] mr-3"></i>
+                            <h3 class="text-xl font-bold">Tools</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Git</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="w-full bg-[#D4EBF8] rounded-full h-2">
+                                    <div class="bg-[#E38E49] h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Docker</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="w-full bg-[#D4EBF8] rounded-full h-2">
+                                    <div class="bg-[#E38E49] h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>AWS</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="w-full bg-[#D4EBF8] rounded-full h-2">
+                                    <div class="bg-[#E38E49] h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<div class="footer">
-				<h3>Work In Progress</h3>
-				<p>Designed by Bastien DOUDARD</p>
-				<br><p><a href="https://github.com/slupit/bdoudard.com">github</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="doc/CV_BDOUDARD_2025.pdf">Curriculum Vitae</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="https://www.linkedin.com/in/bastien-doudard/">LinkedIn</a></p><br>
-		</div>
-    	 
-	</body>
+    <!-- Resources Section -->
+    <section id="resources" class="py-16 bg-[#D4EBF8]">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Resources</h2>
+            
+            <!-- Tab Menu -->
+            <div class="flex justify-center mb-8 border-b border-gray-200">
+                <button class="res-tab-btn px-6 py-3 active-tab" data-tab="recipes">Recipes</button>
+                <button class="res-tab-btn px-6 py-3" data-tab="vacations">Vacations</button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div id="recipes" class="res-tab-content grid md:grid-cols-3 gap-8">
+                <!-- Recipe Cards -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-card-type="recipe">
+                    <img src="http://static.photos/food/640x360/1" alt="Recipe 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pasta Carbonara</h3>
+                        <p class="text-gray-600 mb-4">Classic Italian pasta dish with eggs, cheese, pancetta, and black pepper.</p>
+                        <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100" data-card-type="recipe">
+                    <img src="http://static.photos/food/640x360/2" alt="Recipe 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Beef Wellington</h3>
+                        <p class="text-gray-600 mb-4">Tender beef fillet wrapped in mushroom duxelles and puff pastry.</p>
+                        <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200" data-card-type="recipe">
+                    <img src="http://static.photos/food/640x360/3" alt="Recipe 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Chocolate Soufflé</h3>
+                        <p class="text-gray-600 mb-4">Light, airy chocolate dessert that's perfect for special occasions.</p>
+                        <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="vacations" class="res-tab-content hidden grid md:grid-cols-3 gap-8">
+                <!-- Vacation Cards -->
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-card-type="vacation">
+                    <img src="http://static.photos/travel/640x360/4" alt="Vacation 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Bali, Indonesia</h3>
+                        <p class="text-gray-600 mb-4">Tropical paradise with beautiful beaches, temples, and vibrant culture.</p>
+                        <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100" data-card-type="vacation">
+                    <img src="http://static.photos/travel/640x360/5" alt="Vacation 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Kyoto, Japan</h3>
+                        <p class="text-gray-600 mb-4">Historic city with stunning temples, gardens, and traditional tea houses.</p>
+                        <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                    </div>
+                </div>
+                
+                <div class="card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200" data-card-type="vacation">
+                    <img src="http://static.photos/travel/640x360/6" alt="Vacation 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Santorini, Greece</h3>
+                        <p class="text-gray-600 mb-4">Breathtaking island with whitewashed buildings and stunning sunsets.</p>
+                        <button class="read-more-btn text-[#1F509A] hover:text-[#E38E49] font-medium">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer id="footer" class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">About Me</h3>
+                    <p class="text-gray-300">Passionate developer and designer creating innovative solutions for complex problems.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#highlights" class="text-gray-300 hover:text-white transition">Highlights</a></li>
+                        <li><a href="#portfolio" class="text-gray-300 hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#resources" class="text-gray-300 hover:text-white transition">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2 h-5 w-5"></i>
+                            <span>contact@example.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2 h-5 w-5"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2 h-5 w-5"></i>
+                            <span>San Francisco, CA</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-[#D4EBF8] hover:text-[#E38E49] transition">
+                            <i data-feather="github" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-[#D4EBF8] hover:text-[#E38E49] transition">
+                            <i data-feather="linkedin" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-[#D4EBF8] hover:text-[#E38E49] transition">
+                            <i data-feather="twitter" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-[#D4EBF8] hover:text-[#E38E49] transition">
+                            <i data-feather="instagram" class="h-6 w-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Card Popup -->
+    <div id="cardPopup" class="card-popup">
+        <div class="card-popup-content">
+            <button id="closePopup" class="float-right text-gray-500 hover:text-gray-700">
+                <i data-feather="x" class="h-6 w-6"></i>
+            </button>
+            <div id="popupContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize feather icons
+        feather.replace();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile dropdown menus
+        const portfolioDropdown = document.getElementById('portfolio-dropdown');
+        const portfolioSubmenu = document.getElementById('portfolio-submenu');
+        const resourcesDropdown = document.getElementById('resources-dropdown');
+        const resourcesSubmenu = document.getElementById('resources-submenu');
+        
+        portfolioDropdown.addEventListener('click', () => {
+            portfolioSubmenu.classList.toggle('hidden');
+            resourcesSubmenu.classList.add('hidden');
+            feather.replace();
+        });
+        
+        resourcesDropdown.addEventListener('click', () => {
+            resourcesSubmenu.classList.toggle('hidden');
+            portfolioSubmenu.classList.add('hidden');
+            feather.replace();
+        });
+
+        // Desktop dropdown menus
+        document.querySelectorAll('.group').forEach(group => {
+            const button = group.querySelector('button');
+            const menu = group.querySelector('div');
+            
+            group.addEventListener('mouseenter', () => {
+                menu.classList.remove('hidden');
+            });
+            
+            group.addEventListener('mouseleave', () => {
+                menu.classList.add('hidden');
+            });
+            
+            // For touch devices
+            button.addEventListener('click', (e) => {
+                if (window.innerWidth < 768) {
+                    e.preventDefault();
+                    menu.classList.toggle('hidden');
+                }
+            });
+        });
+
+        // Portfolio tab switching
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active-tab');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active-tab');
+                
+                // Hide all tab contents
+                tabContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show selected tab content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.remove('hidden');
+            });
+        });
+
+        // Resources tab switching
+        const resTabButtons = document.querySelectorAll('.res-tab-btn');
+        const resTabContents = document.querySelectorAll('.res-tab-content');
+        
+        resTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                resTabButtons.forEach(btn => {
+                    btn.classList.remove('active-tab');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active-tab');
+                
+                // Hide all tab contents
+                resTabContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show selected tab content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.remove('hidden');
+            });
+        });
+
+        // Carousel functionality
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            // First, start the fade out of current slide
+            carouselItems.forEach(item => {
+                if (item.classList.contains('active')) {
+                    item.style.opacity = '0';
+                }
+            });
+
+            // Wait for fade out to complete before switching slides
+            setTimeout(() => {
+                carouselItems.forEach(item => item.classList.remove('active'));
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+                
+                carouselItems[index].classList.add('active');
+                // Force a reflow before setting opacity
+                void carouselItems[index].offsetWidth;
+                carouselItems[index].style.opacity = '1';
+                
+                indicators[index].classList.add('active');
+                currentIndex = index;
+            }, 500); // This should match the transition duration in CSS
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            let newIndex = currentIndex - 1;
+            if (newIndex < 0) newIndex = carouselItems.length - 1;
+            showSlide(newIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            let newIndex = currentIndex + 1;
+            if (newIndex >= carouselItems.length) newIndex = 0;
+            showSlide(newIndex);
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // Initialize first slide
+        showSlide(0);
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Card popup functionality
+        const readMoreButtons = document.querySelectorAll('.read-more-btn');
+        const cardPopup = document.getElementById('cardPopup');
+        const closePopup = document.getElementById('closePopup');
+        const popupContent = document.getElementById('popupContent');
+
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const card = button.closest('.card');
+                const cardType = card.getAttribute('data-card-type');
+                
+                // Generate content based on card type
+                let content = '';
+                
+                if (cardType === 'project') {
+                    const title = card.querySelector('h3').textContent;
+                    const imgSrc = card.querySelector('img').src;
+                    const shortDesc = card.querySelector('p').textContent;
+                    
+                    content = `
+                        <h2 class="text-2xl font-bold mb-4">${title}</h2>
+                        <img src="${imgSrc}" alt="${title}" class="w-full h-64 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">${shortDesc}</p>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h3 class="font-bold mb-2">Project Details</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Built with React, Node.js, and MongoDB</li>
+                                <li>Implemented CI/CD pipeline</li>
+                                <li>Used Agile development methodology</li>
+                                <li>Team of 5 developers</li>
+                            </ul>
+                        </div>
+                    `;
+                } else if (cardType === 'education') {
+                    const title = card.querySelector('h3').textContent;
+                    const institution = card.querySelectorAll('p')[0].textContent;
+                    const period = card.querySelectorAll('p')[1].textContent;
+                    const imgSrc = card.querySelector('img').src;
+                    
+                    content = `
+                        <h2 class="text-2xl font-bold mb-4">${title}</h2>
+                        <img src="${imgSrc}" alt="${institution}" class="w-full h-64 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-2"><span class="font-semibold">Institution:</span> ${institution}</p>
+                        <p class="text-gray-700 mb-4"><span class="font-semibold">Period:</span> ${period}</p>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h3 class="font-bold mb-2">Key Achievements</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Graduated with Honors (GPA: 3.9/4.0)</li>
+                                <li>Published research paper on AI algorithms</li>
+                                <li>President of Computer Science Club</li>
+                                <li>Recipient of Academic Excellence Scholarship</li>
+                            </ul>
+                        </div>
+                    `;
+                } else if (cardType === 'experience') {
+                    const title = card.querySelector('h3').textContent;
+                    const company = card.querySelectorAll('p')[0].textContent;
+                    const period = card.querySelectorAll('p')[1].textContent;
+                    const imgSrc = card.querySelector('img').src;
+                    
+                    content = `
+                        <h2 class="text-2xl font-bold mb-4">${title}</h2>
+                        <img src="${imgSrc}" alt="${company}" class="w-full h-64 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-2"><span class="font-semibold">Company:</span> ${company}</p>
+                        <p class="text-gray-700 mb-4"><span class="font-semibold">Period:</span> ${period}</p>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h3 class="font-bold mb-2">Responsibilities</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Led team of 10 developers on major product</li>
+                                <li>Architected scalable microservices infrastructure</li>
+                                <li>Implemented automated testing framework</li>
+                                <li>Mentored junior developers</li>
+                            </ul>
+                        </div>
+                    `;
+                } else if (cardType === 'skill') {
+                    const title = card.querySelector('h3').textContent;
+                    const skills = card.querySelectorAll('div > div');
+                    
+                    content = `
+                        <h2 class="text-2xl font-bold mb-4">${title}</h2>
+                        <div class="space-y-4">
+                            ${Array.from(skills).map(skill => {
+                                const skillName = skill.querySelector('span:first-child').textContent;
+                                const skillLevel = skill.querySelector('span:last-child').textContent;
+                                const skillWidth = skillLevel.replace('%', '');
+                                return `
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="font-medium">${skillName}</span>
+                                            <span>${skillLevel}</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: ${skillWidth}%"></div>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                        <div class="mt-6 bg-gray-100 p-4 rounded-lg">
+                            <h3 class="font-bold mb-2">Certifications</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>AWS Certified Solutions Architect</li>
+                                <li>Google Professional Data Engineer</li>
+                                <li>Microsoft Certified: Azure Developer Associate</li>
+                            </ul>
+                        </div>
+                    `;
+                } else if (cardType === 'recipe') {
+                    const title = card.querySelector('h3').textContent;
+                    const shortDesc = card.querySelector('p').textContent;
+                    const imgSrc = card.querySelector('img').src;
+                    
+                    content = `
+                        <h2 class="text-2xl font-bold mb-4">${title}</h2>
+                        <img src="${imgSrc}" alt="${title}" class="w-full h-64 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">${shortDesc}</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h3 class="font-bold mb-2">Ingredients</h3>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>400g pasta</li>
+                                    <li>200g pancetta or guanciale</li>
+                                    <li>4 large eggs</li>
+                                    <li>100g Pecorino Romano cheese</li>
+                                    <li>Freshly ground black pepper</li>
+                                    <li>Salt to taste</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h3 class="font-bold mb-2">Instructions</h3>
+                                <ol class="list-decimal pl-5 space-y-1">
+                                    <li>Boil pasta in salted water until al dente</li>
+                                    <li>Cook pancetta until crispy</li>
+                                    <li>Whisk eggs and grated cheese together</li>
+                                    <li>Drain pasta, mix with pancetta and fat</li>
+                                    <li>Remove from heat, add egg mixture</li>
+                                    <li>Season with black pepper and serve</li>
+                                </ol>
+                            </div>
+                        </div>
+                    `;
+                } else if (cardType === 'vacation') {
+                    const title = card.querySelector('h3').textContent;
+                    const shortDesc = card.querySelector('p').textContent;
+                    const imgSrc = card.querySelector('img').src;
+                    
+                    content = `
+                        <h2 class="text-2xl font-bold mb-4">${title}</h2>
+                        <img src="${imgSrc}" alt="${title}" class="w-full h-64 object-cover rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">${shortDesc}</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h3 class="font-bold mb-2">Must-See Attractions</h3>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Tanah Lot Temple</li>
+                                    <li>Ubud Monkey Forest</li>
+                                    <li>Tegallalang Rice Terraces</li>
+                                    <li>Uluwatu Temple</li>
+                                    <li>Mount Batur Sunrise Trek</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h3 class="font-bold mb-2">Travel Tips</h3>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Best time to visit: April-October (dry season)</li>
+                                    <li>Learn basic Bahasa Indonesia phrases</li>
+                                    <li>Rent a scooter for easy transportation</li>
+                                    <li>Try local dishes like Nasi Goreng</li>
+                                    <li>Respect temple dress codes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                popupContent.innerHTML = content;
+                cardPopup.style.display = 'flex';
+                feather.replace();
+            });
+        });
+
+        closePopup.addEventListener('click', () => {
+            cardPopup.style.display = 'none';
+        });
+
+        // Close popup when clicking outside content
+        cardPopup.addEventListener('click', (e) => {
+            if (e.target === cardPopup) {
+                cardPopup.style.display = 'none';
+            }
+        });
+
+        // Mobile carousel functionality
+        function initializeMobileCarousels() {
+            const carousels = document.querySelectorAll('.mobile-carousel');
+            
+            carousels.forEach(carousel => {
+                const inner = carousel.querySelector('.mobile-carousel-inner');
+                const items = inner.querySelectorAll('.mobile-carousel-item');
+                const nav = carousel.querySelector('.mobile-nav');
+                
+                // Clear existing nav dots
+                nav.innerHTML = '';
+                
+                let currentIndex = 0;
+                let startX = 0;
+                let currentX = 0;
+                
+                // Create navigation dots
+                items.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('mobile-nav-dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    nav.appendChild(dot);
+                });
+
+                function goToSlide(index) {
+                    currentIndex = index;
+                    inner.style.transform = `translateX(-${index * 100}%)`;
+                    updateDots();
+                }
+
+                function updateDots() {
+                    const dots = nav.querySelectorAll('.mobile-nav-dot');
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === currentIndex);
+                    });
+                }
+
+                // Touch events
+                inner.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    currentX = startX;
+                    inner.style.transition = 'none';
+                }, { passive: true });
+
+                inner.addEventListener('touchmove', (e) => {
+                    currentX = e.touches[0].clientX;
+                    const diff = currentX - startX;
+                    const translate = -currentIndex * 100 + (diff / inner.offsetWidth) * 100;
+                    inner.style.transform = `translateX(${translate}%)`;
+                }, { passive: true });
+
+                inner.addEventListener('touchend', () => {
+                    inner.style.transition = 'transform 0.3s ease-in-out';
+                    const diff = currentX - startX;
+                    const threshold = inner.offsetWidth * 0.2;
+
+                    if (Math.abs(diff) > threshold) {
+                        if (diff > 0 && currentIndex > 0) {
+                            goToSlide(currentIndex - 1);
+                        } else if (diff < 0 && currentIndex < items.length - 1) {
+                            goToSlide(currentIndex + 1);
+                        } else {
+                            goToSlide(currentIndex);
+                        }
+                    } else {
+                        goToSlide(currentIndex);
+                    }
+                });
+            });
+        }
+
+        // Initialize carousels on page load and tab changes
+        document.addEventListener('DOMContentLoaded', initializeMobileCarousels);
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                // ...existing tab switching code...
+                setTimeout(initializeMobileCarousels, 100);
+            });
+        });
+
+        resTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                // ...existing tab switching code...
+                setTimeout(initializeMobileCarousels, 100);
+            });
+        });
+    </script>
+</body>
 </html>
