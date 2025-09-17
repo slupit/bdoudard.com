@@ -1,54 +1,781 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width" />
-		<meta charset="utf-8">
-		<title>bdoudard.com</title>
-		<link rel="icon" type="image/png" sizes="50x50" href="img/Logo_2_V1.png">
-		<link rel="stylesheet" href="style.css">
-		<link rel="stylesheet" href="mediaqueries.css">
-		<script src="script.js"></script>
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bdoudard.com</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#highlights" class="nav-link nav-logo-link" aria-label="Home">
+                    <span class="logo-swap">
+                        <img src="img/Logo_2_V1.png" alt="bdoudard.com" class="logo logo-v1" width="50" height="50">
+                        <img src="img/Logo_2_V2.png" alt="" class="logo logo-v2" width="50" height="50">
+                    </span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-	<body>
-		<div class="header">
-			<nav>
-				<div class="logo">
-				<a href='index.html'>
-					<img id="logo_1" src='img/Logo_2_V1.png' style="max-width: 40px;">
-					<img id="logo_2" src='img/Logo_2_V2.png' style="max-width: 40px;">
-				</a></div>
-				<ul>
-					<li><a href='index.html'><h3>Home</h3></a></li>
-					<li><a href='Portfolio.html'><h3>Portfolio</h3></a></li>
-					<li><a href='Ressources.html'><h3>Ressources</h3></a></li>
-				</ul>
-			</nav>
-			
-		</div>
+    <!-- Highlights Section -->
+    <section id="highlights" class="highlights">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slides">
+                        <div class="slide active">
+                            <div class="slide-content">
+                                <h3>Graduation from Texas A&M</h3>
+                                <p>Master's of Science in Industrial Engineering</p>
+                                <div style="position: relative; display: inline-block; width: 320px; max-width: 100%;">
+                                    <img src="https://www.tamu.edu/_files/images/academics/tamu-aerial-view-academic-buildling.jpg" alt="TAMU campus" style="width: 100%; display: block; border-radius: 10px;">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Texas_A%26M_Aggies_Primary_Logo_%282021-Present%29.png" alt="TAMU Logo" style="position: absolute; top: 50%; left: 50%; width: 100px; max-width: 60%; height: auto; transform: translate(-50%, -50%); border-radius: 0; background: none; box-shadow: none; padding: 0;">
+                                </div>
+                                <p class="slide-date">May 2025</p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="slide-content">
+                                <h3>French Music Playlist</h3>
+                                <p>Made in collaboration with my students</p>
+                                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5ZXEL0qCHpOVEe0C6ifMM6?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="slide-content">
+                                <h3>Ravivage de la flame du soldat inconnu</h3>
+                                <p></p>
+                                <div style="width: 100%; overflow: hidden; display: flex; justify-content: center;">
+                                    <img 
+                                        src="img/Flamme.jpg" 
+                                        alt="Flamme"
+                                        style="width: 100%; max-width: 400px; object-fit: cover; object-position: center 35%; height: 250px; border-radius: 10px;"
+                                    >
+                                </div>
+                                <p class="slide-date">Nov 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn prev" onclick="changeSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next" onclick="changeSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="pagination-dots" id="highlights-dots"></div>
+            </div>
+        </div>
+    </section>
 
-		<div class="contenu">
-			
-<!--
-			<div id="slider">
-				<img src="img/wave_bg-min.png" style="max-width: 1280px;" id="slide">
-				<div id="precedent" onclick="ChangeSlide(-1)">&lt;</div>
-				<div id="suivant" onclick="ChangeSlide(1)">&gt;</div>
-			</div>
--->
-			<div class="para-type_1">
-				<h1>Playlist de la semaine</h1>
-				<div class="double_line"></div>
-				<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5ZXEL0qCHpOVEe0C6ifMM6?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-			</div>
-		</div>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <div class="tabs-hamburger">
+                        <span class="tabs-hamburger-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                        <span class="tabs-hamburger-text">Portfolio</span>
+                    </div>
+                    <div class="tabs-menu">
+                        <button class="tab-btn active" data-tab="projects">Projects</button>
+                        <button class="tab-btn" data-tab="education">Education</button>
+                        <button class="tab-btn" data-tab="experience">Work Experience</button>
+                        <button class="tab-btn" data-tab="skills">Skillset</button>
+                    </div>
+                </div>
+                
+                <div class="tab-content active" id="projects">
+                    <div class="card-slider">
+                        <div class="card-container" id="projects-container">
+                            <div class="card" onclick="openModal('project1')">
+                                <img src="img/Fishing.jpg" alt="E-Commerce App">
+                                <div class="card-content">
+                                    <h3>E-Commerce Platform</h3>
+                                    <p class="card-meta">2023–2024</p>
+                                    <p>Full-stack web application with React and Node.js</p>
+                                </div>
+                            </div>
+                            <div class="card" onclick="openModal('project2')">
+                                <img src="img/Fishing.jpg" alt="Mobile App">
+                                <div class="card-content">
+                                    <h3>Mobile Banking App</h3>
+                                    <p class="card-meta">2022–2023</p>
+                                    <p>Cross-platform mobile application with Flutter</p>
+                                </div>
+                            </div>
+                            <div class="card" onclick="openModal('project3')">
+                                <img src="img/Fishing.jpg" alt="AI Project">
+                                <div class="card-content">
+                                    <h3>AI Chatbot</h3>
+                                    <p class="card-meta">2021–2022</p>
+                                    <p>Intelligent chatbot using machine learning algorithms</p>
+                                </div>
+                            </div>
+                            <div class="card" onclick="openModal('project4')">
+                                <img src="img/Fishing.jpg" alt="Web App">
+                                <div class="card-content">
+                                    <h3>Task Management App</h3>
+                                    <p class="card-meta">2020–2021</p>
+                                    <p>Collaborative project management tool with real-time updates</p>
+                                </div>
+                            </div>
+                            <div class="card" onclick="openModal('project5')">
+                                <img src="img/Fishing.jpg" alt="API Service">
+                                <div class="card-content">
+                                    <h3>REST API Service</h3>
+                                    <p class="card-meta">2020</p>
+                                    <p>Scalable microservice architecture with authentication</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-slider-nav">
+                            <button class="card-nav-btn prev" onclick="moveCardSlider('projects', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="card-nav-btn next" onclick="moveCardSlider('projects', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="pagination-dots" id="projects-dots"></div>
+                    </div>
+                </div>
 
-		<div class="footer">
-				<h3>Work In Progress</h3>
-				<p>Designed by Bastien DOUDARD</p>
-				<br><p><a href="https://github.com/slupit/bdoudard.com">github</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="doc/CV_BDOUDARD_2025.pdf">Curriculum Vitae</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="https://www.linkedin.com/in/bastien-doudard/">LinkedIn</a></p><br>
-		</div>
-    	 
-	</body>
+                <div class="tab-content" id="education">
+                    <div class="card-slider">
+                        <div class="card-container" id="education-container">
+                            <div class="card" onclick="openModal('edu1')">
+                                <img src="https://thebatt.com/wp-content/uploads/2024/10/CJS13047-1200x800.jpg" alt="TAMU">
+                                <div class="card-content">
+                                    <h3>Texas A&M University</h3>
+                                    <p class="card-meta">Jan 2024 – May 2025</p>
+                                    <p>Master's of Science in Industrial Engineering</p>
+                                </div>
+                            </div>
+                            <div class="card" onclick="openModal('edu2')">
+                                <img src="https://phototheque.artsetmetiers.fr/_data/i/upload/2023/04/07/20230407103259-20b39924-me.jpg" alt="ENSAM">
+                                <div class="card-content">
+                                    <h3>Arts et Métiers ParisTech</h3>
+                                    <p class="card-meta">Sep 2021 – Jun 2023</p>
+                                    <p>Engineering School</p>
+                                </div>
+                            </div>
 
+                        </div>
+                        <div class="card-slider-nav">
+                            <button class="card-nav-btn prev" onclick="moveCardSlider('education', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="card-nav-btn next" onclick="moveCardSlider('education', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="pagination-dots" id="education-dots"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="experience">
+                    <div class="card-slider">
+                        <div class="card-container" id="experience-container">
+                            <div class="card" onclick="openModal('exp1')">
+                                <img src="https://stories.tamu.edu/wp-content/uploads/2019/09/151020_Pano_0397.jpg" alt="TAMU ACAD">
+                                <div class="card-content">
+                                    <h3>French Teaching Assistant</h3>
+                                    <p class="card-meta">Aug 2024 – May 2025</p>
+                                    <p>Texas A&M University</p>
+                                </div>
+                            </div>
+                            <div class="card" onclick="openModal('exp2')">
+                                <img src="https://www.unexo.fr/wp-content/uploads/2023/07/cordongroup-visuel02-online.jpg" alt="Full Stack">
+                                <div class="card-content">
+                                    <h3>Machine Operator Intern</h3>
+                                    <p class="card-meta">Jun 2024 – Aug 2024</p>
+                                    <p>Cordon Electronics</p>
+                                </div>
+                            </div>
+                            <div class="card" onclick="openModal('exp3')">
+                                <img src="img/Cecco.jpg" alt="Frontend Lead">
+                                <div class="card-content">
+                                    <h3>Server</h3>
+                                    <p class="card-meta">Jul 2020 – Aug 2020</p>
+                                    <p>Cecco Restaurant</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-slider-nav">
+                            <button class="card-nav-btn prev" onclick="moveCardSlider('experience', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="card-nav-btn next" onclick="moveCardSlider('experience', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="pagination-dots" id="experience-dots"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="skills">
+                    <div class="card-slider">
+                        <div class="card-container" id="skills-container">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Web Programming</h3>
+                                    <p class="card-meta">Frontend & Backend</p>
+                                    <p>JavaScript, TypeScript, React, Node.js, HTML5, CSS3, Tailwind CSS</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Software & Tools</h3>
+                                    <p class="card-meta">Development & Design</p>
+                                    <p>Python, SQL, MongoDB, AWS, Docker, Git, VS Code, Figma</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Languages Spoken</h3>
+                                    <p class="card-meta">Communication</p>
+                                    <p>French (Native), English (Fluent), Spanish (Intermediate)</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3>Engineering Skills</h3>
+                                    <p class="card-meta">Technical Expertise</p>
+                                    <p>Industrial Engineering, Data Analysis, Process Optimization, Project Management</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-slider-nav">
+                            <button class="card-nav-btn prev" onclick="moveCardSlider('skills', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="card-nav-btn next" onclick="moveCardSlider('skills', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="pagination-dots" id="skills-dots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2 class="section-title">Resources</h2>
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <div class="tabs-hamburger">
+                        <span class="tabs-hamburger-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                        <span class="tabs-hamburger-text">Resources</span>
+                    </div>
+                    <div class="tabs-menu">
+                        <button class="tab-btn active" data-tab="recipes">Recipes</button>
+                        <button class="tab-btn" data-tab="vacation">Vacation</button>
+                    </div>
+                </div>
+                
+                <div class="tab-content active" id="recipes">
+                    <!-- Recipe Category Tabs -->
+                    <div class="recipe-category-tabs">
+                        <div class="category-tabs-hamburger">
+                            <span class="category-tabs-hamburger-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                            <span class="category-tabs-hamburger-text">Categories</span>
+                        </div>
+                        <div class="category-tabs-menu">
+                            <button class="category-tab-btn active" data-category="all">All</button>
+                            <button class="category-tab-btn" data-category="Patisserie">Patisserie</button>
+                            <button class="category-tab-btn" data-category="Dessert">Dessert</button>
+                            <button class="category-tab-btn" data-category="Plat de résistance">Plat de résistance</button>
+                            <button class="category-tab-btn" data-category="Accompagnement">Accompagnement</button>
+                            <button class="category-tab-btn" data-category="Vienoiserie">Vienoiserie</button>
+                            <button class="category-tab-btn" data-category="Appetizer">Appetizer</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-slider">
+                        <div class="card-container" id="recipes-container">
+                            <div class="card recipe-card" data-category="Patisserie" onclick="openModal('recipe1')">
+                                <img src="img/Fishing.jpg" alt="Far Breton">
+                                <div class="card-content">
+                                    <h3>Far Breton</h3>
+                                    <p class="card-category">Patisserie</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Patisserie" onclick="openModal('recipe2')">
+                                <img src="img/Fishing.jpg" alt="Flan Patissier">
+                                <div class="card-content">
+                                    <h3>Flan Patissier</h3>
+                                    <p class="card-category">Patisserie</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Plat de résistance" onclick="openModal('recipe3')">
+                                <img src="img/Fishing.jpg" alt="Cassoulet">
+                                <div class="card-content">
+                                    <h3>Cassoulet (Bastien version)</h3>
+                                    <p class="card-category">Plat de résistance</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Accompagnement" onclick="openModal('recipe4')">
+                                <img src="img/Fishing.jpg" alt="Pain">
+                                <div class="card-content">
+                                    <h3>Pain</h3>
+                                    <p class="card-category">Accompagnement</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe5')">
+                                <img src="img/Fishing.jpg" alt="Crumble">
+                                <div class="card-content">
+                                    <h3>Crumble</h3>
+                                    <p class="card-category">Dessert</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe6')">
+                                <img src="img/Fishing.jpg" alt="Tarte aux pommes">
+                                <div class="card-content">
+                                    <h3>Tarte aux pommes</h3>
+                                    <p class="card-category">Dessert</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Plat de résistance" onclick="openModal('recipe7')">
+                                <img src="img/Fishing.jpg" alt="Lasagne">
+                                <div class="card-content">
+                                    <h3>Lasagne (Bastien version)</h3>
+                                    <p class="card-category">Plat de résistance</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe8')">
+                                <img src="img/Fishing.jpg" alt="Mousse au chocolat">
+                                <div class="card-content">
+                                    <h3>Mousse au chocolat</h3>
+                                    <p class="card-category">Dessert</p>
+                                </div>
+                            </div>
+                            <!-- Blank recipe cards 9-51 (to be completed manually) -->
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe9')">
+                                <img src="img/Fishing.jpg" alt="Recipe 9">
+                                <div class="card-content">
+                                    <h3>Recipe 9</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe10')">
+                                <img src="img/Fishing.jpg" alt="Recipe 10">
+                                <div class="card-content">
+                                    <h3>Recipe 10</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe11')">
+                                <img src="img/Fishing.jpg" alt="Recipe 11">
+                                <div class="card-content">
+                                    <h3>Recipe 11</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe12')">
+                                <img src="img/Fishing.jpg" alt="Recipe 12">
+                                <div class="card-content">
+                                    <h3>Recipe 12</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe13')">
+                                <img src="img/Fishing.jpg" alt="Recipe 13">
+                                <div class="card-content">
+                                    <h3>Recipe 13</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe14')">
+                                <img src="img/Fishing.jpg" alt="Recipe 14">
+                                <div class="card-content">
+                                    <h3>Recipe 14</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe15')">
+                                <img src="img/Fishing.jpg" alt="Recipe 15">
+                                <div class="card-content">
+                                    <h3>Recipe 15</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe16')">
+                                <img src="img/Fishing.jpg" alt="Recipe 16">
+                                <div class="card-content">
+                                    <h3>Recipe 16</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe17')">
+                                <img src="img/Fishing.jpg" alt="Recipe 17">
+                                <div class="card-content">
+                                    <h3>Recipe 17</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe18')">
+                                <img src="img/Fishing.jpg" alt="Recipe 18">
+                                <div class="card-content">
+                                    <h3>Recipe 18</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe19')">
+                                <img src="img/Fishing.jpg" alt="Recipe 19">
+                                <div class="card-content">
+                                    <h3>Recipe 19</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe20')">
+                                <img src="img/Fishing.jpg" alt="Recipe 20">
+                                <div class="card-content">
+                                    <h3>Recipe 20</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe21')">
+                                <img src="img/Fishing.jpg" alt="Recipe 21">
+                                <div class="card-content">
+                                    <h3>Recipe 21</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe22')">
+                                <img src="img/Fishing.jpg" alt="Recipe 22">
+                                <div class="card-content">
+                                    <h3>Recipe 22</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe23')">
+                                <img src="img/Fishing.jpg" alt="Recipe 23">
+                                <div class="card-content">
+                                    <h3>Recipe 23</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe24')">
+                                <img src="img/Fishing.jpg" alt="Recipe 24">
+                                <div class="card-content">
+                                    <h3>Recipe 24</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe25')">
+                                <img src="img/Fishing.jpg" alt="Recipe 25">
+                                <div class="card-content">
+                                    <h3>Recipe 25</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe26')">
+                                <img src="img/Fishing.jpg" alt="Recipe 26">
+                                <div class="card-content">
+                                    <h3>Recipe 26</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe27')">
+                                <img src="img/Fishing.jpg" alt="Recipe 27">
+                                <div class="card-content">
+                                    <h3>Recipe 27</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe28')">
+                                <img src="img/Fishing.jpg" alt="Recipe 28">
+                                <div class="card-content">
+                                    <h3>Recipe 28</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe29')">
+                                <img src="img/Fishing.jpg" alt="Recipe 29">
+                                <div class="card-content">
+                                    <h3>Recipe 29</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe30')">
+                                <img src="img/Fishing.jpg" alt="Recipe 30">
+                                <div class="card-content">
+                                    <h3>Recipe 30</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe31')">
+                                <img src="img/Fishing.jpg" alt="Recipe 31">
+                                <div class="card-content">
+                                    <h3>Recipe 31</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe32')">
+                                <img src="img/Fishing.jpg" alt="Recipe 32">
+                                <div class="card-content">
+                                    <h3>Recipe 32</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe33')">
+                                <img src="img/Fishing.jpg" alt="Recipe 33">
+                                <div class="card-content">
+                                    <h3>Recipe 33</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe34')">
+                                <img src="img/Fishing.jpg" alt="Recipe 34">
+                                <div class="card-content">
+                                    <h3>Recipe 34</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe35')">
+                                <img src="img/Fishing.jpg" alt="Recipe 35">
+                                <div class="card-content">
+                                    <h3>Recipe 35</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe36')">
+                                <img src="img/Fishing.jpg" alt="Recipe 36">
+                                <div class="card-content">
+                                    <h3>Recipe 36</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe37')">
+                                <img src="img/Fishing.jpg" alt="Recipe 37">
+                                <div class="card-content">
+                                    <h3>Recipe 37</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe38')">
+                                <img src="img/Fishing.jpg" alt="Recipe 38">
+                                <div class="card-content">
+                                    <h3>Recipe 38</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe39')">
+                                <img src="img/Fishing.jpg" alt="Recipe 39">
+                                <div class="card-content">
+                                    <h3>Recipe 39</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe40')">
+                                <img src="img/Fishing.jpg" alt="Recipe 40">
+                                <div class="card-content">
+                                    <h3>Recipe 40</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe41')">
+                                <img src="img/Fishing.jpg" alt="Recipe 41">
+                                <div class="card-content">
+                                    <h3>Recipe 41</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe42')">
+                                <img src="img/Fishing.jpg" alt="Recipe 42">
+                                <div class="card-content">
+                                    <h3>Recipe 42</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe43')">
+                                <img src="img/Fishing.jpg" alt="Recipe 43">
+                                <div class="card-content">
+                                    <h3>Recipe 43</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe44')">
+                                <img src="img/Fishing.jpg" alt="Recipe 44">
+                                <div class="card-content">
+                                    <h3>Recipe 44</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe45')">
+                                <img src="img/Fishing.jpg" alt="Recipe 45">
+                                <div class="card-content">
+                                    <h3>Recipe 45</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe46')">
+                                <img src="img/Fishing.jpg" alt="Recipe 46">
+                                <div class="card-content">
+                                    <h3>Recipe 46</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe47')">
+                                <img src="img/Fishing.jpg" alt="Recipe 47">
+                                <div class="card-content">
+                                    <h3>Recipe 47</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe48')">
+                                <img src="img/Fishing.jpg" alt="Recipe 48">
+                                <div class="card-content">
+                                    <h3>Recipe 48</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe49')">
+                                <img src="img/Fishing.jpg" alt="Recipe 49">
+                                <div class="card-content">
+                                    <h3>Recipe 49</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe50')">
+                                <img src="img/Fishing.jpg" alt="Recipe 50">
+                                <div class="card-content">
+                                    <h3>Recipe 50</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe51')">
+                                <img src="img/Fishing.jpg" alt="Recipe 51">
+                                <div class="card-content">
+                                    <h3>Recipe 51</h3>
+                                    <p class="card-category">Category</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-slider-nav">
+                            <button class="card-nav-btn prev" onclick="moveCardSlider('recipes', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="card-nav-btn next" onclick="moveCardSlider('recipes', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="pagination-dots" id="recipes-dots"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="vacation">
+                    <div class="card-slider">
+                        <div class="card-container" id="vacation-container">
+                            <div class="card" onclick="openModal('vacation1')">
+                                <img src="img/Fishing.jpg" alt="Japan Trip">
+                                <div class="card-content">
+                                    <h3>Japan Adventure</h3>
+                                    <p>Two weeks exploring Tokyo, Kyoto, and Osaka</p>
+                                </div>
+                            </div>
+                            <div class="card" onclick="openModal('vacation2')">
+                                <img src="img/Fishing.jpg" alt="Europe Tour">
+                                <div class="card-content">
+                                    <h3>European Tour</h3>
+                                    <p>Backpacking through 8 countries in 3 months</p>
+                                </div>
+                            </div>
+                            <div class="card" onclick="openModal('vacation3')">
+                                <img src="img/Fishing.jpg" alt="Thailand">
+                                <div class="card-content">
+                                    <h3>Thailand Islands</h3>
+                                    <p>Beach hopping and cultural exploration in Southeast Asia</p>
+                                </div>
+                            </div>
+                            <div class="card" onclick="openModal('vacation4')">
+                                <img src="img/Fishing.jpg" alt="New Zealand">
+                                <div class="card-content">
+                                    <h3>New Zealand Road Trip</h3>
+                                    <p>Adventure through the stunning landscapes of Middle Earth</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-slider-nav">
+                            <button class="card-nav-btn prev" onclick="moveCardSlider('vacation', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="card-nav-btn next" onclick="moveCardSlider('vacation', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="pagination-dots" id="vacation-dots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:bastien.doudard@gmail.com" class="contact-link">bastien.doudard@gmail.com</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+33675849056" class="contact-link">+33 6 75 84 90 56</a></p>
+                </div>
+                <div class="social-links">
+                    <h3>Follow Me</h3>
+                    <div class="social-icons">
+                        <a href="https://github.com/slupit" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/bastien-doudard/" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/bastien_doudard/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <h2 style="font-size: 1.3rem;">Work In Progress</h2>
+                <p>&copy; 2025 Bastien Doudard - bdoudard.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
