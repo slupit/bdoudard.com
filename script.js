@@ -521,23 +521,12 @@ const modalData = {
         ]
     },
     'memory5': {
-        title: 'Peaceful Times',
-        date: '2024',
-        description: 'Learning the art of relaxation and finding contentment in the present moment.',
-        pictures: [
-            {
-                image: 'img/relaxing-cat.jpg',
-                caption: 'The master of relaxation - cats teach us that sometimes the most productive thing is to do nothing at all'
-            },
-            {
-                image: 'img/relaxing-cat.jpg',
-                caption: 'Perfect contentment - finding peace in simple pleasures and comfortable moments'
-            },
-            {
-                image: 'img/relaxing-cat.jpg',
-                caption: 'Living in the present - a reminder that happiness is found in the here and now'
-            }
-        ]
+        title: 'My First Skydive',
+        date: '2017',
+        description: 'An unforgettable experience jumping from 14,000 feet - conquering fears and embracing the ultimate adrenaline rush.',
+        videoUrl: 'https://drive.google.com/file/d/10oveevDef1szUHQbZEf0c0zT8HqBFqDq/preview',
+        thumbnail: 'img/memories/skydive_thumbnail.jpg',
+        isVideo: true
     },
     // Recipe modals - grouped together
     'recipe1': {
@@ -1058,7 +1047,7 @@ const modalData = {
             'Shape and let rise 4h outside',
             'Bake: Small 15min (365°F), Big 25-30min (365°F)'
         ],
-        modifications: 'Add dry fruits or sugar pearl. Brush with sturb egg or butter for a nice golden top',
+        modifications: 'Add dry fruits, Chocolate chips or sugar pearl. Brush with sturb egg or butter for a nice golden top',
         videoTutorial: null
     },
     'recipe23': {
@@ -1108,32 +1097,7 @@ const modalData = {
             'Pour béchamel over and top with cheese',
             'Bake for 20-25 minutes until golden'
         ],
-        modifications: null,
-        videoTutorial: null
-    },
-    'recipe25': {
-        title: 'Macedoine au jambon',
-        category: 'Plat de résistance',
-        image: '',
-        description: 'Mixed vegetable salad with ham and mayonnaise dressing.',
-        servings: '4 servings',
-        ingredients: [
-            'Mixed vegetables (carrots, peas, beans, potatoes)',
-            '200g Ham, diced',
-            'Mayonnaise',
-            'Salt and pepper',
-            'Fresh herbs'
-        ],
-        cookingSteps: [
-            'Cook vegetables until tender',
-            'Let vegetables cool completely',
-            'Dice ham into small pieces',
-            'Mix vegetables with ham',
-            'Add mayonnaise and season',
-            'Garnish with fresh herbs',
-            'Chill before serving'
-        ],
-        modifications: null,
+        modifications: 'Replace Endives by Macedoine (carrots, peas, beans, potatoes and onions)',
         videoTutorial: null
     },
     'recipe26': {
@@ -1980,8 +1944,68 @@ function openModal(modalId) {
 
 function closeModal() {
     const modal = document.getElementById('modal');
+    
+    // Stop video playback if it's a video modal
+    if (modal.classList.contains('video-modal')) {
+        const iframe = modal.querySelector('iframe');
+        if (iframe) {
+            // Replace the src with a blank page to stop video playback
+            iframe.src = 'about:blank';
+        }
+    }
+    
     modal.style.display = 'none';
+    modal.classList.remove('video-modal'); // Remove video modal class
     document.body.style.overflow = 'auto'; // Restore scrolling
+}
+
+// Video modal functionality for popup reader
+function openVideoModal(modalId) {
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    const data = modalData[modalId];
+
+    if (data && data.isVideo) {
+        let modalContent = `
+            <h2>${data.title}</h2>
+        `;
+        
+        // Add date if it exists
+        if (data.date) {
+            modalContent += `<p class="modal-date-period">${data.date}</p>`;
+        }
+        
+        // Add description if it exists
+        if (data.description) {
+            modalContent += `<p class="modal-description">${data.description}</p>`;
+        }
+        
+        // Add video embed
+        if (data.videoUrl) {
+            modalContent += `
+                <div class="video-container">
+                    <iframe 
+                        src="${data.videoUrl}" 
+                        width="100%" 
+                        height="400" 
+                        frameborder="0" 
+                        allowfullscreen
+                        allow="autoplay; fullscreen">
+                    </iframe>
+                </div>
+            `;
+        }
+        
+        modalBody.innerHTML = modalContent;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        
+        // Add special styling for video modal
+        modal.classList.add('video-modal');
+        
+        // Store the video URL for potential cleanup
+        modal.setAttribute('data-video-url', data.videoUrl);
+    }
 }
 
 // Close modal when clicking outside of it
