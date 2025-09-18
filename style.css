@@ -1254,6 +1254,18 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Remove border for ingredients list */
+.ingredients-list {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+/* Remove dots from cooking steps */
+.cooking-steps li::before {
+    display: none;
+}
+
 /* Project Activity Styles */
 .project-activity {
     display: flex;

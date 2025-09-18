@@ -440,65 +440,110 @@ const modalData = {
             'Achievement: Reduced API response time by 40%'
         ]
     },
-    'vacation1': {
-        title: 'Japan Adventure',
-        image: 'img/Fishing.jpg',
-        description: 'An unforgettable two-week journey through Japan, exploring the perfect blend of traditional culture and modern innovation.',
-        details: [
-            'Duration: 14 days (March 2023)',
-            'Cities visited: Tokyo, Kyoto, Osaka, Nara, Hakone',
-            'Highlights: Cherry blossom viewing, traditional tea ceremonies, bullet train rides',
-            'Accommodations: Ryokans, capsule hotels, and modern hotels',
-            'Food experiences: Sushi making class, ramen tours, street food adventures',
-            'Cultural activities: Temple visits, sumo wrestling, karaoke nights',
-            'Budget: $3,500 including flights, accommodation, and activities'
+    'memory1': {
+        title: 'Fishing Adventures',
+        date: 'Summer 2023',
+        description: 'A collection of peaceful moments by the water, capturing the essence of patience and the simple joy of being outdoors.',
+        pictures: [
+            {
+                image: 'img/Fishing.jpg',
+                caption: 'Early morning fishing session - the water was perfectly still, reflecting the golden sunrise'
+            },
+            {
+                image: 'img/Fishing.jpg',
+                caption: 'A successful catch after hours of patient waiting - sometimes the best memories come from the journey, not the destination'
+            },
+            {
+                image: 'img/Fishing.jpg',
+                caption: 'The fishing gear laid out perfectly - there\'s something meditative about preparing for a day on the water'
+            }
         ]
     },
-    'vacation2': {
-        title: 'European Tour',
-        image: 'img/Fishing.jpg',
-        description: 'A three-month backpacking adventure across Europe, experiencing diverse cultures, cuisines, and landscapes.',
-        details: [
-            'Duration: 3 months (Summer 2022)',
-            'Countries: France, Italy, Spain, Germany, Netherlands, Czech Republic, Austria, Switzerland',
-            'Transportation: Eurail pass, budget airlines, local buses',
-            'Accommodation: Hostels, Airbnb, couchsurfing',
-            'Budget: $4,000 total (very budget-friendly approach)',
-            'Highlights: Eiffel Tower, Colosseum, Sagrada Familia, Oktoberfest',
-            'Skills gained: Language basics, budget travel, cultural awareness'
+    'memory2': {
+        title: 'Judo Journey',
+        date: '2022 - 2024',
+        description: 'Two years of martial arts discipline, building not just physical strength but mental resilience and character.',
+        pictures: [
+            {
+                image: 'img/Judo.jpg',
+                caption: 'First day of training - nervous but excited to begin this journey of self-improvement'
+            },
+            {
+                image: 'img/Judo.jpg',
+                caption: 'Practicing throws with my training partner - learning that mutual respect is the foundation of martial arts'
+            },
+            {
+                image: 'img/Judo.jpg',
+                caption: 'Belt promotion ceremony - a moment of pride and recognition for the dedication and hard work put in'
+            },
+            {
+                image: 'img/Judo.jpg',
+                caption: 'Teaching younger students - realizing that the best way to learn is to teach others'
+            }
         ]
     },
-    'vacation3': {
-        title: 'Thailand Islands',
-        image: 'img/Fishing.jpg',
-        description: 'Beach hopping and cultural exploration in Southeast Asia, experiencing the beautiful islands and rich culture of Thailand.',
-        details: [
-            'Duration: 10 days (December 2023)',
-            'Islands visited: Phuket, Koh Phi Phi, Koh Samui, Koh Tao',
-            'Activities: Snorkeling, island hopping, temple visits, street food tours',
-            'Accommodation: Beach resorts and bungalows',
-            'Budget: $1,200 including flights and activities',
-            'Highlights: Full moon party, elephant sanctuary, Thai cooking class'
+    'memory3': {
+        title: 'Nature\'s Beauty',
+        date: 'Spring 2024',
+        description: 'Exploring the world through a camera lens, discovering that beauty exists in the smallest details of nature.',
+        pictures: [
+            {
+                image: 'img/Fignos.jpg',
+                caption: 'Macro photography of delicate flowers - each petal tells a story of growth and resilience'
+            },
+            {
+                image: 'img/Fignos.jpg',
+                caption: 'Morning dew on leaves - nature\'s own jewelry, sparkling in the early light'
+            },
+            {
+                image: 'img/Fignos.jpg',
+                caption: 'Textures and patterns in bark - the tree\'s history written in its skin'
+            }
         ]
     },
-    'vacation4': {
-        title: 'New Zealand Road Trip',
-        image: 'img/Fishing.jpg',
-        description: 'Adventure through the stunning landscapes of Middle Earth, exploring both North and South Islands of New Zealand.',
-        details: [
-            'Duration: 21 days (February 2024)',
-            'Route: Auckland to Queenstown via both islands',
-            'Activities: Hiking, bungee jumping, glacier tours, wine tasting',
-            'Transportation: Rental car and domestic flights',
-            'Budget: $4,500 including flights and accommodation',
-            'Highlights: Milford Sound, Hobbiton, Franz Josef Glacier'
+    'memory4': {
+        title: 'Precious Moments',
+        date: '2023',
+        description: 'Capturing the joy and wonder found in life\'s simple pleasures and everyday interactions.',
+        pictures: [
+            {
+                image: 'img/bb_titi.JPG',
+                caption: 'A moment of pure joy captured - sometimes the best memories are the spontaneous ones'
+            },
+            {
+                image: 'img/bb_titi.JPG',
+                caption: 'Laughing together - the sound of genuine happiness is one of life\'s greatest treasures'
+            },
+            {
+                image: 'img/bb_titi.JPG',
+                caption: 'A candid moment of wonder - children remind us to see the world with fresh eyes'
+            }
+        ]
+    },
+    'memory5': {
+        title: 'Peaceful Times',
+        date: '2024',
+        description: 'Learning the art of relaxation and finding contentment in the present moment.',
+        pictures: [
+            {
+                image: 'img/relaxing-cat.jpg',
+                caption: 'The master of relaxation - cats teach us that sometimes the most productive thing is to do nothing at all'
+            },
+            {
+                image: 'img/relaxing-cat.jpg',
+                caption: 'Perfect contentment - finding peace in simple pleasures and comfortable moments'
+            },
+            {
+                image: 'img/relaxing-cat.jpg',
+                caption: 'Living in the present - a reminder that happiness is found in the here and now'
+            }
         ]
     },
     // Recipe modals - grouped together
     'recipe1': {
         title: 'Far Breton',
         category: 'Patisserie',
-        image: 'img/Fishing.jpg',
+        image: 'https://i.pinimg.com/736x/88/53/49/88534967321a2a641eeac2c11faeb6cd.jpg',
         description: 'Traditional French dessert from Brittany, a custard-like cake with prunes.',
         servings: '6 servings',
         ingredients: [
@@ -523,7 +568,7 @@ const modalData = {
     'recipe2': {
         title: 'Flan Patissier',
         category: 'Patisserie',
-        image: 'img/Fishing.jpg',
+        image: 'https://i.pinimg.com/736x/35/35/c7/3535c7ac92c74c1ff0ef2a07212df00f.jpg',
         description: 'Classic French custard tart with a buttery pastry crust.',
         servings: '8 servings',
         ingredients: [
@@ -544,7 +589,7 @@ const modalData = {
     'recipe3': {
         title: 'Cassoulet (Bastien version)',
         category: 'Plat',
-        image: 'img/Fishing.jpg',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
         description: 'Traditional French cassoulet with beans, pork, and sausage - Bastien\'s personal version.',
         servings: '4 servings',
         ingredients: [
@@ -569,7 +614,7 @@ const modalData = {
     'recipe4': {
         title: 'Pain',
         category: 'Accompagnement',
-        image: 'img/Fishing.jpg',
+        image: 'https://i.pinimg.com/1200x/cb/a8/4f/cba84fd2f187b4d1e54afc3beea630f8.jpg',
         description: 'Traditional French bread recipe.',
         servings: '4 servings',
         ingredients: [
@@ -593,7 +638,7 @@ const modalData = {
     'recipe5': {
         title: 'Crumble',
         category: 'Dessert',
-        image: 'img/Fishing.jpg',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
         description: 'Classic fruit crumble with buttery topping.',
         servings: '4 servings',
         ingredients: [
@@ -617,7 +662,7 @@ const modalData = {
     'recipe6': {
         title: 'Tarte aux pommes',
         category: 'Dessert',
-        image: 'img/Fishing.jpg',
+        image: 'https://i.pinimg.com/736x/f5/cc/35/f5cc357d9a09aca7296b149448cb0c57.jpg',
         description: 'Classic French apple tart with sweet pastry and apple compote.',
         servings: '8 servings',
         ingredients: [
@@ -638,7 +683,7 @@ const modalData = {
     'recipe7': {
         title: 'Lasagne (Bastien version)',
         category: 'Plat',
-        image: 'img/Fishing.jpg',
+        image: 'https://i.pinimg.com/736x/b7/32/84/b732847d2b6dba5ec3f7a43199704574.jpg',
         description: 'Homemade lasagne with fresh pasta, bolognese sauce, and béchamel.',
         servings: '6 servings',
         ingredients: [
@@ -660,7 +705,7 @@ const modalData = {
     'recipe8': {
         title: 'Mousse au chocolat',
         category: 'Dessert',
-        image: 'img/Fishing.jpg',
+        image: 'https://i.pinimg.com/1200x/19/ec/c9/19ecc94381dfb9ba26028f93ea1cf407.jpg',
         description: 'Light and airy chocolate mousse.',
         servings: '6 servings',
         ingredients: [
@@ -724,7 +769,7 @@ const modalData = {
     'recipe11': {
         title: 'Eclair au chocolat',
         category: 'Patisserie',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/736x/c7/48/ca/c748ca56eb91298662a7fea7aeb679f7.jpg',
         description: 'Classic French chocolate éclair with choux pastry, chocolate pastry cream, and chocolate glaze.',
         servings: '12 servings',
         ingredients: [
@@ -746,7 +791,7 @@ const modalData = {
     'recipe12': {
         title: 'Choux a la ganache chocolat',
         category: 'Patisserie',
-        image: 'https://i.pinimg.com/1200x/cb/a8/4f/cba84fd2f187b4d1e54afc3beea630f8.jpg',
+        image: 'https://i.pinimg.com/1200x/7d/68/1a/7d681ad04e46662d8834a4495c32cdc3.jpg',
         description: 'French cream puffs filled with rich chocolate ganache.',
         servings: '8 servings',
         ingredients: [
@@ -767,7 +812,7 @@ const modalData = {
     'recipe13': {
         title: 'Crêpes',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://img.over-blog-kiwi.com/0/93/39/43/20200201/ob_942dd7_img-0395.jpg#width=1066&height=1600',
         description: 'Classic French thin pancakes, perfect for sweet or savory fillings.',
         servings: '2 servings',
         ingredients: [
@@ -790,7 +835,7 @@ const modalData = {
     'recipe14': {
         title: 'Gratin de choux fleur',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/736x/0b/0c/54/0b0c54bf4e6f6525509e8e42edcc70d4.jpg',
         description: 'Creamy cauliflower gratin with cheese and béchamel sauce.',
         servings: '4 servings',
         ingredients: [
@@ -814,7 +859,7 @@ const modalData = {
     'recipe15': {
         title: 'Gratin dauphinois',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/d0/27/14/d02714120bf5763f7acf270c3d0f6027.jpg',
         description: 'Traditional French potato gratin from the Dauphiné region.',
         servings: '6 servings',
         ingredients: [
@@ -838,7 +883,7 @@ const modalData = {
     'recipe16': {
         title: 'Quiche (Bastien\'s mom recipe)',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/95/ee/aa/95eeaa8624cbcfb1f3ff89c370198e06.jpg',
         description: 'Traditional French quiche with homemade pastry and creamy filling.',
         servings: '4 servings',
         ingredients: [
@@ -859,7 +904,7 @@ const modalData = {
     'recipe17': {
         title: 'Galette bretonne',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/f0/a1/f5/f0a1f5e36e30f45e56c73865b2d2760d.jpg',
         description: 'Traditional buckwheat crepe from Brittany, typically filled with savory ingredients.',
         servings: '4 servings',
         ingredients: [
@@ -884,7 +929,7 @@ const modalData = {
     'recipe18': {
         title: 'Fondant au chocolat',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/736x/bc/b6/ea/bcb6ead7c18d95e290306e9149e5172e.jpg',
         description: 'Rich and decadent chocolate fondant with a molten center.',
         servings: '4 servings',
         ingredients: [
@@ -909,7 +954,7 @@ const modalData = {
     'recipe19': {
         title: 'Coulant au chocolat',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/736x/53/aa/a0/53aaa0053d541ee91bf5f47d9c71340b.jpg',
         description: 'Chocolate lava cake with a perfectly molten chocolate center.',
         servings: '4 servings',
         ingredients: [
@@ -934,7 +979,7 @@ const modalData = {
     'recipe20': {
         title: 'Mouelleux au chocolat - Muffin',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/1200x/34/94/c2/3494c2b1572fe41c357aa5672609574e.jpg',
         description: 'Soft chocolate muffins with chocolate chips and Nutella filling.',
         servings: '12 servings',
         ingredients: [
@@ -966,7 +1011,7 @@ const modalData = {
     'recipe21': {
         title: 'Muffin nature',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/736x/80/5c/76/805c76048debe29b7326c8684a9cd320.jpg',
         description: 'Classic plain muffins with chocolate chips.',
         servings: '12 servings',
         ingredients: [
@@ -993,7 +1038,7 @@ const modalData = {
     'recipe22': {
         title: 'Brioche',
         category: 'Vienoiserie',
-        image: 'https://i.pinimg.com/1200x/cb/a8/4f/cba84fd2f187b4d1e54afc3beea630f8.jpg',
+        image: 'https://i.pinimg.com/1200x/9c/19/6c/9c196c5496cc3b541811a5bd0e29dee5.jpg',
         description: 'Rich and buttery French brioche bread.',
         servings: '6 servings',
         ingredients: [
@@ -1019,7 +1064,7 @@ const modalData = {
     'recipe23': {
         title: 'Flamenkuche',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/23/85/24/238524e32c6978f75814730369ae1d59.jpg',
         description: 'Traditional Alsatian thin-crust pizza with crème fraîche, onions, and bacon.',
         servings: '4 servings',
         ingredients: [
@@ -1044,7 +1089,7 @@ const modalData = {
     'recipe24': {
         title: 'Endive au jambon',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://recettedelicieux.com/wp-content/uploads/2025/07/Untitled-design-2025-07-01T160301.500.jpg',
         description: 'Belgian endives wrapped in ham and covered with béchamel sauce.',
         servings: '4 servings',
         ingredients: [
@@ -1069,7 +1114,7 @@ const modalData = {
     'recipe25': {
         title: 'Macedoine au jambon',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: '',
         description: 'Mixed vegetable salad with ham and mayonnaise dressing.',
         servings: '4 servings',
         ingredients: [
@@ -1094,7 +1139,7 @@ const modalData = {
     'recipe26': {
         title: 'Boeuf bourgignon',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/e5/42/40/e5424041754f4e33471f7bad7b284a7e.jpg',
         description: 'Classic French beef stew braised in red wine with vegetables.',
         servings: '6 servings',
         ingredients: [
@@ -1123,7 +1168,7 @@ const modalData = {
     'recipe27': {
         title: 'Potée',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/c9/10/35/c91035ce103cc962d9b41e28cd61f59e.jpg',
         description: 'Traditional French country stew with pork, cabbage, and root vegetables.',
         servings: '6 servings',
         ingredients: [
@@ -1805,7 +1850,7 @@ function openModal(modalId) {
         
         // Add servings if it exists
         if (data.servings) {
-            modalContent += `<div class="modal-section"><h3>Servings</h3><p>${data.servings}</p></div>`;
+            modalContent += `<div class="modal-section"><p>${data.servings}</p></div>`;
         }
         
         // Add ingredients if they exist
@@ -1813,7 +1858,7 @@ function openModal(modalId) {
             modalContent += `
                 <div class="modal-section">
                     <h3>Ingredients</h3>
-                    <ul>
+                    <ul class="ingredients-list">
                         ${data.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
                     </ul>
                 </div>
@@ -1825,7 +1870,7 @@ function openModal(modalId) {
             modalContent += `
                 <div class="modal-section">
                     <h3>Cooking Steps</h3>
-                    <ol>
+                    <ol class="cooking-steps">
                         ${data.cookingSteps.map(step => `<li>${step}</li>`).join('')}
                     </ol>
                 </div>
@@ -1836,7 +1881,6 @@ function openModal(modalId) {
         if (data.modifications) {
             modalContent += `
                 <div class="modal-section">
-                    <h3>Possible Modifications</h3>
                     <p>${data.modifications}</p>
                 </div>
             `;
@@ -1897,6 +1941,25 @@ function openModal(modalId) {
                         </ul>
                     </div>
                 `;
+            }
+        }
+        // Handle memory modals with multiple pictures and captions
+        else if (modalId.startsWith('memory') && data.pictures) {
+            // Add date if it exists
+            if (data.date) {
+                modalContent += `<p class="modal-date-period">${data.date}</p>`;
+            }
+            
+            // Add pictures with captions
+            if (data.pictures && data.pictures.length > 0) {
+                data.pictures.forEach((picture, index) => {
+                    modalContent += `
+                        <div class="memory-picture">
+                            <img src="${picture.image}" alt="Memory ${index + 1}">
+                            <p class="picture-caption">${picture.caption}</p>
+                        </div>
+                    `;
+                });
             }
         }
         // Fallback to old format for non-recipe, non-education modals
