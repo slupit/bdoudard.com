@@ -177,17 +177,42 @@ function initHighlightsDots() {
     // Clear existing dots
     dotsContainer.innerHTML = '';
     
-    // Create dots for each slide
-    for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'pagination-dot';
-        if (i === 0) dot.classList.add('active');
+    // If more than 10 slides, show line with active dot
+    if (totalSlides > 10) {
+        const lineContainer = document.createElement('div');
+        lineContainer.className = 'pagination-line-container';
         
-        dot.addEventListener('click', () => {
-            goToSlide(i);
+        const line = document.createElement('div');
+        line.className = 'pagination-line';
+        
+        const activeDot = document.createElement('div');
+        activeDot.className = 'pagination-line-dot active';
+        
+        lineContainer.appendChild(line);
+        lineContainer.appendChild(activeDot);
+        dotsContainer.appendChild(lineContainer);
+        
+        // Add click handler to the line container
+        lineContainer.addEventListener('click', (e) => {
+            const rect = lineContainer.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const percentage = clickX / rect.width;
+            const slideIndex = Math.round(percentage * (totalSlides - 1));
+            goToSlide(slideIndex);
         });
-        
-        dotsContainer.appendChild(dot);
+    } else {
+        // Create dots for each slide (original behavior)
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'pagination-dot';
+            if (i === 0) dot.classList.add('active');
+            
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+            });
+            
+            dotsContainer.appendChild(dot);
+        }
     }
 }
 
@@ -195,10 +220,22 @@ function updateHighlightsDots() {
     const dotsContainer = document.getElementById('highlights-dots');
     if (!dotsContainer) return;
     
-    const dots = dotsContainer.querySelectorAll('.pagination-dot');
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-    });
+    if (totalSlides > 10) {
+        // Update line-based pagination
+        const lineContainer = dotsContainer.querySelector('.pagination-line-container');
+        const activeDot = dotsContainer.querySelector('.pagination-line-dot');
+        
+        if (lineContainer && activeDot) {
+            const percentage = (currentSlide / (totalSlides - 1)) * 100;
+            activeDot.style.left = `${percentage}%`;
+        }
+    } else {
+        // Update individual dots (original behavior)
+        const dots = dotsContainer.querySelectorAll('.pagination-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
 }
 
 // Auto-advance disabled for highlights carousel
@@ -257,120 +294,98 @@ document.addEventListener('DOMContentLoaded', function() {
 const modalData = {
     // Portfolio modals
     'project1': {
-        title: 'E-Commerce Platform',
-        image: 'img/Fishing.jpg',
-        description: 'A comprehensive e-commerce platform built with React and Node.js. Features include user authentication, product catalog, shopping cart, payment integration, and admin dashboard. The application handles thousands of concurrent users and processes thousands of orders daily.',
-        details: [
-            'Built with React.js for frontend and Node.js with Express for backend',
-            'Integrated Stripe payment gateway for secure transactions',
-            'Implemented JWT authentication and authorization',
-            'Used MongoDB for data storage with Mongoose ODM',
-            'Deployed on AWS with Docker containers',
-            'Achieved 99.9% uptime and sub-2 second page load times'
+        title: 'Personal Website',
+        activities: [
+            {
+                image: 'img/Logo_2_V1.png',
+                description: 'Full-stack web application built with HTML, CSS, and JavaScript. Features responsive design, interactive portfolio sections, and dynamic content management.'
+            },
+            {
+                image: 'img/Fishing.jpg',
+                description: 'Implemented carousel functionality for portfolio showcase with smooth transitions and touch/swipe support for mobile devices.'
+            },
+            {
+                image: 'img/Fishing.jpg',
+                description: 'Added modal system for detailed project and recipe information with dynamic content loading and responsive design.'
+            }
         ]
     },
     'project2': {
-        title: 'Mobile Banking App',
-        image: 'img/Fishing.jpg',
-        description: 'A cross-platform mobile banking application developed with Flutter. The app provides secure banking services including account management, fund transfers, bill payments, and investment tracking.',
-        details: [
-            'Developed using Flutter for iOS and Android platforms',
-            'Integrated biometric authentication (fingerprint and face recognition)',
-            'Implemented real-time notifications using Firebase',
-            'Used RESTful APIs for backend communication',
-            'Applied Material Design principles for intuitive UX',
-            'Achieved 4.8/5 rating on app stores'
+        title: 'Airbnb Scrapping',
+        activities: [
+            {
+                image: 'img/AirbnbMap.png',
+                description: 'Data collection and analysis project to explore Airbnb rental market trends and pricing patterns across different locations.'
+            },
+            {
+                image: 'img/Fishing.jpg',
+                description: 'Implemented web scraping techniques to gather rental data including prices, locations, amenities, and availability patterns.'
+            },
+            {
+                image: 'img/Fishing.jpg',
+                description: 'Created data visualization tools to analyze market trends and help users understand pricing dynamics in different neighborhoods.'
+            }
         ]
     },
     'project3': {
-        title: 'AI Chatbot',
-        image: 'img/Fishing.jpg',
-        description: 'An intelligent chatbot powered by machine learning algorithms. The bot can handle customer inquiries, provide product recommendations, and assist with technical support.',
-        details: [
-            'Built using Python with TensorFlow and Natural Language Processing',
-            'Trained on 10,000+ customer interaction datasets',
-            'Integrated with multiple communication channels (web, mobile, social)',
-            'Achieved 85% customer satisfaction rate',
-            'Reduced customer service response time by 70%',
-            'Continuously learning from user interactions'
-        ]
-    },
-    'project4': {
-        title: 'Task Management App',
-        image: 'img/Fishing.jpg',
-        description: 'A collaborative project management tool with real-time updates, team collaboration features, and advanced task tracking.',
-        details: [
-            'Built with React.js frontend and Node.js backend',
-            'Real-time collaboration using Socket.io',
-            'Drag-and-drop task management interface',
-            'Team member assignment and progress tracking',
-            'File sharing and document collaboration',
-            'Mobile-responsive design with PWA capabilities'
-        ]
-    },
-    'project5': {
-        title: 'REST API Service',
-        image: 'img/Fishing.jpg',
-        description: 'A scalable microservice architecture providing RESTful APIs for multiple client applications with authentication and rate limiting.',
-        details: [
-            'Microservices architecture with Docker containers',
-            'JWT-based authentication and authorization',
-            'Rate limiting and API versioning',
-            'Comprehensive API documentation with Swagger',
-            'Database optimization and caching with Redis',
-            'Load balancing and auto-scaling on AWS'
+        title: 'Facility Location',
+        activities: [
+            {
+                image: 'img/FacilityLocationPlot.png',
+                description: 'Optimization project to determine the optimal location for a new facility using mathematical modeling and data analysis.'
+            },
+            {
+                image: 'img/Fishing.jpg',
+                description: 'Applied operations research techniques including linear programming and geographic analysis to minimize costs and maximize efficiency.'
+            },
+            {
+                image: 'img/Fishing.jpg',
+                description: 'Developed interactive visualizations to present location recommendations and supporting data to stakeholders.'
+            }
         ]
     },
     'edu1': {
-        title: 'Computer Science Degree',
-        image: 'img/Fishing.jpg',
-        description: 'Bachelor of Science in Computer Science from University of Technology. Graduated with honors and specialized in software engineering and artificial intelligence.',
-        details: [
-            'GPA: 3.8/4.0',
-            'Relevant coursework: Data Structures, Algorithms, Database Systems, Software Engineering',
-            'Senior project: Developed a machine learning model for predictive analytics',
-            'Active member of Computer Science Society',
-            'Participated in multiple hackathons and coding competitions',
-            'Graduated: May 2020'
+        title: 'Texas A&M University',
+        image: 'https://thebatt.com/wp-content/uploads/2024/10/CJS13047-1200x800.jpg',
+        description: 'Master\'s of Science in Industrial Engineering. Advanced studies in operations research, supply chain management, and data analytics with focus on optimization and process improvement.',
+        datePeriod: 'January 2024 – May 2025',
+        coursework: [
+            'Advanced Operations Research',
+            'Supply Chain Management',
+            'Data Analytics and Machine Learning',
+            'Quality Control and Six Sigma',
+            'Project Management',
+            'Optimization Methods',
+            'Statistical Analysis',
+            'Industrial Systems Design'
+        ],
+        volunteering: [
+            'French Teaching Assistant - Texas A&M University (Aug 2024 – May 2025)',
+            'International Student Mentor Program',
+            'Engineering Student Organization - Event Coordinator',
+            'Community Outreach - STEM Education Programs'
         ]
     },
     'edu2': {
-        title: 'AWS Certification',
-        image: 'img/Fishing.jpg',
-        description: 'AWS Certified Solutions Architect - Professional level certification. Demonstrates expertise in designing distributed systems on AWS.',
-        details: [
-            'Certification ID: AWS-SAP-123456',
-            'Valid until: December 2025',
-            'Skills: Cloud architecture, security, cost optimization, scalability',
-            'Experience with EC2, S3, Lambda, RDS, CloudFormation',
-            'Designed and implemented cloud solutions for enterprise clients',
-            'Completed 40+ hours of hands-on labs and projects'
-        ]
-    },
-    'edu3': {
-        title: 'Master\'s in AI',
-        image: 'img/Fishing.jpg',
-        description: 'Advanced degree in Artificial Intelligence and Machine Learning with focus on deep learning and neural networks.',
-        details: [
-            'GPA: 3.9/4.0',
-            'Specialization: Deep Learning and Computer Vision',
-            'Thesis: "Neural Networks for Image Recognition"',
-            'Research: Published 3 papers in AI conferences',
-            'Technologies: TensorFlow, PyTorch, OpenCV, scikit-learn',
-            'Graduated: May 2022'
-        ]
-    },
-    'edu4': {
-        title: 'Full Stack Bootcamp',
-        image: 'img/Fishing.jpg',
-        description: 'Intensive 6-month program covering modern web development technologies and best practices.',
-        details: [
-            'Duration: 6 months (January - June 2019)',
-            'Technologies: HTML5, CSS3, JavaScript, React, Node.js',
-            'Projects: Built 5 full-stack applications',
-            'Final Project: E-commerce platform with payment integration',
-            'Certification: Full Stack Web Development',
-            'Outcome: 100% job placement rate within 3 months'
+        title: 'Arts et Métiers ParisTech',
+        image: 'https://phototheque.artsetmetiers.fr/_data/i/upload/2023/04/07/20230407103259-20b39924-me.jpg',
+        description: 'Engineering School specializing in mechanical and industrial engineering. Comprehensive program combining theoretical knowledge with practical applications in manufacturing and design.',
+        datePeriod: 'September 2021 – June 2023',
+        coursework: [
+            'Mechanical Engineering Fundamentals',
+            'Manufacturing Processes',
+            'CAD/CAM Systems',
+            'Materials Science',
+            'Thermodynamics and Fluid Mechanics',
+            'Control Systems',
+            'Industrial Design',
+            'Project Management'
+        ],
+        volunteering: [
+            'Student Government Representative',
+            'Engineering Club - Technical Committee Member',
+            'Mentor for First-Year Students',
+            'Community Service - Local Engineering Projects'
         ]
     },
     'exp1': {
@@ -423,58 +438,6 @@ const modalData = {
             'Database design and optimization',
             'Technologies: Python, Django, PostgreSQL, Redis',
             'Achievement: Reduced API response time by 40%'
-        ]
-    },
-    'skill1': {
-        title: 'Frontend Development',
-        image: 'img/Fishing.jpg',
-        description: 'Expertise in modern frontend technologies and frameworks. Passionate about creating responsive, accessible, and performant user interfaces.',
-        details: [
-            'React.js: 4+ years experience, including hooks, context, and Redux',
-            'Vue.js: 3+ years experience with Vuex and Vue Router',
-            'HTML5/CSS3: Semantic markup, CSS Grid, Flexbox, animations',
-            'JavaScript ES6+: Async/await, modules, destructuring, arrow functions',
-            'TypeScript: Type-safe development and better code maintainability',
-            'Testing: Jest, Cypress, React Testing Library'
-        ]
-    },
-    'skill2': {
-        title: 'Backend Development',
-        image: 'img/Fishing.jpg',
-        description: 'Strong background in server-side development, database design, and API development. Experience with both SQL and NoSQL databases.',
-        details: [
-            'Node.js: Express.js, Koa.js, and NestJS frameworks',
-            'Python: Django, Flask, and FastAPI for web development',
-            'Java: Spring Boot for enterprise applications',
-            'Databases: PostgreSQL, MongoDB, Redis, MySQL',
-            'APIs: RESTful design, GraphQL, microservices architecture',
-            'DevOps: Docker, Kubernetes, CI/CD, AWS, monitoring'
-        ]
-    },
-    'skill3': {
-        title: 'DevOps & Cloud',
-        image: 'img/Fishing.jpg',
-        description: 'Expertise in cloud infrastructure, containerization, and deployment automation. Focus on scalable and reliable systems.',
-        details: [
-            'AWS: EC2, S3, Lambda, RDS, CloudFormation, ECS, EKS',
-            'Docker: Containerization and orchestration',
-            'Kubernetes: Cluster management and scaling',
-            'CI/CD: GitHub Actions, Jenkins, GitLab CI',
-            'Monitoring: CloudWatch, Prometheus, Grafana',
-            'Infrastructure as Code: Terraform, Ansible'
-        ]
-    },
-    'skill4': {
-        title: 'Mobile Development',
-        image: 'img/Fishing.jpg',
-        description: 'Cross-platform mobile development experience with modern frameworks and native iOS/Android development.',
-        details: [
-            'React Native: Cross-platform mobile apps',
-            'Flutter: Dart-based mobile development',
-            'iOS: Swift and Objective-C development',
-            'Android: Java and Kotlin development',
-            'Mobile UI/UX: Material Design and Human Interface Guidelines',
-            'App Store: Publishing and distribution experience'
         ]
     },
     'vacation1': {
@@ -580,7 +543,7 @@ const modalData = {
     },
     'recipe3': {
         title: 'Cassoulet (Bastien version)',
-        category: 'Plat de résistance',
+        category: 'Plat',
         image: 'img/Fishing.jpg',
         description: 'Traditional French cassoulet with beans, pork, and sausage - Bastien\'s personal version.',
         servings: '4 servings',
@@ -674,7 +637,7 @@ const modalData = {
     },
     'recipe7': {
         title: 'Lasagne (Bastien version)',
-        category: 'Plat de résistance',
+        category: 'Plat',
         image: 'img/Fishing.jpg',
         description: 'Homemade lasagne with fresh pasta, bolognese sauce, and béchamel.',
         servings: '6 servings',
@@ -714,477 +677,1102 @@ const modalData = {
         modifications: 'Add rum or Orange flower water.',
         videoTutorial: null
     },
-    // Blank recipes 9-51 (to be completed manually)
+    // French Recipes 9-20
     'recipe9': {
-        title: 'Recipe 9',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
-        modifications: null,
+        title: 'Tarte aux pommes normande',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/736x/88/53/49/88534967321a2a641eeac2c11faeb6cd.jpg',
+        description: 'Classic French apple tart from Normandy with sweet pastry and almond cream.',
+        servings: '8 servings',
+        ingredients: [
+            'Pâte sablée: 250g Flour, 100g sugar, 80g Butter, 1 Egg, Cinnamon',
+            'Garniture: 1kg Apple, 100g Sugar, 100g Almond powder, 100g Sour cream, 2 Eggs'
+        ],
+        cookingSteps: [
+            'Prepare pâte sablée and line tart pan',
+            'Mix almond powder, sugar, sour cream and eggs for the filling',
+            'Peel and slice apples thinly',
+            'Arrange apple slices in tart shell',
+            'Pour almond cream over apples',
+            'Bake for 20-30 minutes until golden'
+        ],
+        modifications: 'Replace apple by rhubarb',
         videoTutorial: null
     },
     'recipe10': {
-        title: 'Recipe 10',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
-        modifications: null,
-        videoTutorial: null
+        title: 'Tarte au citron meringuee',
+        category: 'Patisserie',
+        image: 'https://i.pinimg.com/736x/35/35/c7/3535c7ac92c74c1ff0ef2a07212df00f.jpg',
+        description: 'Classic French lemon meringue tart with tangy lemon curd and fluffy meringue.',
+        servings: '8 servings',
+        ingredients: [
+            'Pâte sablée: 250g Flour, 60g sugar, 100g Butter, 2 Egg yolk',
+            'Crème citron: 4 Lemons, 3 Eggs, 1 tbs. Flour (corn prefered), 130g sugar',
+            'Meringue: 2 Egg white, 1/2 tbs. baking soda, 80g Sugar'
+        ],
+        cookingSteps: [
+            'Prepare pâte sablée and bake for 15 minutes',
+            'Make lemon curd by heating lemon juice with sugar and eggs',
+            'Add corn flour and cook until thickened',
+            'Whip egg whites with sugar and baking soda for meringue',
+            'Fill tart shell with lemon curd',
+            'Top with meringue and brown in oven'
+        ],
+        modifications: 'For less acidity you can replace lemon by orange or grapefruit',
+        videoTutorial: '🍋 Ma Tarte citron douce et acidulée - YouTube'
     },
     'recipe11': {
-        title: 'Recipe 11',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Eclair au chocolat',
+        category: 'Patisserie',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Classic French chocolate éclair with choux pastry, chocolate pastry cream, and chocolate glaze.',
+        servings: '12 servings',
+        ingredients: [
+            'Pâte a choux: 125g Flour, 250g Water, 80g Salted Butter, 3 Eggs',
+            'Creme patissiere: 200g Chocolate, 3 tbs. Sugar, 2 tbs. Flour, 30 cl Milk, 2 Eggs, 50g Butter',
+            'Glaçage: Water, Sugar, Cacao powder'
+        ],
+        cookingSteps: [
+            'Make choux pastry by heating water and butter, then adding flour',
+            'Beat in eggs one by one until smooth',
+            'Pipe into éclair shapes and bake for 35-40 minutes',
+            'Make chocolate pastry cream with milk, eggs, and chocolate',
+            'Fill cooled éclairs with pastry cream',
+            'Make chocolate glaze and dip tops of éclairs'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe12': {
-        title: 'Recipe 12',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Choux a la ganache chocolat',
+        category: 'Patisserie',
+        image: 'https://i.pinimg.com/1200x/cb/a8/4f/cba84fd2f187b4d1e54afc3beea630f8.jpg',
+        description: 'French cream puffs filled with rich chocolate ganache.',
+        servings: '8 servings',
+        ingredients: [
+            'Pâte a choux: 125g Flour, 125g Milk, 125g Water, 80g Salted Butter, 3 eggs',
+            'Ganache chocolat: 40cl Light cream, 280g Dark chocolate (tablet)'
+        ],
+        cookingSteps: [
+            'Make choux pastry by heating milk, water and butter',
+            'Add flour and cook until smooth',
+            'Beat in eggs one by one',
+            'Pipe small rounds and bake for 35-40 minutes',
+            'Make ganache by heating cream and melting chocolate',
+            'Fill cooled choux with ganache'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe13': {
-        title: 'Recipe 13',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
-        modifications: null,
+        title: 'Crêpes',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Classic French thin pancakes, perfect for sweet or savory fillings.',
+        servings: '2 servings',
+        ingredients: [
+            '1 Egg',
+            '3 tbs. Flour',
+            '1.5 tbs. Sugar',
+            '~ 1/3L (12 oz) Milk'
+        ],
+        cookingSteps: [
+            'Mix egg, flour, and sugar in a bowl',
+            'Gradually add milk while whisking',
+            'Let batter rest for 30 minutes',
+            'Heat a non-stick pan over medium heat',
+            'Pour a thin layer of batter and cook until golden',
+            'Flip and cook the other side'
+        ],
+        modifications: 'Add any type of alcohol (rum, beer, anisette, ...) or Add Vanilla',
         videoTutorial: null
     },
     'recipe14': {
-        title: 'Recipe 14',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Gratin de choux fleur',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Creamy cauliflower gratin with cheese and béchamel sauce.',
+        servings: '4 servings',
+        ingredients: [
+            '1 large cauliflower',
+            'Béchamel sauce: Butter, flour, milk, nutmeg',
+            'Grated cheese (Gruyère or Emmental)',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Preheat oven to 180°C',
+            'Cut cauliflower into florets and blanch',
+            'Make béchamel sauce with butter, flour, and milk',
+            'Season with nutmeg, salt, and pepper',
+            'Arrange cauliflower in baking dish',
+            'Pour béchamel over cauliflower and top with cheese',
+            'Bake for 25-30 minutes until golden'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe15': {
-        title: 'Recipe 15',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Gratin dauphinois',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Traditional French potato gratin from the Dauphiné region.',
+        servings: '6 servings',
+        ingredients: [
+            '1kg Potatoes',
+            '500ml Heavy cream',
+            '2 cloves Garlic',
+            'Salt and pepper',
+            'Butter'
+        ],
+        cookingSteps: [
+            'Preheat oven to 180°C',
+            'Peel and thinly slice potatoes',
+            'Rub baking dish with garlic and butter',
+            'Layer potatoes in dish, seasoning each layer',
+            'Pour cream over potatoes',
+            'Bake for 1 hour until golden and tender'
+        ],
         modifications: null,
-        videoTutorial: null
+        videoTutorial: '🥔 Mon Gratin Dauphinois à partager - YouTube'
     },
     'recipe16': {
-        title: 'Recipe 16',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
-        modifications: null,
+        title: 'Quiche (Bastien\'s mom recipe)',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Traditional French quiche with homemade pastry and creamy filling.',
+        servings: '4 servings',
+        ingredients: [
+            'Pâte brisée: 300g Flour, 150g Butter, 8cl Water',
+            'Garniture: Sour cream, shredded cheese, eggs, bacon'
+        ],
+        cookingSteps: [
+            'Make pâte brisée and line tart pan',
+            'Pre-bake pastry for 10 minutes',
+            'Mix sour cream, eggs, and cheese',
+            'Add cooked bacon to the mixture',
+            'Pour filling into pastry shell',
+            'Bake for 30-35 minutes until set'
+        ],
+        modifications: 'Add various kind of vegetables (leek) or cheese (goat cheese). Replace bacon by salmon',
         videoTutorial: null
     },
     'recipe17': {
-        title: 'Recipe 17',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Galette bretonne',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Traditional buckwheat crepe from Brittany, typically filled with savory ingredients.',
+        servings: '4 servings',
+        ingredients: [
+            '200g Buckwheat flour',
+            '500ml Water',
+            '1 tsp Salt',
+            '1 Egg',
+            'Butter for cooking'
+        ],
+        cookingSteps: [
+            'Mix buckwheat flour with salt',
+            'Add water gradually while whisking',
+            'Add egg and mix until smooth',
+            'Let batter rest for 2 hours',
+            'Heat a crepe pan and add butter',
+            'Pour batter and cook until edges lift',
+            'Flip and cook the other side'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe18': {
-        title: 'Recipe 18',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Fondant au chocolat',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Rich and decadent chocolate fondant with a molten center.',
+        servings: '4 servings',
+        ingredients: [
+            '100g Dark chocolate',
+            '100g Butter',
+            '2 Eggs',
+            '100g Sugar',
+            '50g Flour'
+        ],
+        cookingSteps: [
+            'Preheat oven to 200°C',
+            'Melt chocolate and butter together',
+            'Beat eggs with sugar until pale',
+            'Fold in melted chocolate mixture',
+            'Add flour and mix gently',
+            'Pour into buttered ramekins',
+            'Bake for 12-15 minutes until edges are set but center is still soft'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe19': {
-        title: 'Recipe 19',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Coulant au chocolat',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Chocolate lava cake with a perfectly molten chocolate center.',
+        servings: '4 servings',
+        ingredients: [
+            '100g dark chocolate',
+            '80g butter',
+            '2 eggs',
+            '80g sugar',
+            '35g flour'
+        ],
+        cookingSteps: [
+            'Preheat oven to 410°F',
+            'Melt chocolate and butter together',
+            'Beat eggs with sugar until fluffy',
+            'Fold in chocolate mixture',
+            'Add flour and mix gently',
+            'Pour into buttered ramekins',
+            'Bake for 15 minutes until edges are set'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe20': {
-        title: 'Recipe 20',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Mouelleux au chocolat - Muffin',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Soft chocolate muffins with chocolate chips and Nutella filling.',
+        servings: '12 servings',
+        ingredients: [
+            '200g Chocolate tablet',
+            '120g Butter',
+            '120g Flour',
+            '100g sugar',
+            '50g Nut/almond flour',
+            '3 eggs',
+            '1.5dl Milk',
+            '2cs Baking soda',
+            'Chocolate chips',
+            '100g Nutella',
+            '100g Chocolate'
+        ],
+        cookingSteps: [
+            'Preheat oven to 370°F',
+            'Melt chocolate and butter together',
+            'Beat eggs with sugar until pale',
+            'Mix in melted chocolate',
+            'Add flour, nut flour, and baking soda',
+            'Stir in milk and chocolate chips',
+            'Fill muffin cups halfway, add Nutella, then more batter',
+            'Bake for 30 minutes'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe21': {
-        title: 'Recipe 21',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Muffin nature',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Classic plain muffins with chocolate chips.',
+        servings: '12 servings',
+        ingredients: [
+            '300g Flour',
+            '150g Sugar',
+            '2 Eggs',
+            '150ml Milk',
+            '100g Butter',
+            '2 cs Baking soda',
+            '100g-200g Chocolate chips'
+        ],
+        cookingSteps: [
+            'Preheat oven to 180°C',
+            'Mix flour, sugar, and baking soda',
+            'Melt butter and let cool',
+            'Beat eggs with milk',
+            'Combine wet and dry ingredients',
+            'Fold in chocolate chips',
+            'Fill muffin cups and bake for 20-25 minutes'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe22': {
-        title: 'Recipe 22',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
-        modifications: null,
+        title: 'Brioche',
+        category: 'Vienoiserie',
+        image: 'https://i.pinimg.com/1200x/cb/a8/4f/cba84fd2f187b4d1e54afc3beea630f8.jpg',
+        description: 'Rich and buttery French brioche bread.',
+        servings: '6 servings',
+        ingredients: [
+            '10g Dry yeast',
+            '500g Flour',
+            '100g Sugar',
+            '2 Eggs',
+            '20cl Milk',
+            '80g Butter'
+        ],
+        cookingSteps: [
+            'Activate yeast in warm milk',
+            'Mix flour, sugar, and eggs',
+            'Add yeast mixture and knead',
+            'Incorporate butter gradually',
+            'Let rise 12 to 24 hours in the fridge',
+            'Shape and let rise 4h outside',
+            'Bake: Small 15min (365°F), Big 25-30min (365°F)'
+        ],
+        modifications: 'Add dry fruits or sugar pearl. Brush with sturb egg or butter for a nice golden top',
         videoTutorial: null
     },
     'recipe23': {
-        title: 'Recipe 23',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Flamenkuche',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Traditional Alsatian thin-crust pizza with crème fraîche, onions, and bacon.',
+        servings: '4 servings',
+        ingredients: [
+            'Pizza dough: Flour, water, yeast, salt',
+            'Crème fraîche',
+            'Onions',
+            'Bacon or lardons',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Make thin pizza dough',
+            'Roll out very thinly',
+            'Spread crème fraîche on dough',
+            'Add thinly sliced onions',
+            'Top with bacon pieces',
+            'Season with salt and pepper',
+            'Bake at high temperature until crispy'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe24': {
-        title: 'Recipe 24',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Endive au jambon',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Belgian endives wrapped in ham and covered with béchamel sauce.',
+        servings: '4 servings',
+        ingredients: [
+            '8 Belgian endives',
+            '8 slices of ham',
+            'Béchamel sauce: Butter, flour, milk',
+            'Grated cheese',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Preheat oven to 180°C',
+            'Blanch endives in salted water',
+            'Wrap each endive in a slice of ham',
+            'Make béchamel sauce',
+            'Arrange wrapped endives in baking dish',
+            'Pour béchamel over and top with cheese',
+            'Bake for 20-25 minutes until golden'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe25': {
-        title: 'Recipe 25',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Macedoine au jambon',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Mixed vegetable salad with ham and mayonnaise dressing.',
+        servings: '4 servings',
+        ingredients: [
+            'Mixed vegetables (carrots, peas, beans, potatoes)',
+            '200g Ham, diced',
+            'Mayonnaise',
+            'Salt and pepper',
+            'Fresh herbs'
+        ],
+        cookingSteps: [
+            'Cook vegetables until tender',
+            'Let vegetables cool completely',
+            'Dice ham into small pieces',
+            'Mix vegetables with ham',
+            'Add mayonnaise and season',
+            'Garnish with fresh herbs',
+            'Chill before serving'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe26': {
-        title: 'Recipe 26',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Boeuf bourgignon',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Classic French beef stew braised in red wine with vegetables.',
+        servings: '6 servings',
+        ingredients: [
+            '1.5kg Beef chuck, cubed',
+            '750ml Red wine (Burgundy)',
+            '200g Bacon, diced',
+            '2 Onions',
+            '3 Carrots',
+            '250g Mushrooms',
+            '2 cloves Garlic',
+            'Bouquet garni (thyme, bay leaf, parsley)',
+            'Flour for dusting'
+        ],
+        cookingSteps: [
+            'Dust beef cubes with flour',
+            'Brown beef and bacon in batches',
+            'Add onions and carrots, cook until softened',
+            'Add wine and bouquet garni',
+            'Simmer for 2-3 hours until meat is tender',
+            'Add mushrooms in the last 30 minutes',
+            'Season and serve hot'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe27': {
-        title: 'Recipe 27',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Potée',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Traditional French country stew with pork, cabbage, and root vegetables.',
+        servings: '6 servings',
+        ingredients: [
+            '500g Pork shoulder',
+            '200g Smoked sausage',
+            '1 small cabbage',
+            '4 Potatoes',
+            '3 Carrots',
+            '2 Turnips',
+            '1 Onion',
+            'Bouquet garni',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Cut pork into large pieces',
+            'Place pork in large pot with water and bouquet garni',
+            'Simmer for 1 hour',
+            'Add vegetables and sausage',
+            'Continue cooking for 45 minutes',
+            'Season and serve hot'
+        ],
         modifications: null,
-        videoTutorial: null
+        videoTutorial: '🍲 La potée campagnarde - YouTube'
     },
     'recipe28': {
-        title: 'Recipe 28',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Pot au feu',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Traditional French boiled dinner with beef and vegetables.',
+        servings: '6 servings',
+        ingredients: [
+            '1kg Beef (shin, brisket)',
+            '4 Carrots',
+            '4 Leeks',
+            '4 Potatoes',
+            '1 Cabbage',
+            '2 Onions',
+            'Bouquet garni',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Place beef in large pot with cold water',
+            'Add bouquet garni and bring to boil',
+            'Skim foam and simmer for 2 hours',
+            'Add vegetables in order of cooking time',
+            'Continue cooking until vegetables are tender',
+            'Season and serve with broth'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe29': {
-        title: 'Recipe 29',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
-        modifications: null,
+        title: 'Poulet rôti',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Classic French roast chicken with potatoes and seasonal accompaniments.',
+        servings: '4 servings',
+        ingredients: [
+            '1 Whole chicken',
+            '2-3 lb Potato',
+            '1-2 Onion',
+            '8 oz Prune',
+            '8 oz Chestnut'
+        ],
+        cookingSteps: [
+            'Preheat oven to 200°C',
+            'Season chicken inside and out',
+            'Peel and quarter potatoes',
+            'Arrange chicken and vegetables in roasting pan',
+            'Add prunes and chestnuts around chicken',
+            'Roast for 2 hours, basting occasionally',
+            'Let rest 15 minutes before carving'
+        ],
+        modifications: 'Add Ground pork or Add Herbs',
         videoTutorial: null
     },
     'recipe30': {
-        title: 'Recipe 30',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Saussice-Lentille',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'French sausage and lentil stew, a hearty winter dish.',
+        servings: '4 servings',
+        ingredients: [
+            '400g Green lentils',
+            '4 Toulouse sausages',
+            '2 Carrots',
+            '2 Onions',
+            '2 cloves Garlic',
+            'Bouquet garni',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Soak lentils for 1 hour',
+            'Brown sausages in a large pot',
+            'Add onions, carrots, and garlic',
+            'Add lentils and bouquet garni',
+            'Cover with water and simmer for 45 minutes',
+            'Season and serve hot'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe31': {
-        title: 'Recipe 31',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Rougaille saucisse',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Creole sausage stew with tomatoes and spices from Réunion Island.',
+        servings: '4 servings',
+        ingredients: [
+            '2 Onions',
+            '4 Garlic gloves',
+            '4 Tomatos',
+            '2 Smoked sausages',
+            '1/2 lb Lard',
+            'Ginger',
+            'Tomato sauce',
+            'Laurel',
+            'Thyme',
+            'Curcuma'
+        ],
+        cookingSteps: [
+            'Cut sausages and lard into pieces',
+            'Brown meat in a large pot',
+            'Add onions and garlic, cook until softened',
+            'Add tomatoes and spices',
+            'Simmer for 30 minutes',
+            'Season and serve with rice'
+        ],
         modifications: null,
-        videoTutorial: null
+        videoTutorial: '🏝 Le rougail saucisses - YouTube'
     },
     'recipe32': {
-        title: 'Recipe 32',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
-        modifications: null,
-        videoTutorial: null
+        title: 'Blanquette de veau',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Classic French veal stew in white sauce, usually served with rice.',
+        servings: '6 servings',
+        ingredients: [
+            'Bouillon: 1 Leek, 2lb Carrot, 2 Onions, 3 Garlic gloves, 2lb Veal, Laurel, Thyme',
+            'Sauce: 100g Butter, Flour, Water from Bouillon, Bouillon concentrated',
+            '1lb of seized Mushrooms'
+        ],
+        cookingSteps: [
+            'Make bouillon: simmer veal with vegetables and herbs for 1h30-2h',
+            'Strain and reserve cooking liquid',
+            'Make white sauce with butter, flour, and bouillon',
+            'Add cooked veal and mushrooms to sauce',
+            'The mix of everything: 10min in the pot (just reheat)',
+            'Serve hot with rice'
+        ],
+        modifications: 'Veal: any white meat (Chicken)',
+        videoTutorial: '🥕 Ma Blanquette de veau - YouTube'
     },
     'recipe33': {
-        title: 'Recipe 33',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Hachis parmentier',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'French shepherd\'s pie with ground meat and mashed potatoes.',
+        servings: '6 servings',
+        ingredients: [
+            '500g Ground beef',
+            '1kg Potatoes',
+            '2 Onions',
+            '2 cloves Garlic',
+            'Butter and milk for mashed potatoes',
+            'Grated cheese',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Brown ground beef with onions and garlic',
+            'Season and set aside',
+            'Boil potatoes until tender',
+            'Mash potatoes with butter and milk',
+            'Layer meat in baking dish',
+            'Top with mashed potatoes and cheese',
+            'Bake until golden brown'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe34': {
-        title: 'Recipe 34',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Riz cantonnais à la française',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'French-style Cantonese fried rice with vegetables and meat.',
+        servings: '4 servings',
+        ingredients: [
+            '300g Cooked rice',
+            '200g Mixed vegetables (peas, carrots, corn)',
+            '150g Cooked meat (chicken, pork, or shrimp)',
+            '2 Eggs',
+            '2 cloves Garlic',
+            'Soy sauce',
+            'Vegetable oil',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Heat oil in a large wok or pan',
+            'Scramble eggs and set aside',
+            'Sauté garlic and vegetables',
+            'Add meat and cooked rice',
+            'Stir-fry until heated through',
+            'Add scrambled eggs and soy sauce',
+            'Season and serve hot'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe35': {
-        title: 'Recipe 35',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Sauté de porc',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'French pork stir-fry with vegetables and herbs.',
+        servings: '4 servings',
+        ingredients: [
+            '600g Pork tenderloin, cubed',
+            '2 Bell peppers',
+            '2 Onions',
+            '200g Mushrooms',
+            '2 cloves Garlic',
+            'Fresh herbs (thyme, rosemary)',
+            'White wine',
+            'Olive oil',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Season pork cubes with salt and pepper',
+            'Heat oil in a large pan',
+            'Brown pork on all sides',
+            'Add onions and garlic, cook until softened',
+            'Add vegetables and herbs',
+            'Deglaze with white wine',
+            'Simmer until pork is cooked through'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe36': {
-        title: 'Recipe 36',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Chouquettes',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Light and airy French choux pastry puffs with pearl sugar.',
+        servings: '20 servings',
+        ingredients: [
+            '125g Flour',
+            '250ml Water',
+            '80g Butter',
+            '3 Eggs',
+            'Pearl sugar',
+            'Pinch of salt'
+        ],
+        cookingSteps: [
+            'Preheat oven to 200°C',
+            'Heat water, butter, and salt until boiling',
+            'Add flour and stir until smooth',
+            'Beat in eggs one by one',
+            'Pipe small rounds onto baking sheet',
+            'Sprinkle with pearl sugar',
+            'Bake for 20-25 minutes until golden'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe37': {
-        title: 'Recipe 37',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Charlotte aux amandes',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Elegant French dessert with ladyfingers, almond cream, and chocolate.',
+        servings: '8 servings',
+        ingredients: [
+            'Biscuit: 180g sugar, 120g flour, 6 eggs',
+            'Cream: 3 eggs, 200g Sugar, 200g Butter, 250g Almond powder, 10cl Light Cream',
+            'Liquid chocolate: 200g Dark chocolate (tablet), 20cl Milk',
+            'Ladyfingers',
+            'Coffee and/or rum for dipping'
+        ],
+        cookingSteps: [
+            'Make sponge cake and cut into strips',
+            'Dip ladyfingers in coffee and/or rum',
+            'Line a charlotte mold with ladyfingers',
+            'Make almond cream with eggs, sugar, butter, and almond powder',
+            'Fill mold with cream and sponge strips',
+            'Chill for several hours',
+            'Make chocolate sauce and serve'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe38': {
-        title: 'Recipe 38',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
-        modifications: null,
+        title: 'Ratatouille',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Traditional Provençal vegetable stew with zucchini, eggplant, and tomatoes.',
+        servings: '6 servings',
+        ingredients: [
+            'Zucchini / Squash',
+            'Eggplant',
+            'Tomato',
+            'Onion',
+            'Garlic',
+            'Olive oil',
+            'Fresh herbs (thyme, basil)',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Cut all vegetables into similar-sized pieces',
+            'Heat olive oil in a large pot',
+            'Sauté onions and garlic until softened',
+            'Add eggplant and cook until tender',
+            'Add zucchini and tomatoes',
+            'Season with herbs, salt, and pepper',
+            'Simmer for 30-45 minutes until vegetables are tender'
+        ],
+        modifications: 'Add chicken or pork to do a stew',
         videoTutorial: null
     },
     'recipe39': {
-        title: 'Recipe 39',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
-        modifications: null,
+        title: 'Tiramisu (classic)',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream.',
+        servings: '8 servings',
+        ingredients: [
+            'Biscuit: 180g sugar, 120g flour, 6 eggs',
+            'Cream: 500g Mascarpone, 5 eggs, 170g Sugar, vanilla',
+            'Strong coffee',
+            'Amaretto (optional)',
+            'Cocoa powder'
+        ],
+        cookingSteps: [
+            'Make sponge cake and cut into strips',
+            'Biscuit: 25 min at 300°F',
+            'Make mascarpone cream with eggs and sugar',
+            'Dip biscuit in coffee (+amaretto)',
+            'Layer biscuits and cream in serving dish',
+            'Chill for several hours',
+            'Before serving spread cocoa powder on top'
+        ],
+        modifications: 'You can replace mascarpone by cream cheese/Philadelphia',
         videoTutorial: null
     },
     'recipe40': {
-        title: 'Recipe 40',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
-        modifications: null,
+        title: 'Orange Tiramisu',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Bastien\'s creation: Orange-flavored tiramisu with crumble topping.',
+        servings: '4 servings',
+        ingredients: [
+            'Biscuit: 90g sugar, 60g flour, 3 eggs',
+            'Cream: 250g Mascarpone, 3 eggs, 85g Sugar',
+            'Fresh orange juice',
+            'Rum (optional)',
+            'Crumble topping: 2 orange, 75g Flour, 50g Sugar, 50g Butter'
+        ],
+        cookingSteps: [
+            'Make sponge cake and cut into strips',
+            'Biscuit: 25 min at 300°F',
+            'Make mascarpone cream',
+            'Dip biscuit in fresh orange juice (+ rum)',
+            'Make crumble topping with orange zest',
+            'Layer biscuits, cream, and crumble',
+            'Chill and serve'
+        ],
+        modifications: 'Add a peach or apricot coulis',
         videoTutorial: null
     },
     'recipe41': {
-        title: 'Recipe 41',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Gougères',
+        category: 'Appetizer',
+        image: 'https://i.pinimg.com/1200x/cb/a8/4f/cba84fd2f187b4d1e54afc3beea630f8.jpg',
+        description: 'Cheesy French choux pastry puffs, perfect as appetizers.',
+        servings: '20 servings',
+        ingredients: [
+            '125g Flour',
+            '250ml Water',
+            '80g Butter',
+            '3 Eggs',
+            '100g Gruyère cheese, grated',
+            'Pinch of salt and nutmeg'
+        ],
+        cookingSteps: [
+            'Preheat oven to 200°C',
+            'Heat water, butter, and salt until boiling',
+            'Add flour and stir until smooth',
+            'Beat in eggs one by one',
+            'Fold in grated cheese',
+            'Pipe small rounds onto baking sheet',
+            'Bake for 20-25 minutes until golden and puffed'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe42': {
-        title: 'Recipe 42',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Crème Anglaise',
+        category: 'Accompagnement Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Classic French custard sauce, perfect accompaniment for desserts.',
+        servings: '6 servings',
+        ingredients: [
+            '500ml Milk',
+            '4 Egg yolks',
+            '100g Sugar',
+            '1 Vanilla bean or vanilla extract'
+        ],
+        cookingSteps: [
+            'Heat milk with vanilla until just boiling',
+            'Beat egg yolks with sugar until pale',
+            'Gradually pour hot milk over egg mixture, whisking constantly',
+            'Return to heat and cook gently, stirring constantly',
+            'Cook until thickened and coats the back of a spoon',
+            'Strain and cool'
+        ],
         modifications: null,
-        videoTutorial: null
+        videoTutorial: '👑 La crème Anglaise'
     },
     'recipe43': {
-        title: 'Recipe 43',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Tomates Farcies',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Traditional French stuffed tomatoes with meat and herbs.',
+        servings: '6 servings',
+        ingredients: [
+            '6 large tomatoes',
+            '300g Ground meat (beef, pork, or veal)',
+            '1 Onion',
+            '2 cloves Garlic',
+            'Fresh herbs (thyme, parsley)',
+            'Breadcrumbs',
+            'Olive oil',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Preheat oven to 180°C',
+            'Cut tops off tomatoes and scoop out flesh',
+            'Sauté onion and garlic until softened',
+            'Mix with ground meat, herbs, and breadcrumbs',
+            'Season and stuff tomatoes',
+            'Place in baking dish and drizzle with olive oil',
+            'Bake for 45 minutes until tender'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe44': {
-        title: 'Recipe 44',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Riz au lait',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Classic French rice pudding, creamy and comforting.',
+        servings: '6 servings',
+        ingredients: [
+            '200g Short-grain rice',
+            '1L Milk',
+            '100g Sugar',
+            '1 Vanilla bean',
+            'Cinnamon (optional)'
+        ],
+        cookingSteps: [
+            'Rinse rice until water runs clear',
+            'Heat milk with vanilla bean until just boiling',
+            'Add rice and simmer gently, stirring frequently',
+            'Cook for 30-40 minutes until rice is tender',
+            'Add sugar and stir until dissolved',
+            'Remove vanilla bean and serve warm or cold'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe45': {
-        title: 'Recipe 45',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Quatre-Quart',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Classic French pound cake with equal parts of four ingredients.',
+        servings: '8 servings',
+        ingredients: [
+            '250g Butter',
+            '250g Flour',
+            '250g Sugar',
+            '250g Eggs (~3)',
+            '1 csp Baking soda'
+        ],
+        cookingSteps: [
+            'Preheat oven to 360°F',
+            'Cream butter and sugar until light and fluffy',
+            'Beat in eggs one at a time',
+            'Fold in flour and baking soda',
+            'Pour into buttered loaf pan',
+            'Bake for 45 minutes until golden and cooked through'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe46': {
-        title: 'Recipe 46',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Marbré',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'French marbled cake with vanilla and chocolate swirls.',
+        servings: '8 servings',
+        ingredients: [
+            '250g Butter',
+            '250g Sugar',
+            '4 Eggs',
+            '250g Flour',
+            '2 tsp Baking powder',
+            'Vanilla extract',
+            'Cocoa powder'
+        ],
+        cookingSteps: [
+            'Preheat oven to 180°C',
+            'Cream butter and sugar',
+            'Beat in eggs one at a time',
+            'Fold in flour and baking powder',
+            'Divide batter in half',
+            'Add vanilla to one half, cocoa to the other',
+            'Alternate spoonfuls in loaf pan and swirl',
+            'Bake for 45-50 minutes'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe47': {
-        title: 'Recipe 47',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Poulet basquaise',
+        category: 'Plat de résistance',
+        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        description: 'Basque-style chicken with peppers, tomatoes, and Espelette pepper.',
+        servings: '6 servings',
+        ingredients: [
+            '1 whole chicken, cut into pieces',
+            '2 Red bell peppers',
+            '2 Green bell peppers',
+            '4 Tomatoes',
+            '2 Onions',
+            '3 cloves Garlic',
+            'Espelette pepper or paprika',
+            'White wine',
+            'Olive oil',
+            'Salt and pepper'
+        ],
+        cookingSteps: [
+            'Season chicken pieces with salt and pepper',
+            'Brown chicken in olive oil',
+            'Add onions and garlic, cook until softened',
+            'Add peppers and tomatoes',
+            'Season with Espelette pepper',
+            'Add white wine and simmer for 45 minutes',
+            'Serve hot with rice or potatoes'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe48': {
-        title: 'Recipe 48',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Gâteau au citron',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Moist and tangy French lemon cake.',
+        servings: '8 servings',
+        ingredients: [
+            '350g Flour',
+            '250g Sugar',
+            '250g Butter',
+            '4 Eggs',
+            '1 tbls. Baking soda',
+            '2 Lemons (juice and zest)'
+        ],
+        cookingSteps: [
+            'Preheat oven to 330°F',
+            'Cream butter and sugar until light',
+            'Beat in eggs one at a time',
+            'Add lemon zest and juice',
+            'Fold in flour and baking soda',
+            'Pour into buttered cake pan',
+            'Bake for 1 hour until golden and cooked through'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe49': {
-        title: 'Recipe 49',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Cookies',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Classic chocolate chip cookies, soft and chewy.',
+        servings: '4 servings',
+        ingredients: [
+            '1 egg',
+            '85g butter',
+            '85g sugar',
+            '150g flour',
+            'Chocolate chips',
+            'Vanilla extract',
+            'Baking soda'
+        ],
+        cookingSteps: [
+            'Preheat oven to 360°F',
+            'Cream butter and sugar',
+            'Beat in egg and vanilla',
+            'Mix in flour and baking soda',
+            'Fold in chocolate chips',
+            'Drop spoonfuls onto baking sheet',
+            'Bake for 15 minutes until golden'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe50': {
-        title: 'Recipe 50',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Sablé de Noël',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Traditional French Christmas shortbread cookies with cinnamon.',
+        servings: '20 servings',
+        ingredients: [
+            '250g Flour',
+            '100g sugar',
+            '80g Butter',
+            '1 Egg',
+            'Cinnamon'
+        ],
+        cookingSteps: [
+            'Preheat oven to 360°F',
+            'Mix flour, sugar, and cinnamon',
+            'Cut in butter until crumbly',
+            'Beat in egg until dough forms',
+            'Roll out and cut into shapes',
+            'Bake for 10 minutes until lightly golden'
+        ],
         modifications: null,
         videoTutorial: null
     },
     'recipe51': {
-        title: 'Recipe 51',
-        category: 'Category',
-        image: 'img/Fishing.jpg',
-        description: 'Description to be added',
-        servings: 'Servings to be added',
-        ingredients: [],
-        cookingSteps: [],
+        title: 'Galette des rois',
+        category: 'Dessert',
+        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        description: 'Traditional French King\'s Cake for Epiphany, with puff pastry and frangipane.',
+        servings: '8 servings',
+        ingredients: [
+            '2 sheets Puff pastry',
+            'Frangipane: 100g Butter, 100g Sugar, 2 Eggs, 100g Almond flour',
+            '1 fève (small ceramic figure)',
+            'Egg wash'
+        ],
+        cookingSteps: [
+            'Preheat oven to 200°C',
+            'Make frangipane by creaming butter and sugar',
+            'Beat in eggs and almond flour',
+            'Roll out puff pastry and cut into circles',
+            'Spread frangipane on one circle',
+            'Hide fève in the filling',
+            'Cover with second circle and seal edges',
+            'Brush with egg wash and score pattern',
+            'Bake for 25-30 minutes until golden'
+        ],
         modifications: null,
         videoTutorial: null
     }
@@ -1266,8 +1854,53 @@ function openModal(modalId) {
             `;
         }
         
-        // Fallback to old format for non-recipe modals
-        if (data.details && !data.ingredients) {
+        // Handle project modals with new structure
+        if (modalId.startsWith('project') && data.activities) {
+            // Add activities with images and descriptions
+            if (data.activities && data.activities.length > 0) {
+                data.activities.forEach((activity, index) => {
+                    modalContent += `
+                        <div class="project-activity">
+                            <img src="${activity.image}" alt="Activity ${index + 1}">
+                            <p class="activity-description">${activity.description}</p>
+                        </div>
+                    `;
+                });
+            }
+        }
+        // Handle education modals with new structure
+        else if (modalId.startsWith('edu') && data.coursework) {
+            // Add date/period without title
+            if (data.datePeriod) {
+                modalContent += `<p class="modal-date-period">${data.datePeriod}</p>`;
+            }
+            
+            // Add coursework if it exists
+            if (data.coursework && data.coursework.length > 0) {
+                modalContent += `
+                    <div class="modal-section">
+                        <h3>Coursework</h3>
+                        <ul>
+                            ${data.coursework.map(course => `<li>${course}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            // Add volunteering if it exists
+            if (data.volunteering && data.volunteering.length > 0) {
+                modalContent += `
+                    <div class="modal-section">
+                        <h3>Volunteering & Activities</h3>
+                        <ul>
+                            ${data.volunteering.map(activity => `<li>${activity}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+        }
+        // Fallback to old format for non-recipe, non-education modals
+        else if (data.details && !data.ingredients) {
             modalContent += `
             <h3>Details:</h3>
             <ul>
@@ -1674,17 +2307,42 @@ function createPaginationDots(containerId) {
     
     // Only show dots if there are multiple pages
     if (totalPages > 1) {
-        // Create dots
-        for (let i = 0; i < totalPages; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'pagination-dot';
-            if (i === 0) dot.classList.add('active');
+        // If more than 10 pages, show line with active dot
+        if (totalPages > 10) {
+            const lineContainer = document.createElement('div');
+            lineContainer.className = 'pagination-line-container';
             
-            dot.addEventListener('click', () => {
-                goToSwipe(containerId, i);
+            const line = document.createElement('div');
+            line.className = 'pagination-line';
+            
+            const activeDot = document.createElement('div');
+            activeDot.className = 'pagination-line-dot active';
+            
+            lineContainer.appendChild(line);
+            lineContainer.appendChild(activeDot);
+            dotsContainer.appendChild(lineContainer);
+            
+            // Add click handler to the line container
+            lineContainer.addEventListener('click', (e) => {
+                const rect = lineContainer.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const percentage = clickX / rect.width;
+                const pageIndex = Math.round(percentage * (totalPages - 1));
+                goToSwipe(containerId, pageIndex);
             });
-            
-            dotsContainer.appendChild(dot);
+        } else {
+            // Create dots (original behavior)
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'pagination-dot';
+                if (i === 0) dot.classList.add('active');
+                
+                dot.addEventListener('click', () => {
+                    goToSwipe(containerId, i);
+                });
+                
+                dotsContainer.appendChild(dot);
+            }
         }
     }
 }
@@ -1695,15 +2353,30 @@ function updatePaginationDots(containerId) {
     
     if (!container || !dotsContainer) return;
     
-    const dots = dotsContainer.querySelectorAll('.pagination-dot');
+    const cards = container.querySelectorAll('.card:not(.hidden)');
+    const totalCards = cards.length;
+    const cardsPerView = getCardsPerView();
+    const totalPages = Math.max(1, totalCards - cardsPerView + 1);
     const currentPosition = cardSliderPositions[containerId] || 0;
     
-    // For one-card-at-a-time scrolling, position directly corresponds to page index
-    const activeDotIndex = currentPosition;
-    
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === activeDotIndex);
-    });
+    if (totalPages > 10) {
+        // Update line-based pagination
+        const lineContainer = dotsContainer.querySelector('.pagination-line-container');
+        const activeDot = dotsContainer.querySelector('.pagination-line-dot');
+        
+        if (lineContainer && activeDot) {
+            const percentage = (currentPosition / (totalPages - 1)) * 100;
+            activeDot.style.left = `${percentage}%`;
+        }
+    } else {
+        // Update individual dots (original behavior)
+        const dots = dotsContainer.querySelectorAll('.pagination-dot');
+        const activeDotIndex = currentPosition;
+        
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === activeDotIndex);
+        });
+    }
 }
 
 function goToSwipe(containerId, swipeIndex) {

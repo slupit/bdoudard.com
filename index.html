@@ -109,43 +109,29 @@
                     <div class="card-slider">
                         <div class="card-container" id="projects-container">
                             <div class="card" onclick="openModal('project1')">
-                                <img src="img/Fishing.jpg" alt="E-Commerce App">
+                                <div style="background: #33658a; padding: 16px; display: flex; justify-content: center; align-items: center; height: 200px;">
+                                    <img src="img/Logo_2_V1.png" alt="Personal Website" style="background: transparent; width: 100px; height: auto;">
+                                </div>
                                 <div class="card-content">
-                                    <h3>E-Commerce Platform</h3>
-                                    <p class="card-meta">2023–2024</p>
-                                    <p>Full-stack web application with React and Node.js</p>
+                                    <h3>Personal Website</h3>
+                                    <p class="card-meta">Since 2022</p>
+                                    <p>Full-stack web application with HTML, CSS, JavaScript</p>
                                 </div>
                             </div>
                             <div class="card" onclick="openModal('project2')">
-                                <img src="img/Fishing.jpg" alt="Mobile App">
+                                <img src="img/AirbnbMap.png" alt="Mobile App">
                                 <div class="card-content">
-                                    <h3>Mobile Banking App</h3>
-                                    <p class="card-meta">2022–2023</p>
-                                    <p>Cross-platform mobile application with Flutter</p>
+                                    <h3>Airbnb Scrapping</h3>
+                                    <p class="card-meta">Summer 2025</p>
+                                    <p>Explore AirBnB rental market data to understand pricing</p>
                                 </div>
                             </div>
                             <div class="card" onclick="openModal('project3')">
-                                <img src="img/Fishing.jpg" alt="AI Project">
+                                <img src="img/FacilityLocationPlot.png" alt="Facility Location">
                                 <div class="card-content">
-                                    <h3>AI Chatbot</h3>
-                                    <p class="card-meta">2021–2022</p>
-                                    <p>Intelligent chatbot using machine learning algorithms</p>
-                                </div>
-                            </div>
-                            <div class="card" onclick="openModal('project4')">
-                                <img src="img/Fishing.jpg" alt="Web App">
-                                <div class="card-content">
-                                    <h3>Task Management App</h3>
-                                    <p class="card-meta">2020–2021</p>
-                                    <p>Collaborative project management tool with real-time updates</p>
-                                </div>
-                            </div>
-                            <div class="card" onclick="openModal('project5')">
-                                <img src="img/Fishing.jpg" alt="API Service">
-                                <div class="card-content">
-                                    <h3>REST API Service</h3>
-                                    <p class="card-meta">2020</p>
-                                    <p>Scalable microservice architecture with authentication</p>
+                                    <h3>Facility Location</h3>
+                                    <p class="card-meta">Spring 2024</p>
+                                    <p>Solve and display the optimal location for a new facility</p>
                                 </div>
                             </div>
                         </div>
@@ -241,28 +227,50 @@
                                 <div class="card-content">
                                     <h3>Web Programming</h3>
                                     <p class="card-meta">Frontend & Backend</p>
-                                    <p>JavaScript, TypeScript, React, Node.js, HTML5, CSS3, Tailwind CSS</p>
+                                    <div class="skills-list">
+                                        <span class="skill-item">JavaScript</span>
+                                        <span class="skill-item">TypeScript</span>
+                                        <span class="skill-item">React</span>
+                                        <span class="skill-item">Node.js</span>
+                                        <span class="skill-item">HTML5</span>
+                                        <span class="skill-item">CSS3</span>
+                                        <span class="skill-item">Tailwind CSS</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-content">
                                     <h3>Software & Tools</h3>
                                     <p class="card-meta">Development & Design</p>
-                                    <p>Python, SQL, MongoDB, AWS, Docker, Git, VS Code, Figma</p>
+                                    <div class="skills-list">
+                                        <span class="skill-item">Python</span>
+                                        <span class="skill-item">SQL</span>
+                                        <span class="skill-item">Git</span>
+                                        <span class="skill-item">VS Code</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-content">
                                     <h3>Languages Spoken</h3>
                                     <p class="card-meta">Communication</p>
-                                    <p>French (Native), English (Fluent), Spanish (Intermediate)</p>
+                                    <div class="skills-list">
+                                        <span class="skill-item">French<br>(Native)</span>
+                                        <span class="skill-item">English<br>(Fluent)</span>
+                                        <span class="skill-item">Spanish<br>(Intermediate)</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-content">
                                     <h3>Engineering Skills</h3>
                                     <p class="card-meta">Technical Expertise</p>
-                                    <p>Industrial Engineering, Data Analysis, Process Optimization, Project Management</p>
+                                    <div class="skills-list">
+                                        <span class="skill-item">Industrial Engineering</span>
+                                        <span class="skill-item">Data Analysis</span>
+                                        <span class="skill-item">Process Optimization</span>
+                                        <span class="skill-item">Project Management</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -316,9 +324,9 @@
                             <button class="category-tab-btn active" data-category="all">All</button>
                             <button class="category-tab-btn" data-category="Patisserie">Patisserie</button>
                             <button class="category-tab-btn" data-category="Dessert">Dessert</button>
-                            <button class="category-tab-btn" data-category="Plat de résistance">Plat de résistance</button>
-                            <button class="category-tab-btn" data-category="Accompagnement">Accompagnement</button>
-                            <button class="category-tab-btn" data-category="Vienoiserie">Vienoiserie</button>
+                            <button class="category-tab-btn" data-category="Plat">Plat</button>
+                            <button class="category-tab-btn" data-category="Accompagnement Dessert">Accompagnement Dessert</button>
+                            <button class="category-tab-btn" data-category="Viennoiserie">Viennoiserie</button>
                             <button class="category-tab-btn" data-category="Appetizer">Appetizer</button>
                         </div>
                     </div>
@@ -326,361 +334,361 @@
                     <div class="card-slider">
                         <div class="card-container" id="recipes-container">
                             <div class="card recipe-card" data-category="Patisserie" onclick="openModal('recipe1')">
-                                <img src="img/Fishing.jpg" alt="Far Breton">
+                                <img src="https://i.pinimg.com/736x/88/53/49/88534967321a2a641eeac2c11faeb6cd.jpg" alt="Far Breton">
                                 <div class="card-content">
                                     <h3>Far Breton</h3>
                                     <p class="card-category">Patisserie</p>
                                 </div>
                             </div>
                             <div class="card recipe-card" data-category="Patisserie" onclick="openModal('recipe2')">
-                                <img src="img/Fishing.jpg" alt="Flan Patissier">
+                                <img src="https://i.pinimg.com/736x/35/35/c7/3535c7ac92c74c1ff0ef2a07212df00f.jpg" alt="Flan Patissier">
                                 <div class="card-content">
                                     <h3>Flan Patissier</h3>
                                     <p class="card-category">Patisserie</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Plat de résistance" onclick="openModal('recipe3')">
-                                <img src="img/Fishing.jpg" alt="Cassoulet">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe3')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Cassoulet">
                                 <div class="card-content">
                                     <h3>Cassoulet (Bastien version)</h3>
-                                    <p class="card-category">Plat de résistance</p>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
                             <div class="card recipe-card" data-category="Accompagnement" onclick="openModal('recipe4')">
-                                <img src="img/Fishing.jpg" alt="Pain">
+                                <img src="https://i.pinimg.com/1200x/cb/a8/4f/cba84fd2f187b4d1e54afc3beea630f8.jpg" alt="Pain">
                                 <div class="card-content">
                                     <h3>Pain</h3>
                                     <p class="card-category">Accompagnement</p>
                                 </div>
                             </div>
                             <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe5')">
-                                <img src="img/Fishing.jpg" alt="Crumble">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Crumble">
                                 <div class="card-content">
                                     <h3>Crumble</h3>
                                     <p class="card-category">Dessert</p>
                                 </div>
                             </div>
                             <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe6')">
-                                <img src="img/Fishing.jpg" alt="Tarte aux pommes">
+                                <img src="https://i.pinimg.com/736x/f5/cc/35/f5cc357d9a09aca7296b149448cb0c57.jpg" alt="Tarte aux pommes">
                                 <div class="card-content">
                                     <h3>Tarte aux pommes</h3>
                                     <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Plat de résistance" onclick="openModal('recipe7')">
-                                <img src="img/Fishing.jpg" alt="Lasagne">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe7')">
+                                <img src="https://i.pinimg.com/736x/b7/32/84/b732847d2b6dba5ec3f7a43199704574.jpg" alt="Lasagne">
                                 <div class="card-content">
                                     <h3>Lasagne (Bastien version)</h3>
-                                    <p class="card-category">Plat de résistance</p>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
                             <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe8')">
-                                <img src="img/Fishing.jpg" alt="Mousse au chocolat">
+                                <img src="https://i.pinimg.com/1200x/19/ec/c9/19ecc94381dfb9ba26028f93ea1cf407.jpg" alt="Mousse au chocolat">
                                 <div class="card-content">
                                     <h3>Mousse au chocolat</h3>
                                     <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <!-- Blank recipe cards 9-51 (to be completed manually) -->
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe9')">
-                                <img src="img/Fishing.jpg" alt="Recipe 9">
+                            <!-- French Recipes 9-51 -->
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe9')">
+                                <img src="https://i.pinimg.com/1200x/7a/3f/4c/7a3f4c283a9d0dd6d11d52b3e12def48.jpg" alt="Tarte aux pommes normande">
                                 <div class="card-content">
-                                    <h3>Recipe 9</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Tarte aux pommes normande</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe10')">
-                                <img src="img/Fishing.jpg" alt="Recipe 10">
+                            <div class="card recipe-card" data-category="Patisserie" onclick="openModal('recipe10')">
+                                <img src="https://i.pinimg.com/1200x/40/06/41/4006415e2e232d8a7b0c860887c3d3e2.jpg" alt="Tarte au citron meringuee">
                                 <div class="card-content">
-                                    <h3>Recipe 10</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Tarte au citron meringuée</h3>
+                                    <p class="card-category">Patisserie</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe11')">
-                                <img src="img/Fishing.jpg" alt="Recipe 11">
+                            <div class="card recipe-card" data-category="Patisserie" onclick="openModal('recipe11')">
+                                <img src="https://i.pinimg.com/736x/c7/48/ca/c748ca56eb91298662a7fea7aeb679f7.jpg" alt="Eclair au chocolat">
                                 <div class="card-content">
-                                    <h3>Recipe 11</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Éclair au chocolat</h3>
+                                    <p class="card-category">Patisserie</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe12')">
-                                <img src="img/Fishing.jpg" alt="Recipe 12">
+                            <div class="card recipe-card" data-category="Patisserie" onclick="openModal('recipe12')">
+                                <img src="https://i.pinimg.com/1200x/7d/68/1a/7d681ad04e46662d8834a4495c32cdc3.jpg" alt="Choux a la ganache chocolat">
                                 <div class="card-content">
-                                    <h3>Recipe 12</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Choux à la ganache chocolat</h3>
+                                    <p class="card-category">Patisserie</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe13')">
-                                <img src="img/Fishing.jpg" alt="Recipe 13">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe13')">
+                                <img src="https://img.over-blog-kiwi.com/0/93/39/43/20200201/ob_942dd7_img-0395.jpg#width=1066&height=1600" alt="Crêpes">
                                 <div class="card-content">
-                                    <h3>Recipe 13</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Crêpes</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe14')">
-                                <img src="img/Fishing.jpg" alt="Recipe 14">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe14')">
+                                <img src="https://i.pinimg.com/736x/0b/0c/54/0b0c54bf4e6f6525509e8e42edcc70d4.jpg" alt="Gratin de choux fleur">
                                 <div class="card-content">
-                                    <h3>Recipe 14</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Gratin de choux fleur</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe15')">
-                                <img src="img/Fishing.jpg" alt="Recipe 15">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe15')">
+                                <img src="https://i.pinimg.com/1200x/d0/27/14/d02714120bf5763f7acf270c3d0f6027.jpg" alt="Gratin dauphinois">
                                 <div class="card-content">
-                                    <h3>Recipe 15</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Gratin dauphinois</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe16')">
-                                <img src="img/Fishing.jpg" alt="Recipe 16">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe16')">
+                                <img src="https://i.pinimg.com/1200x/95/ee/aa/95eeaa8624cbcfb1f3ff89c370198e06.jpg" alt="Quiche (Bastien's mom recipe)">
                                 <div class="card-content">
-                                    <h3>Recipe 16</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Quiche (Bastien's mom recipe)</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe17')">
-                                <img src="img/Fishing.jpg" alt="Recipe 17">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe17')">
+                                <img src="https://i.pinimg.com/1200x/f0/a1/f5/f0a1f5e36e30f45e56c73865b2d2760d.jpg" alt="Galette bretonne">
                                 <div class="card-content">
-                                    <h3>Recipe 17</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Galette bretonne</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe18')">
-                                <img src="img/Fishing.jpg" alt="Recipe 18">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe18')">
+                                <img src="https://i.pinimg.com/736x/bc/b6/ea/bcb6ead7c18d95e290306e9149e5172e.jpg" alt="Fondant au chocolat">
                                 <div class="card-content">
-                                    <h3>Recipe 18</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Fondant au chocolat</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe19')">
-                                <img src="img/Fishing.jpg" alt="Recipe 19">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe19')">
+                                <img src="https://i.pinimg.com/736x/53/aa/a0/53aaa0053d541ee91bf5f47d9c71340b.jpg" alt="Coulant au chocolat">
                                 <div class="card-content">
-                                    <h3>Recipe 19</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Coulant au chocolat</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe20')">
-                                <img src="img/Fishing.jpg" alt="Recipe 20">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe20')">
+                                <img src="https://i.pinimg.com/1200x/34/94/c2/3494c2b1572fe41c357aa5672609574e.jpg" alt="Mouelleux au chocolat - Muffin">
                                 <div class="card-content">
-                                    <h3>Recipe 20</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Mouelleux au chocolat - Muffin</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe21')">
-                                <img src="img/Fishing.jpg" alt="Recipe 21">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe21')">
+                                <img src="https://i.pinimg.com/736x/80/5c/76/805c76048debe29b7326c8684a9cd320.jpg" alt="Muffin nature">
                                 <div class="card-content">
-                                    <h3>Recipe 21</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Muffin nature</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe22')">
-                                <img src="img/Fishing.jpg" alt="Recipe 22">
+                            <div class="card recipe-card" data-category="Viennoiserie" onclick="openModal('recipe22')">
+                                <img src="https://i.pinimg.com/1200x/9c/19/6c/9c196c5496cc3b541811a5bd0e29dee5.jpg" alt="Brioche">
                                 <div class="card-content">
-                                    <h3>Recipe 22</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Brioche</h3>
+                                    <p class="card-category">Viennoiserie</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe23')">
-                                <img src="img/Fishing.jpg" alt="Recipe 23">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe23')">
+                                <img src="https://i.pinimg.com/1200x/23/85/24/238524e32c6978f75814730369ae1d59.jpg" alt="Flamenkuche">
                                 <div class="card-content">
-                                    <h3>Recipe 23</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Flamenkuche</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe24')">
-                                <img src="img/Fishing.jpg" alt="Recipe 24">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe24')">
+                                <img src="https://recettedelicieux.com/wp-content/uploads/2025/07/Untitled-design-2025-07-01T160301.500.jpg" alt="Endive au jambon">
                                 <div class="card-content">
-                                    <h3>Recipe 24</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Endive au jambon</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe25')">
-                                <img src="img/Fishing.jpg" alt="Recipe 25">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe25')">
+                                <img src="" alt="Macedoine au jambon">
                                 <div class="card-content">
-                                    <h3>Recipe 25</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Macedoine au jambon</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe26')">
-                                <img src="img/Fishing.jpg" alt="Recipe 26">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe26')">
+                                <img src="https://i.pinimg.com/1200x/e5/42/40/e5424041754f4e33471f7bad7b284a7e.jpg" alt="Boeuf bourgignon">
                                 <div class="card-content">
-                                    <h3>Recipe 26</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Boeuf bourgignon</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe27')">
-                                <img src="img/Fishing.jpg" alt="Recipe 27">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe27')">
+                                <img src="https://i.pinimg.com/1200x/c9/10/35/c91035ce103cc962d9b41e28cd61f59e.jpg" alt="Potée">
                                 <div class="card-content">
-                                    <h3>Recipe 27</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Potée</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe28')">
-                                <img src="img/Fishing.jpg" alt="Recipe 28">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe28')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Pot au feu">
                                 <div class="card-content">
-                                    <h3>Recipe 28</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Pot au feu</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe29')">
-                                <img src="img/Fishing.jpg" alt="Recipe 29">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe29')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Poulet rôti">
                                 <div class="card-content">
-                                    <h3>Recipe 29</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Poulet rôti</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe30')">
-                                <img src="img/Fishing.jpg" alt="Recipe 30">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe30')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Saussice-Lentille">
                                 <div class="card-content">
-                                    <h3>Recipe 30</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Saussice-Lentille</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe31')">
-                                <img src="img/Fishing.jpg" alt="Recipe 31">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe31')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Rougaille saucisse">
                                 <div class="card-content">
-                                    <h3>Recipe 31</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Rougaille saucisse</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe32')">
-                                <img src="img/Fishing.jpg" alt="Recipe 32">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe32')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Blanquette de veau">
                                 <div class="card-content">
-                                    <h3>Recipe 32</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Blanquette de veau</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe33')">
-                                <img src="img/Fishing.jpg" alt="Recipe 33">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe33')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Hachis parmentier">
                                 <div class="card-content">
-                                    <h3>Recipe 33</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Hachis parmentier</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe34')">
-                                <img src="img/Fishing.jpg" alt="Recipe 34">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe34')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Riz cantonnais à la française">
                                 <div class="card-content">
-                                    <h3>Recipe 34</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Riz cantonnais à la française</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe35')">
-                                <img src="img/Fishing.jpg" alt="Recipe 35">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe35')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Sauté de porc">
                                 <div class="card-content">
-                                    <h3>Recipe 35</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Sauté de porc</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe36')">
-                                <img src="img/Fishing.jpg" alt="Recipe 36">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe36')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Chouquettes">
                                 <div class="card-content">
-                                    <h3>Recipe 36</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Chouquettes</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe37')">
-                                <img src="img/Fishing.jpg" alt="Recipe 37">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe37')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Charlotte aux amandes">
                                 <div class="card-content">
-                                    <h3>Recipe 37</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Charlotte aux amandes</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe38')">
-                                <img src="img/Fishing.jpg" alt="Recipe 38">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe38')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Ratatouille">
                                 <div class="card-content">
-                                    <h3>Recipe 38</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Ratatouille</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe39')">
-                                <img src="img/Fishing.jpg" alt="Recipe 39">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe39')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Tiramisu (classic)">
                                 <div class="card-content">
-                                    <h3>Recipe 39</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Tiramisu (classic)</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe40')">
-                                <img src="img/Fishing.jpg" alt="Recipe 40">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe40')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Orange Tiramisu">
                                 <div class="card-content">
-                                    <h3>Recipe 40</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Orange Tiramisu</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe41')">
-                                <img src="img/Fishing.jpg" alt="Recipe 41">
+                            <div class="card recipe-card" data-category="Appetizer" onclick="openModal('recipe41')">
+                                <img src="https://i.pinimg.com/1200x/cb/a8/4f/cba84fd2f187b4d1e54afc3beea630f8.jpg" alt="Gougères">
                                 <div class="card-content">
-                                    <h3>Recipe 41</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Gougères</h3>
+                                    <p class="card-category">Appetizer</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe42')">
-                                <img src="img/Fishing.jpg" alt="Recipe 42">
+                            <div class="card recipe-card" data-category="Accompagnement Dessert" onclick="openModal('recipe42')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Crème Anglaise">
                                 <div class="card-content">
-                                    <h3>Recipe 42</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Crème Anglaise</h3>
+                                    <p class="card-category">Accompagnement Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe43')">
-                                <img src="img/Fishing.jpg" alt="Recipe 43">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe43')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Tomates Farcies">
                                 <div class="card-content">
-                                    <h3>Recipe 43</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Tomates Farcies</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe44')">
-                                <img src="img/Fishing.jpg" alt="Recipe 44">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe44')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Riz au lait">
                                 <div class="card-content">
-                                    <h3>Recipe 44</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Riz au lait</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe45')">
-                                <img src="img/Fishing.jpg" alt="Recipe 45">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe45')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Quatre-Quart">
                                 <div class="card-content">
-                                    <h3>Recipe 45</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Quatre-Quart</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe46')">
-                                <img src="img/Fishing.jpg" alt="Recipe 46">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe46')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Marbré">
                                 <div class="card-content">
-                                    <h3>Recipe 46</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Marbré</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe47')">
-                                <img src="img/Fishing.jpg" alt="Recipe 47">
+                            <div class="card recipe-card" data-category="Plat" onclick="openModal('recipe47')">
+                                <img src="https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg" alt="Poulet basquaise">
                                 <div class="card-content">
-                                    <h3>Recipe 47</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Poulet basquaise</h3>
+                                    <p class="card-category">Plat</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe48')">
-                                <img src="img/Fishing.jpg" alt="Recipe 48">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe48')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Gâteau au citron">
                                 <div class="card-content">
-                                    <h3>Recipe 48</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Gâteau au citron</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe49')">
-                                <img src="img/Fishing.jpg" alt="Recipe 49">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe49')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Cookies">
                                 <div class="card-content">
-                                    <h3>Recipe 49</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Cookies</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe50')">
-                                <img src="img/Fishing.jpg" alt="Recipe 50">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe50')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Sablé de Noël">
                                 <div class="card-content">
-                                    <h3>Recipe 50</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Sablé de Noël</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
-                            <div class="card recipe-card" data-category="Category" onclick="openModal('recipe51')">
-                                <img src="img/Fishing.jpg" alt="Recipe 51">
+                            <div class="card recipe-card" data-category="Dessert" onclick="openModal('recipe51')">
+                                <img src="https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg" alt="Galette des rois">
                                 <div class="card-content">
-                                    <h3>Recipe 51</h3>
-                                    <p class="card-category">Category</p>
+                                    <h3>Galette des rois</h3>
+                                    <p class="card-category">Dessert</p>
                                 </div>
                             </div>
                         </div>

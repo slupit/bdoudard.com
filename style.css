@@ -171,7 +171,7 @@ body {
 
 /* Highlights Section */
 .highlights {
-    padding: 120px 0 80px;
+    padding: 120px 0px 10px;
     background: linear-gradient(135deg, var(--light-blue) 0%, var(--primary-blue) 100%);
     color: var(--white);
     overflow-x: hidden;
@@ -219,6 +219,7 @@ body {
     text-align: center;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    height: 100%;
 }
 
 .slide-content h3 {
@@ -228,12 +229,18 @@ body {
 }
 
 .slide-date {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.9);
-    margin-top: -0.5rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.5px;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
 }
 
 .slide-content p {
@@ -244,7 +251,7 @@ body {
 
 .slide-content img {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     height: 250px;
     object-fit: cover;
     border-radius: 10px;
@@ -255,7 +262,7 @@ body {
     position: relative;
     display: inline-block;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -284,7 +291,7 @@ body {
 
 .slide-iframe-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
     border-radius: 12px;
     overflow: hidden;
@@ -331,7 +338,7 @@ body {
 
 /* Portfolio and Resources Sections */
 .portfolio, .resources {
-    padding: 80px 0;
+    padding: 20px 0px;
     background-color: var(--white);
 }
 
@@ -372,7 +379,8 @@ body {
     transition: all 0.3s ease;
     font-size: 1.2rem;
     font-weight: 600;
-    margin: 0 auto 1rem;
+    margin: 0 auto 0.5rem;
+    width: 200px;
 }
 
 .tabs-hamburger:hover {
@@ -565,7 +573,7 @@ body {
     justify-content: center;
     gap: 0.5rem;
     margin-top: 1.5rem;
-    padding: 0 1rem;
+    padding: 1rem;
 }
 
 .pagination-dot {
@@ -603,17 +611,95 @@ body {
 }
 
 /* Highlights carousel dots */
+.highlights .pagination-dots {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
 .highlights .pagination-dot {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
 .highlights .pagination-dot:hover {
     background-color: var(--accent-yellow);
+    transform: scale(1.2);
 }
 
 .highlights .pagination-dot.active {
     background-color: var(--accent-yellow);
+    transform: scale(1.1);
     box-shadow: 0 0 0 2px rgba(246, 174, 45, 0.3);
+}
+
+/* Line-based pagination styles */
+.pagination-line-container {
+    position: relative;
+    width: 200px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+/* Responsive line length */
+@media (min-width: 768px) {
+    .pagination-line-container {
+        width: 300px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .pagination-line-container {
+        width: 400px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .pagination-line-container {
+        width: 500px;
+    }
+}
+
+.pagination-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: rgba(51, 101, 138, 0.3);
+    border-radius: 2px;
+    transform: translateY(-50%);
+}
+
+.pagination-line-dot {
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 0.3s ease;
+    box-shadow: 0 2px 8px rgba(51, 101, 138, 0.4);
+}
+
+/* Highlights section line pagination */
+.highlights .pagination-line {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.highlights .pagination-line-dot {
+    background-color: var(--accent-yellow);
+    box-shadow: 0 2px 8px rgba(246, 174, 45, 0.4);
+}
+
+/* Resources section line pagination */
+.resources .pagination-line {
+    background-color: rgba(246, 174, 45, 0.3);
+}
+
+.resources .pagination-line-dot {
+    background-color: var(--accent-yellow);
+    box-shadow: 0 2px 8px rgba(246, 174, 45, 0.4);
 }
 
 .card:hover {
@@ -626,6 +712,8 @@ body {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    object-position: center;
+    border-radius: 0;
 }
 
 .card-content {
@@ -647,8 +735,8 @@ body {
 
 .card-meta {
     font-size: 0.9rem;
-    color: var(--primary-blue);
-    font-weight: 700;
+    color: #888888;
+    font-weight: 800;
     margin-bottom: 0.5rem;
 }
 
@@ -697,7 +785,7 @@ body {
     transition: all 0.3s ease;
     font-size: 1.2rem;
     font-weight: 600;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1rem;
     max-width: 200px;
 }
 
@@ -781,6 +869,78 @@ body {
 
 /* Recipe section uses responsive behavior like other sections */
 
+/* Skills List Styles */
+.skills-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.skill-item {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    background: linear-gradient(135deg, rgba(134, 187, 216, 0.1) 0%, rgba(51, 101, 138, 0.1) 100%);
+    border: 1px solid rgba(51, 101, 138, 0.2);
+    border-radius: 8px;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 100%);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom;
+}
+
+.skill-item:hover {
+    background: linear-gradient(135deg, rgba(134, 187, 216, 0.2) 0%, rgba(51, 101, 138, 0.2) 100%);
+    border-color: var(--primary-blue);
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(51, 101, 138, 0.2);
+}
+
+.skill-item:hover::before {
+    transform: scaleY(1);
+}
+
+/* Responsive skills list styles */
+@media (max-width: 768px) {
+    .skills-list {
+        gap: 0.4rem;
+        margin-top: 0.8rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .skill-item {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-list {
+        gap: 0.3rem;
+        margin-top: 0.6rem;
+        grid-template-columns: 1fr;
+    }
+    
+    .skill-item {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}
 
 /* Footer */
 .footer {
@@ -935,7 +1095,7 @@ body {
 
 #modal-body img {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     height: 250px;
     object-fit: cover;
     border-radius: 10px;
@@ -1024,6 +1184,149 @@ body {
     background: var(--accent-orange);
 }
 
+/* Education Modal Specific Styles */
+.modal-section h3 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--accent-yellow);
+    padding-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-section h3::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 100%);
+    border-radius: 2px;
+}
+
+.modal-section ul {
+    margin-left: 1.5rem;
+    color: var(--text-light);
+}
+
+.modal-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    position: relative;
+}
+
+.modal-section li::before {
+    content: '•';
+    color: var(--primary-blue);
+    font-weight: bold;
+    position: absolute;
+    left: -1rem;
+}
+
+/* Date/Period styling */
+.modal-date-period {
+    background: linear-gradient(135deg, rgba(134, 187, 216, 0.1) 0%, rgba(51, 101, 138, 0.1) 100%);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-blue);
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 1rem 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.modal-section p {
+    background: linear-gradient(135deg, rgba(134, 187, 216, 0.1) 0%, rgba(51, 101, 138, 0.1) 100%);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-blue);
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+/* Coursework and Volunteering sections */
+.modal-section ul {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Project Activity Styles */
+.project-activity {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(134, 187, 216, 0.05) 0%, rgba(51, 101, 138, 0.05) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-activity:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-blue);
+}
+
+.project-activity img {
+    width: 100%;
+    max-width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-activity:hover img {
+    transform: scale(1.02);
+}
+
+.activity-description {
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+/* Responsive project activity styles */
+@media (max-width: 768px) {
+    .project-activity {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .project-activity img {
+        height: 100px;
+    }
+    
+    .activity-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-activity {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .project-activity img {
+        height: 80px;
+    }
+    
+    .activity-description {
+        font-size: 0.85rem;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
@@ -1088,14 +1391,14 @@ body {
         display: flex;
         font-size: 1.5rem;
         padding: 1.5rem;
-        margin-bottom: 0;
+        margin-bottom: 0.5rem;
     }
 
     .category-tabs-hamburger {
         display: flex;
         font-size: 1.1rem;
         padding: 1rem;
-        margin-bottom: 0;
+        margin-bottom: 1rem;
     }
 
     .category-tabs-menu {
@@ -1105,6 +1408,7 @@ body {
         transform: translateX(-50%);
         background: var(--primary-dark);
         border-radius: 8px;
+        border: 1px solid var(--accent-yellow);
         box-shadow: 0 8px 25px var(--shadow);
         padding: 1rem;
         z-index: 100;
@@ -1139,6 +1443,7 @@ body {
         transform: translateX(-50%);
         background: var(--white);
         border-radius: 8px;
+        border: 2px solid var(--primary-blue);
         box-shadow: 0 8px 25px var(--shadow);
         padding: 1rem;
         z-index: 100;
