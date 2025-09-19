@@ -358,7 +358,7 @@ const modalData = {
     'edu1': {
         title: 'Texas A&M University',
         image: 'https://thebatt.com/wp-content/uploads/2024/10/CJS13047-1200x800.jpg',
-        description: 'Master\'s of Science in Industrial Engineering. Advanced studies in operations research, supply chain management, and data analysis with focus on optimization and process improvement.',
+        description: 'Master of Science in Industrial Engineering. Advanced studies in operations research, supply chain management, and data analysis with focus on optimization and process improvement.',
         datePeriod: 'January 2024 – May 2025',
         coursework: [
             'ISEN 608 - Industrial Case Analysis',
