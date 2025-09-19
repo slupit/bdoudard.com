@@ -1245,6 +1245,121 @@ body {
     padding: 1.5rem;
 }
 
+/* Memory Modal Styles */
+.memory-modal .modal-content {
+    max-width: 900px;
+    padding: 2rem;
+}
+
+/* Memory Modal Description Styling */
+.memory-modal .modal-description {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(134, 187, 216, 0.1) 0%, rgba(51, 101, 138, 0.1) 100%);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-blue);
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Memory Gallery Grid */
+.memory-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: start;
+}
+
+/* Memory Picture Container */
+.memory-picture {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+}
+
+.memory-picture:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Picture Container */
+.picture-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.picture-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+/* When custom height is applied, use cover to fill the container */
+.picture-container.custom-height img {
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+}
+
+.memory-picture:hover .picture-container img {
+    transform: scale(1.05);
+}
+
+/* Picture Caption */
+.picture-caption {
+    padding: 1.5rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Single Picture Layout */
+.memory-gallery:has(.memory-picture:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 2rem auto 0;
+}
+
+.memory-gallery:has(.memory-picture:only-child) .memory-picture {
+    max-width: 100%;
+}
+
+/* Two Pictures Layout */
+.memory-gallery:has(.memory-picture:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+/* Three or More Pictures Layout */
+.memory-gallery:has(.memory-picture:nth-child(3)) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
 .video-container {
     position: relative;
     width: 100%;
@@ -1274,11 +1389,77 @@ body {
     .video-container iframe {
         height: 250px;
     }
+    
+    .memory-modal .modal-content {
+        max-width: 95%;
+        margin: 3% auto;
+        padding: 1.5rem;
+    }
+    
+    /* Memory Gallery Responsive */
+    .memory-gallery {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .memory-gallery:has(.memory-picture:nth-child(2):last-child) {
+        grid-template-columns: 1fr;
+    }
+    
+    .memory-gallery:has(.memory-picture:nth-child(3)) {
+        grid-template-columns: 1fr;
+    }
+    
+    .memory-modal .modal-description {
+        margin: 1rem 0;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .picture-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .picture-caption {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
     .video-container iframe {
         height: 200px;
+    }
+    
+    .memory-modal .modal-content {
+        max-width: 98%;
+        margin: 2% auto;
+        padding: 1rem;
+    }
+    
+    /* Memory Gallery Small Screens */
+    .memory-gallery {
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .memory-modal .modal-description {
+        margin: 0.75rem 0;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .picture-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .picture-caption {
+        padding: 0.75rem;
+        font-size: 0.85rem;
     }
 }
 

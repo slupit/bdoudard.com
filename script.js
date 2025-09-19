@@ -429,76 +429,76 @@ const modalData = {
         ]
     },
     'memory1': {
-        title: 'Fishing Adventures',
-        date: 'Summer 2023',
+        title: 'Adventure in Florida',
+        date: 'Summer & Winter 2024',
         description: '',
         pictures: [
             {
                 image: 'img/memories/Fishing.jpg',
-                caption: 'Went for a full day saltwater fishing and caught plenty of fish including a young hammer shark, enought for a nice taco dinner as a reward.'
-            },
-            {
-                image: 'img/memories/Fishing.jpg',
-                caption: ''
-            },
-            {
-                image: 'img/memories/Fishing.jpg',
-                caption: ''
+                caption: 'Went for a full day saltwater fishing and caught plenty of fish including a young hammer shark, enought for a nice taco dinner as a reward.',
+                height: 300
             }
         ]
     },
     'memory2': {
         title: 'Judo Journey',
-        date: '2022 - 2024',
+        date: 'Since 2007',
         description: 'Two years of martial arts discipline, building not just physical strength but mental resilience and character.',
         pictures: [
             {
                 image: 'img/memories/Judo.jpg',
-                caption: 'Reunion with my judo sensei and my best friend for a few hours of training.'
-            },
-            {
-                image: 'img/memories/Judo.jpg',
-                caption: ''
+                caption: 'Reunion with my judo sensei and my best friend for a few hours of training.',
+                positionX: 0,
+                positionY: -50,
+                height: 400
             }
         ]
     },
     'memory3': {
-        title: 'Nature\'s Beauty',
-        date: 'Spring 2024',
-        description: 'Exploring the world through a camera lens, discovering that beauty exists in the smallest details of nature.',
-        pictures: [
-            {
-                image: 'img/Fignos.jpg',
-                caption: 'Macro photography of delicate flowers - each petal tells a story of growth and resilience'
-            },
-            {
-                image: 'img/Fignos.jpg',
-                caption: 'Morning dew on leaves - nature\'s own jewelry, sparkling in the early light'
-            },
-            {
-                image: 'img/Fignos.jpg',
-                caption: 'Textures and patterns in bark - the tree\'s history written in its skin'
-            }
-        ]
+        title: 'Gadzart Journey',
+        date: 'Since 2021',
+        description: '',
+         pictures: [
+             {
+                 image: 'img/memories/Fignos.jpg',
+                 caption: 'The traditional "Gala des Fignos" welcome the new Gadzart members',
+                 positionX: 0,
+                 positionY: 0,
+                 height: 250
+             },
+             {
+                 image: 'img/memories/Flamme.jpg',
+                 caption: 'Proudly took part in the rekindling of the flame of the unknown soldier, the symbol of the spirit of the nation that should never be extinguished. We were a couple of hundreds Gadzarts.',
+                 positionX: 0,
+                 positionY: -80,
+                 height: 350
+             }
+         ]
     },
     'memory4': {
-        title: 'Precious Moments',
-        date: '2023',
-        description: 'Capturing the joy and wonder found in life\'s simple pleasures and everyday interactions.',
-        pictures: [
-            {
-                image: 'img/bb_titi.JPG',
-                caption: 'A moment of pure joy captured - sometimes the best memories are the spontaneous ones'
-            },
-            {
-                image: 'img/bb_titi.JPG',
-                caption: 'Laughing together - the sound of genuine happiness is one of life\'s greatest treasures'
-            },
-            {
-                image: 'img/bb_titi.JPG',
-                caption: 'A candid moment of wonder - children remind us to see the world with fresh eyes'
-            }
-        ]
+        title: 'My Beautiful Cats',
+        date: 'Since 2010',
+        description: '',
+         pictures: [
+             {
+                 image: 'img/memories/bb_titi.JPG',
+                 caption: '',
+                 positionY: 0,
+                 height: 500
+             },
+             {
+                 image: 'img/memories/Ticou_bois.JPG',
+                 caption: 'Ticou chillin\' on the wood',
+                 height: 250
+             },
+             {
+                 image: 'img/memories/Moonette.JPG',
+                 caption: '',
+                 height: 300,
+                 positionX: 0,
+                 positionY: -200
+             }
+         ]
     },
     'memory5': {
         title: 'My First Skydive',
@@ -516,20 +516,20 @@ const modalData = {
         description: 'Traditional French dessert from Brittany, a custard-like cake with prunes.',
         servings: '6 servings',
         ingredients: [
-            '20 Prunes',
+            '20 dried Prunes',
             '200g Flour',
             '150g Sugar',
             '4 eggs',
             '75cl Milk'
         ],
         cookingSteps: [
-            'Preheat oven to 180°C (350°F)',
-            'Soak prunes in warm water for 30 minutes',
-            'Mix flour and sugar in a bowl',
-            'Add eggs and milk gradually, whisking until smooth',
+            'Preheat oven to 170°C (340°F)',
+            'Mix flour, sugar and eggs in a bowl',
+            'Add milk gradually, whisking until smooth',
+            'Butter the baking dish',
             'Drain prunes and arrange in baking dish',
             'Pour batter over prunes',
-            'Bake for 30 minutes until golden'
+            'Bake for 40 minutes until golden'
         ],
         modifications: 'Add rum to the batter for extra flavor.',
         videoTutorial: null
@@ -2006,16 +2006,36 @@ function openModal(modalId) {
                 modalContent += `<p class="modal-date-period">${data.date}</p>`;
             }
             
-            // Add pictures with captions
+            // Add pictures with captions in a grid layout
             if (data.pictures && data.pictures.length > 0) {
-                data.pictures.forEach((picture, index) => {
-                    modalContent += `
-                        <div class="memory-picture">
-                            <img src="${picture.image}" alt="Memory ${index + 1}">
-                            <p class="picture-caption">${picture.caption}</p>
-                        </div>
-                    `;
-                });
+                modalContent += `<div class="memory-gallery">`;
+                 data.pictures.forEach((picture, index) => {
+                     // Build custom positioning style if provided
+                     let positionStyle = '';
+                     if (picture.positionX !== undefined || picture.positionY !== undefined) {
+                         const x = picture.positionX !== undefined ? `${picture.positionX}px` : 'center';
+                         const y = picture.positionY !== undefined ? `${picture.positionY}px` : 'center';
+                         positionStyle = `object-position: ${x} ${y};`;
+                     }
+                     
+                     // Build custom height style if provided
+                     let heightStyle = '';
+                     let containerClass = 'picture-container';
+                     if (picture.height !== undefined) {
+                         heightStyle = `height: ${picture.height}px;`;
+                         containerClass += ' custom-height';
+                     }
+                     
+                     modalContent += `
+                         <div class="memory-picture">
+                             <div class="${containerClass}" style="${heightStyle}">
+                                 <img src="${picture.image}" alt="Memory ${index + 1}" style="${positionStyle}">
+                             </div>
+                             <p class="picture-caption">${picture.caption}</p>
+                         </div>
+                     `;
+                 });
+                modalContent += `</div>`;
             }
         }
         // Handle experience modals
@@ -2043,6 +2063,12 @@ function openModal(modalId) {
         }
         
         modalBody.innerHTML = modalContent;
+        
+        // Add memory-modal class for memory modals
+        if (modalId.startsWith('memory')) {
+            modal.classList.add('memory-modal');
+        }
+        
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
@@ -2062,6 +2088,7 @@ function closeModal() {
     
     modal.style.display = 'none';
     modal.classList.remove('video-modal'); // Remove video modal class
+    modal.classList.remove('memory-modal'); // Remove memory modal class
     document.body.style.overflow = 'auto'; // Restore scrolling
 }
 
