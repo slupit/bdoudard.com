@@ -16,6 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.navbar') && navMenu.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+
     // Mobile tabs hamburger functionality
     initMobileTabsHamburger();
     
@@ -295,75 +303,78 @@ const modalData = {
     // Portfolio modals
     'project1': {
         title: 'Personal Website',
-        activities: [
-            {
-                image: 'img/Logo_2_V1.png',
-                description: 'Full-stack web application built with HTML, CSS, and JavaScript. Features responsive design, interactive portfolio sections, and dynamic content management.'
-            },
-            {
-                image: 'img/Fishing.jpg',
-                description: 'Implemented carousel functionality for portfolio showcase with smooth transitions and touch/swipe support for mobile devices.'
-            },
-            {
-                image: 'img/Fishing.jpg',
-                description: 'Added modal system for detailed project and recipe information with dynamic content loading and responsive design.'
-            }
-        ]
+        purpose: 'An accessible and informative website showcasing my professional background as well as my hobbies for both a professional and personal context. Built to challenge myself and learn new technologies, this website became a creative playground.',
+        roadmap: {
+            achieved: [
+                'Responsive design implementation',
+                'Dynamic content management system',
+                'Carousel functionality with touch/swipe support',
+                'Modal system for detailed information',
+                'Mobile navigation and hamburger menu',
+                'Smooth animations and transitions'
+            ],
+            next: [
+                'Migrate to React',
+                'Database integration for content management',
+                'Interactive demo section with project showcases'
+            ]
+        }
     },
     'project2': {
         title: 'Airbnb Scrapping',
         activities: [
             {
-                image: 'img/AirbnbMap.png',
-                description: 'Data collection and analysis project to explore Airbnb rental market trends and pricing patterns across different locations.'
+                image: 'img/portfolio/AirbnbMap.png',
+                description: 'Data collection of Saint-Malo Airbnb rental market to compare them to my friend apartment price'
             },
             {
-                image: 'img/Fishing.jpg',
-                description: 'Implemented web scraping techniques to gather rental data including prices, locations, amenities, and availability patterns.'
+                image: '',
+                description: 'Find correlation between rental prices and rental parameters (surface, number of bedrooms, etc.). Create a model to predict rental prices.'
             },
-            {
-                image: 'img/Fishing.jpg',
-                description: 'Created data visualization tools to analyze market trends and help users understand pricing dynamics in different neighborhoods.'
-            }
+        ],
+        exploreNext: [
+            'Comparing rental prices expectations with buying prices on the housing market to find investment opportunities',
+            'Add the booking availability to the model as it is a relevant factor'
         ]
     },
     'project3': {
         title: 'Facility Location',
         activities: [
             {
-                image: 'img/FacilityLocationPlot.png',
-                description: 'Optimization project to determine the optimal location for a new facility using mathematical modeling and data analysis.'
+                image: '',
+                description: 'Leveraging my Linear programming knowledge and with the help of Google OR-Tools solver, I was able to find the optimal location for new facilities in a given problem.'
             },
             {
-                image: 'img/Fishing.jpg',
-                description: 'Applied operations research techniques including linear programming and geographic analysis to minimize costs and maximize efficiency.'
-            },
-            {
-                image: 'img/Fishing.jpg',
-                description: 'Developed interactive visualizations to present location recommendations and supporting data to stakeholders.'
+                image: 'img/portfolio/FacilityLocationPlot.png',
+                description: 'Display the optimal location for a new facilities. Visualy understand the choices of the model. Ready-to-share state of the project.'
             }
+        ],
+        exploreNext: [
+            'Add new parameters to the model to make it even more cost accurate and beneficial for the company',
+            'Get more realistic data to make the model even more accurate (real road distance, etc.)',
+            'Upgrade to real-time parameter and use the model for a shipping company (facility to customer)'
         ]
     },
     'edu1': {
         title: 'Texas A&M University',
         image: 'https://thebatt.com/wp-content/uploads/2024/10/CJS13047-1200x800.jpg',
-        description: 'Master\'s of Science in Industrial Engineering. Advanced studies in operations research, supply chain management, and data analytics with focus on optimization and process improvement.',
+        description: 'Master\'s of Science in Industrial Engineering. Advanced studies in operations research, supply chain management, and data analysis with focus on optimization and process improvement.',
         datePeriod: 'January 2024 – May 2025',
         coursework: [
-            'Advanced Operations Research',
-            'Supply Chain Management',
-            'Data Analytics and Machine Learning',
-            'Quality Control and Six Sigma',
-            'Project Management',
-            'Optimization Methods',
-            'Statistical Analysis',
-            'Industrial Systems Design'
+            'ISEN 608 - Industrial Case Analysis',
+            'ISEN 609 - Probability for Engineering Decision',
+            'ISEN 613 - Engineering Data Analysis',
+            'ISEN 614 - Advanced Quality Engineering',
+            'ISEN 617 - Quantitative Modeling for Supply Chain',
+            'ISEN 622 - Linear Programming',
+            'ISEN 623 - Nonlinear & Dynamic Programming',
+            'ISEN 625 - Simulation Methods and Applications',
+            'ISEN 663 - Management Control System',
+            'ISEN 667 - Engineering Economy'
         ],
         volunteering: [
-            'French Teaching Assistant - Texas A&M University (Aug 2024 – May 2025)',
-            'International Student Mentor Program',
-            'Engineering Student Organization - Event Coordinator',
-            'Community Outreach - STEM Education Programs'
+            'French Club Treasurer',
+            'Judo Club Regular Member'
         ]
     },
     'edu2': {
@@ -379,83 +390,60 @@ const modalData = {
             'Thermodynamics and Fluid Mechanics',
             'Control Systems',
             'Industrial Design',
-            'Project Management'
+            'Project Management',
+            'Industrial Economics'
         ],
         volunteering: [
-            'Student Government Representative',
-            'Engineering Club - Technical Committee Member',
-            'Mentor for First-Year Students',
-            'Community Service - Local Engineering Projects'
+            'Student Association Member'
         ]
     },
     'exp1': {
-        title: 'Senior Software Developer',
-        image: 'img/Fishing.jpg',
-        description: 'Leading a team of 5 developers in building scalable web applications. Responsible for architecture decisions, code reviews, and mentoring junior developers.',
-        details: [
-            'Company: Tech Corp (2021 - Present)',
-            'Led development of microservices architecture serving 1M+ users',
-            'Implemented CI/CD pipelines reducing deployment time by 60%',
-            'Mentored 3 junior developers and conducted technical interviews',
-            'Collaborated with product managers and designers on feature planning',
-            'Technologies: React, Node.js, Docker, Kubernetes, AWS'
+        title: 'French Teaching Assistant',
+        company: 'Texas A&M University',
+        image: 'https://stories.tamu.edu/wp-content/uploads/2019/09/151020_Pano_0397.jpg',
+        description: 'Teaching French language and culture to undergraduate students at Texas A&M University.',
+        datePeriod: 'Aug 2024 – May 2025',
+        tasks: [
+            'Hold lab classes and tutoring sessions to help students learn French.',
+            'Conduct interview to evaluate student\'s oral skills'
         ]
     },
     'exp2': {
-        title: 'Full Stack Developer',
-        image: 'img/Fishing.jpg',
-        description: 'Developed full-stack web applications from concept to deployment. Worked closely with clients to understand requirements and deliver high-quality solutions.',
-        details: [
-            'Company: StartupXYZ (2019 - 2021)',
-            'Built 10+ web applications using modern JavaScript frameworks',
-            'Integrated third-party APIs and payment gateways',
-            'Optimized application performance resulting in 40% faster load times',
-            'Collaborated with cross-functional teams in agile environment',
-            'Technologies: Vue.js, Express.js, PostgreSQL, Redis'
+        title: 'Machine Operator Intern',
+        company: 'Cordon Electronics',
+        image: 'https://www.unexo.fr/wp-content/uploads/2023/07/cordongroup-visuel02-online.jpg',
+        description: 'Operated and maintained industrial machinery in an electronics manufacturing environment. Learned production processes and quality control procedures.',
+        datePeriod: 'Jun 2024 – Aug 2024',
+        tasks: [
+            'Carry functional tests on internet and TV boxes.',
+            'Assisted production team launch of a semi-automatic test bench, improving test speed and accuracy.',
         ]
     },
     'exp3': {
-        title: 'Frontend Team Lead',
-        image: 'img/Fishing.jpg',
-        description: 'Led a team of 4 frontend developers in creating responsive web applications and managing the frontend architecture.',
-        details: [
-            'Company: Digital Agency (2020 - 2021)',
-            'Led frontend development for 15+ client projects',
-            'Implemented design systems and component libraries',
-            'Mentored junior developers and conducted code reviews',
-            'Technologies: React, Vue.js, TypeScript, Sass',
-            'Achievement: Improved page load times by 50%'
-        ]
-    },
-    'exp4': {
-        title: 'Backend Developer',
-        image: 'img/Fishing.jpg',
-        description: 'Developed scalable backend services and APIs for enterprise clients using modern technologies and best practices.',
-        details: [
-            'Company: CloudTech Solutions (2018 - 2020)',
-            'Built RESTful APIs serving 100k+ requests daily',
-            'Implemented microservices architecture',
-            'Database design and optimization',
-            'Technologies: Python, Django, PostgreSQL, Redis',
-            'Achievement: Reduced API response time by 40%'
+        title: 'Server',
+        company: 'Cecco Restaurant',
+        image: 'img/portfolio/Cecco.jpg',
+        description: 'Provided customer service in a fast-paced restaurant environment. Managed multiple tables and ensured positive dining experiences for guests.',
+        datePeriod: 'Jul 2020 – Aug 2020',
+        tasks: [
         ]
     },
     'memory1': {
         title: 'Fishing Adventures',
         date: 'Summer 2023',
-        description: 'A collection of peaceful moments by the water, capturing the essence of patience and the simple joy of being outdoors.',
+        description: '',
         pictures: [
             {
-                image: 'img/Fishing.jpg',
-                caption: 'Early morning fishing session - the water was perfectly still, reflecting the golden sunrise'
+                image: 'img/memories/Fishing.jpg',
+                caption: 'Went for a full day saltwater fishing and caught plenty of fish including a young hammer shark, enought for a nice taco dinner as a reward.'
             },
             {
-                image: 'img/Fishing.jpg',
-                caption: 'A successful catch after hours of patient waiting - sometimes the best memories come from the journey, not the destination'
+                image: 'img/memories/Fishing.jpg',
+                caption: ''
             },
             {
-                image: 'img/Fishing.jpg',
-                caption: 'The fishing gear laid out perfectly - there\'s something meditative about preparing for a day on the water'
+                image: 'img/memories/Fishing.jpg',
+                caption: ''
             }
         ]
     },
@@ -465,20 +453,12 @@ const modalData = {
         description: 'Two years of martial arts discipline, building not just physical strength but mental resilience and character.',
         pictures: [
             {
-                image: 'img/Judo.jpg',
-                caption: 'First day of training - nervous but excited to begin this journey of self-improvement'
+                image: 'img/memories/Judo.jpg',
+                caption: 'Reunion with my judo sensei and my best friend for a few hours of training.'
             },
             {
-                image: 'img/Judo.jpg',
-                caption: 'Practicing throws with my training partner - learning that mutual respect is the foundation of martial arts'
-            },
-            {
-                image: 'img/Judo.jpg',
-                caption: 'Belt promotion ceremony - a moment of pride and recognition for the dedication and hard work put in'
-            },
-            {
-                image: 'img/Judo.jpg',
-                caption: 'Teaching younger students - realizing that the best way to learn is to teach others'
+                image: 'img/memories/Judo.jpg',
+                caption: ''
             }
         ]
     },
@@ -1405,9 +1385,7 @@ const modalData = {
         ingredients: [
             'Biscuit: 180g sugar, 120g flour, 6 eggs',
             'Cream: 3 eggs, 200g Sugar, 200g Butter, 250g Almond powder, 10cl Light Cream',
-            'Liquid chocolate: 200g Dark chocolate (tablet), 20cl Milk',
-            'Ladyfingers',
-            'Coffee and/or rum for dipping'
+            'Liquid chocolate: 200g Dark chocolate (tablet), 20cl Milk'
         ],
         cookingSteps: [
             'Make sponge cake and cut into strips',
@@ -1787,6 +1765,68 @@ const modalData = {
     }
 };
 
+// Function to generate HTML for ingredients with proper grouping
+function generateIngredientsHTML(ingredients) {
+    // Check if any ingredient has a colon followed by ingredients (indicating multiple elements)
+    // More specific check: look for patterns like "Element Name: ingredient1, ingredient2"
+    const hasMultipleElements = ingredients.some(ingredient => {
+        const colonIndex = ingredient.indexOf(':');
+        if (colonIndex === -1) return false;
+        
+        // Check if there are ingredients after the colon (not just a colon at the end)
+        const afterColon = ingredient.substring(colonIndex + 1).trim();
+        return afterColon.length > 0 && (afterColon.includes(',') || afterColon.length > 10);
+    });
+    
+    if (!hasMultipleElements) {
+        // Single element - display as simple list
+        return `<ul class="ingredients-list">${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>`;
+    } else {
+        // Multiple elements - group by element name
+        let html = '';
+        let hasStandaloneIngredients = false;
+        
+        ingredients.forEach(ingredient => {
+            const colonIndex = ingredient.indexOf(':');
+            const afterColon = ingredient.substring(colonIndex + 1).trim();
+            
+            // Check if this is a grouped ingredient (has colon with ingredients after it)
+            if (colonIndex !== -1 && afterColon.length > 0 && (afterColon.includes(',') || afterColon.length > 10)) {
+                // This ingredient has an element name (e.g., "Pâte brisée: 300g Flour, 150g Butter")
+                const elementName = ingredient.substring(0, colonIndex).trim();
+                const elementIngredients = afterColon;
+                
+                // Split ingredients by comma and clean them
+                const ingredientList = elementIngredients.split(',').map(ing => ing.trim()).filter(ing => ing);
+                
+                html += `
+                    <div class="ingredient-element">
+                        <h4 class="element-name">${elementName}</h4>
+                        <ul class="ingredients-list">
+                            ${ingredientList.map(ing => `<li>${ing}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            } else {
+                // This is a standalone ingredient (no element name or just a colon without ingredients)
+                if (!hasStandaloneIngredients) {
+                    // Start standalone section
+                    html += '<div class="ingredient-element"><h4 class="element-name">Additional Ingredients</h4><ul class="ingredients-list">';
+                    hasStandaloneIngredients = true;
+                }
+                html += `<li>${ingredient}</li>`;
+            }
+        });
+        
+        // Close the standalone section if it was opened
+        if (hasStandaloneIngredients) {
+            html += '</ul></div>';
+        }
+        
+        return html;
+    }
+}
+
 function openModal(modalId) {
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
@@ -1800,6 +1840,16 @@ function openModal(modalId) {
         // Add category if it exists
         if (data.category) {
             modalContent += `<p class="modal-category">${data.category}</p>`;
+        }
+        
+        // Add company name for experience modals (after title)
+        if (modalId.startsWith('exp') && data.company) {
+            modalContent += `<p class="modal-company">${data.company}</p>`;
+        }
+        
+        // Add period for experience modals (after company)
+        if (modalId.startsWith('exp') && data.datePeriod) {
+            modalContent += `<p class="modal-date-period">${data.datePeriod}</p>`;
         }
         
         // Add image if it exists
@@ -1822,9 +1872,17 @@ function openModal(modalId) {
             modalContent += `
                 <div class="modal-section">
                     <h3>Ingredients</h3>
-                    <ul class="ingredients-list">
-                        ${data.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
-                    </ul>
+                    ${generateIngredientsHTML(data.ingredients)}
+                </div>
+            `;
+        }
+        
+        // Add modifications if they exist (moved right after ingredients)
+        if (data.modifications) {
+            modalContent += `
+                <div class="modal-section modifications-section">
+                    <h4 class="modifications-title">Modifications & Variations</h4>
+                    <p class="modifications-content">${data.modifications}</p>
                 </div>
             `;
         }
@@ -1837,15 +1895,6 @@ function openModal(modalId) {
                     <ol class="cooking-steps">
                         ${data.cookingSteps.map(step => `<li>${step}</li>`).join('')}
                     </ol>
-                </div>
-            `;
-        }
-        
-        // Add modifications if they exist
-        if (data.modifications) {
-            modalContent += `
-                <div class="modal-section">
-                    <p>${data.modifications}</p>
                 </div>
             `;
         }
@@ -1864,17 +1913,60 @@ function openModal(modalId) {
         
         // Handle project modals with new structure
         if (modalId.startsWith('project') && data.activities) {
-            // Add activities with images and descriptions
+            // Add activities with images and descriptions (for project2, project3)
             if (data.activities && data.activities.length > 0) {
                 data.activities.forEach((activity, index) => {
                     modalContent += `
                         <div class="project-activity">
-                            <img src="${activity.image}" alt="Activity ${index + 1}">
+                            ${activity.image && activity.image.trim() !== '' ? `<img src="${activity.image}" alt="Activity ${index + 1}">` : ''}
                             <p class="activity-description">${activity.description}</p>
                         </div>
                     `;
                 });
             }
+            
+            // Add "What to explore next" section for project2 and project3
+            if ((modalId === 'project2' || modalId === 'project3') && data.exploreNext) {
+                modalContent += `
+                    <div class="project-section explore-next-section">
+                        <h3>What to Explore Next</h3>
+                        <ul class="explore-next-list">
+                            ${data.exploreNext.map(item => `<li class="explore-next-item">${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+        }
+        // Handle project1 (Personal Website) with purpose and roadmap structure
+        else if (modalId === 'project1' && data.purpose && data.roadmap) {
+            // Add purpose section
+            modalContent += `
+                <div class="project-section">
+                    <h3>Purpose</h3>
+                    <p class="project-purpose">${data.purpose}</p>
+                </div>
+            `;
+            
+            // Add roadmap section
+            modalContent += `
+                <div class="project-section">
+                    <h3>Roadmap</h3>
+                    <div class="roadmap-container">
+                        <div class="roadmap-section">
+                            <h4 class="roadmap-title achieved">Achieved</h4>
+                            <ul class="roadmap-list">
+                                ${data.roadmap.achieved.map(item => `<li class="roadmap-item achieved">${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="roadmap-section">
+                            <h4 class="roadmap-title next">Next Steps</h4>
+                            <ul class="roadmap-list">
+                                ${data.roadmap.next.map(item => `<li class="roadmap-item next">${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
         // Handle education modals with new structure
         else if (modalId.startsWith('edu') && data.coursework) {
@@ -1926,12 +2018,26 @@ function openModal(modalId) {
                 });
             }
         }
-        // Fallback to old format for non-recipe, non-education modals
-        else if (data.details && !data.ingredients) {
+        // Handle experience modals
+        else if (modalId.startsWith('exp')) {
+            // Add tasks only if they exist
+            if (data.tasks && data.tasks.length > 0) {
+                modalContent += `
+                    <div class="modal-section">
+                        <h3>Responsibilities & Achievements</h3>
+                        <ul>
+                            ${data.tasks.map(task => `<li>${task}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+        }
+        // Fallback to old format for non-recipe, non-education, non-experience modals
+        else if (data.tasks && !data.ingredients) {
             modalContent += `
-            <h3>Details:</h3>
+            <h3>Tasks:</h3>
             <ul>
-                ${data.details.map(detail => `<li>${detail}</li>`).join('')}
+                ${data.tasks.map(task => `<li>${task}</li>`).join('')}
             </ul>
         `;
         }

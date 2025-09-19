@@ -1027,6 +1027,39 @@ body {
     box-shadow: 0 5px 15px rgba(242, 100, 25, 0.4);
 }
 
+/* Individual brand colors for social media icons */
+.social-icon:hover .fa-github,
+.social-icon[href*="github"]:hover {
+    background: #333333 !important;
+    color: #ffffff;
+    border-radius: 50% !important;
+    box-shadow: 0 5px 15px rgba(51, 51, 51, 0.4);
+}
+
+.social-icon:hover .fa-linkedin,
+.social-icon[href*="linkedin"]:hover {
+    background: #0077b5 !important;
+    color: #ffffff;
+    border-radius: 50% !important;
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+}
+
+.social-icon:hover .fa-instagram,
+.social-icon[href*="instagram"]:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+    color: #ffffff;
+    border-radius: 50% !important;
+    box-shadow: 0 5px 15px rgba(188, 24, 136, 0.4);
+}
+
+.social-icon:hover .fa-spotify,
+.social-icon[href*="spotify"]:hover {
+    background: #1db954 !important;
+    color: #ffffff;
+    border-radius: 50% !important;
+    box-shadow: 0 5px 15px rgba(29, 185, 84, 0.4);
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
@@ -1285,6 +1318,14 @@ body {
     text-align: center;
 }
 
+.modal-company {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
 .modal-section p {
     background: linear-gradient(135deg, rgba(134, 187, 216, 0.1) 0%, rgba(51, 101, 138, 0.1) 100%);
     padding: 0.75rem 1rem;
@@ -1309,6 +1350,56 @@ body {
     padding: 0 !important;
 }
 
+/* Ingredient element grouping styles */
+.ingredient-element {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(134, 187, 216, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.element-name {
+    color: var(--primary-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+}
+
+.ingredient-element .ingredients-list {
+    margin-left: 0.5rem;
+}
+
+.ingredient-element .ingredients-list li {
+    margin-bottom: 0.3rem;
+    color: var(--text-dark);
+}
+
+/* Modifications section styling */
+.modifications-section {
+    margin-top: 1rem;
+    padding: 0;
+    border-left: 4px solid var(--accent-yellow);
+    padding-left: 1rem;
+}
+
+.modifications-title {
+    color: var(--primary-dark);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modifications-content {
+    color: var(--text-dark);
+    font-style: italic;
+    margin: 0;
+    line-height: 1.5;
+}
+
 /* Remove dots from cooking steps */
 .cooking-steps li::before {
     display: none;
@@ -1323,6 +1414,7 @@ body {
     background: linear-gradient(135deg, rgba(134, 187, 216, 0.05) 0%, rgba(51, 101, 138, 0.05) 100%);
     border-radius: 12px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--primary-blue);
     transition: all 0.3s ease;
 }
 
@@ -1383,6 +1475,220 @@ body {
     }
     
     .activity-description {
+        font-size: 0.85rem;
+    }
+}
+
+/* Project Section Styling */
+.project-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(134, 187, 216, 0.05) 0%, rgba(51, 101, 138, 0.05) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-blue);
+}
+
+.project-section h3 {
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 0.5rem;
+}
+
+.project-purpose {
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
+    text-align: left;
+}
+
+/* Explore Next Section Styling */
+.explore-next-section {
+    background: linear-gradient(135deg, rgba(246, 174, 45, 0.05) 0%, rgba(242, 100, 25, 0.05) 100%);
+    border-left: 4px solid var(--accent-orange);
+    transition: all 0.3s ease;
+}
+
+.explore-next-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.15);
+    border-left-color: #ff6b35;
+    border-color: var(--accent-orange);
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.08) 0%, rgba(242, 100, 25, 0.08) 100%);
+}
+
+.explore-next-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.explore-next-item {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 2.5rem;
+    background: rgba(246, 174, 45, 0.1);
+    color: var(--text-dark);
+    border-left: 4px solid var(--accent-yellow);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.explore-next-item::before {
+    content: '💡';
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+}
+
+/* Hover effects for explore next items */
+.explore-next-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(246, 174, 45, 0.3);
+    background: rgba(246, 174, 45, 0.1);
+    border-left-width: 6px;
+}
+
+/* Roadmap Styling */
+.roadmap-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.roadmap-section {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.roadmap-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.roadmap-title.achieved {
+    background: rgba(34, 197, 94, 0.2);
+    color: #166534;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.roadmap-title.next {
+    background: rgba(59, 130, 246, 0.2);
+    color: #1e40af;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.roadmap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.roadmap-item {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 2.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.roadmap-item.achieved {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--text-dark);
+    border-left: 4px solid #22c55e;
+}
+
+.roadmap-item.next {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--text-dark);
+    border-left: 4px solid #3b82f6;
+}
+
+.roadmap-item.achieved::before {
+    content: '✓';
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #22c55e;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.roadmap-item.next::before {
+    content: '○';
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3b82f6;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Hover effects for roadmap items */
+.roadmap-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.roadmap-item.achieved:hover {
+    background: rgba(34, 197, 94, 0.2);
+    border-left-width: 6px;
+}
+
+.roadmap-item.next:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-left-width: 6px;
+}
+
+/* Responsive roadmap */
+@media (max-width: 768px) {
+    .roadmap-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .project-section {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .roadmap-item {
+        padding: 0.5rem 0.75rem;
+        padding-left: 2rem;
+        font-size: 0.85rem;
+    }
+    
+    .explore-next-item {
+        padding: 0.5rem 0.75rem;
+        padding-left: 2rem;
         font-size: 0.85rem;
     }
 }
