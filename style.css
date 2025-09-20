@@ -1531,6 +1531,17 @@ body {
     font-weight: 600;
     color: var(--primary-dark);
     margin: 0;
+    display: inline-block;
+    width: auto;
+}
+
+/* Remove blue box styling only from modifications content */
+.modifications-content {
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    border-left: none !important;
+    font-weight: normal !important;
 }
 
 /* Coursework and Volunteering sections */
@@ -1599,6 +1610,11 @@ body {
 
 /* Remove dots from cooking steps */
 .cooking-steps li::before {
+    display: none;
+}
+
+/* Remove dots from ingredient lists */
+.ingredients-list li::before {
     display: none;
 }
 

@@ -721,8 +721,8 @@ const modalData = {
         servings: '8 servings',
         ingredients: [
             'Pâte sablée: 250g Flour, 60g sugar, 100g Butter, 2 Egg yolk',
-            'Crème citron: 4 Lemons, 3 Eggs, 1 tbs. Flour (corn prefered), 130g sugar',
-            'Meringue: 2 Egg white, 1/2 tbs. baking soda, 80g Sugar'
+            'Crème citron: 4 Lemons, 3 Eggs, 1 tbs Flour (corn prefered), 130g sugar',
+            'Meringue: 2 Egg white, 1/2 tbs baking soda, 80g Sugar'
         ],
         cookingSteps: [
             'Prepare pâte sablée and bake for 15 minutes',
@@ -743,7 +743,7 @@ const modalData = {
         servings: '12 servings',
         ingredients: [
             'Pâte a choux: 125g Flour, 250g Water, 80g Salted Butter, 3 Eggs',
-            'Creme patissiere: 200g Chocolate, 3 tbs. Sugar, 2 tbs. Flour, 30 cl Milk, 2 Eggs, 50g Butter',
+            'Creme patissiere: 200g Chocolate, 3 tbs Sugar, 2 tbs Flour, 30 cl Milk, 2 Eggs, 50g Butter',
             'Glaçage: Water, Sugar, Cacao powder'
         ],
         cookingSteps: [
@@ -786,8 +786,8 @@ const modalData = {
         servings: '2 servings',
         ingredients: [
             '1 Egg',
-            '3 tbs. Flour',
-            '1.5 tbs. Sugar',
+            '3 tbs Flour',
+            '1.5 tbs Sugar',
             '~ 1/3L (12 oz) Milk'
         ],
         cookingSteps: [
@@ -1779,8 +1779,14 @@ function generateIngredientsHTML(ingredients) {
     });
     
     if (!hasMultipleElements) {
-        // Single element - display as simple list
-        return `<ul class="ingredients-list">${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>`;
+        // Single element - display as simple list with blue box styling
+        return `
+            <div class="ingredient-element">
+                <ul class="ingredients-list">
+                    ${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                </ul>
+            </div>
+        `;
     } else {
         // Multiple elements - group by element name
         let html = '';
