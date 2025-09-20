@@ -1,0 +1,34 @@
+User-agent: *
+Allow: /
+
+# Allow main logo to be indexed
+Allow: /img/logo/Logo_2_V1.png
+
+# Disallow indexing of other images
+User-agent: Googlebot-Image
+Disallow: /img/
+Allow: /img/logo/Logo_2_V1.png
+
+User-agent: BingBot
+Disallow: /img/
+Allow: /img/logo/Logo_2_V1.png
+
+User-agent: facebookexternalhit
+Disallow: /img/
+Allow: /img/logo/Logo_2_V1.png
+
+User-agent: Twitterbot
+Disallow: /img/
+Allow: /img/logo/Logo_2_V1.png
+
+User-agent: LinkedInBot
+Disallow: /img/
+Allow: /img/logo/Logo_2_V1.png
+
+User-agent: WhatsApp
+Disallow: /img/
+Allow: /img/logo/Logo_2_V1.png
+
+User-agent: TelegramBot
+Disallow: /img/
+Allow: /img/logo/Logo_2_V1.png
