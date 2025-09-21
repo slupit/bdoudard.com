@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bdoudard.com</title>
+    
+    <!-- Prevent image indexing by search engines -->
+    <meta name="robots" content="noimageindex">
+    <meta name="googlebot" content="noimageindex">
+    <meta name="bingbot" content="noimageindex">
     <link rel="icon" type="image/x-icon" href="img/logo/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -16,7 +21,7 @@
                 <a href="#highlights" class="nav-link nav-logo-link" aria-label="Home">
                     <span class="logo-swap">
                         <img src="img/logo/Logo_2_V1.png" alt="bdoudard.com" class="logo logo-v1" width="50" height="50">
-                        <img src="img/logo/Logo_2_V2.png" alt="" class="logo logo-v2" width="50" height="50">
+                        <img src="img/logo/Logo_2_V2.png" alt="" class="logo logo-v2" width="50" height="50" data-noindex>
                     </span>
                 </a>
             </div>
@@ -105,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="card" onclick="openModal('project2')">
-                                <img src="img/portfolio/AirbnbMap.png" alt="Mobile App">
+                                <img src="img/portfolio/AirbnbMap.png" alt="Mobile App" data-noindex>
                                 <div class="card-content">
                                     <h3>Airbnb Scrapping</h3>
                                     <p class="card-meta">Summer 2025</p>
@@ -113,7 +118,7 @@
                                 </div>
                             </div>
                             <div class="card" onclick="openModal('project3')">
-                                <img src="img/portfolio/FacilityLocationPlot.png" alt="Facility Location">
+                                <img src="img/portfolio/FacilityLocationPlot.png" alt="Facility Location" data-noindex>
                                 <div class="card-content">
                                     <h3>Facility Location</h3>
                                     <p class="card-meta">Spring 2024</p>
@@ -186,7 +191,7 @@
                                 </div>
                             </div>
                             <div class="card" onclick="openModal('exp3')">
-                                <img src="img/portfolio/Cecco.jpg" alt="Frontend Lead">
+                                <img src="img/portfolio/Cecco.jpg" alt="Frontend Lead" data-noindex>
                                 <div class="card-content">
                                     <h3>Server</h3>
                                     <p class="card-meta">Jul 2020 – Aug 2020</p>
@@ -243,7 +248,6 @@
                                     <div class="skills-list">
                                         <span class="skill-item">French<br>(Native)</span>
                                         <span class="skill-item">English<br>(Fluent)</span>
-                                        <span class="skill-item">Spanish<br>(Intermediate)</span>
                                     </div>
                                 </div>
                             </div>
@@ -687,7 +691,7 @@
                     <div class="card-slider">
                         <div class="card-container" id="vacation-container">
                             <div class="card" onclick="openModal('memory1')">
-                                <img src="img/memories/Fishing.jpg" alt="Adventure in Florida">
+                                <img src="img/memories/Fishing.jpg" alt="Adventure in Florida" data-noindex>
                                 <div class="card-content">
                                     <h3>Adventure in Florida</h3>
                                     <p class="card-meta">Summer & Winter 2024</p>
@@ -695,7 +699,7 @@
                                 </div>
                             </div>
                             <div class="card" onclick="openModal('memory2')">
-                                <img src="img/memories/Judo.jpg" alt="Judo Journey">
+                                <img src="img/memories/Judo.jpg" alt="Judo Journey" style="object-position: top; object-fit: cover; height: 200px; width: 100%;" data-noindex>
                                 <div class="card-content">
                                     <h3>Judo Journey</h3>
                                     <p class="card-meta">Since 2007</p>
@@ -703,15 +707,15 @@
                                 </div>
                             </div>
                             <div class="card" onclick="openModal('memory3')">
-                                <img src="img/Flamme.jpg" alt="Gadzart Journey">
+                                <img src="img/memories/Flamme.jpg" alt="Gadzart Journey" style="object-position: center 25%; object-fit: cover; height: 200px; width: 100%;" data-noindex>
                                 <div class="card-content">
                                     <h3>Gadzart Journey</h3>
-                                    <p class="card-meta">2021 - 2023</p>
+                                    <p class="card-meta">Since 2021</p>
                                     <p>Engineering education and personal growth following Arts et Métiers's Traditions</p>
                                 </div>
                             </div>
                             <div class="card" onclick="openModal('memory4')">
-                                <img src="img/memories/bb_titi.JPG" alt="My Beautiful Cats">
+                                <img src="img/memories/ticou_bois.JPG" alt="My Beautiful Cats" data-noindex>
                                 <div class="card-content">
                                     <h3>My Beautiful Cats</h3>
                                     <p class="card-meta">Since 2010</p>
