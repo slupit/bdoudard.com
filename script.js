@@ -1379,7 +1379,7 @@ const modalData = {
     'recipe37': {
         title: 'Charlotte aux amandes',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://cache.marieclaire.fr/data/photo/w1000_c17/cuisine/43/cremeamandes.webp',
         description: 'Elegant French dessert with ladyfingers, almond cream, and chocolate.',
         servings: '8 servings',
         ingredients: [
