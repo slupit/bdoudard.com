@@ -314,6 +314,7 @@ const modalData = {
                 'Smooth animations and transitions'
             ],
             next: [
+                'Keep the website updated with new contents',
                 'Migrate to React',
                 'Database integration for content management',
                 'Interactive demo section with project showcases'
@@ -553,7 +554,7 @@ const modalData = {
             'Pour into prepared crust and bake for 30 minutes'
         ],
         modifications: 'Replace vanilla by cacao powder (1 tbsp in Dough & 3 tbsp in Flan).',
-        videoTutorial: 'https://www.youtube.com/watch?v=example2'
+        videoTutorial: 'https://youtu.be/j8al0hgWOog?si=JaaCNGLPDlDTK4Ge'
     },
     'recipe3': {
         title: 'Cassoulet (Bastien version)',
@@ -571,9 +572,8 @@ const modalData = {
         ],
         cookingSteps: [
             'Soak beans overnight',
-            'Cook beans until tender',
-            'Brown lard and sausage in a large pot',
-            'Add onions and garlic, cook until softened',
+            'Brown lard, sausage, onions and garlic in a large pot',
+            'Cook beans until tender (2 hours low heat)',
             'Add tomatoes and cooked beans',
             'Simmer for 30 minutes until flavors meld'
         ],
@@ -593,13 +593,14 @@ const modalData = {
             '1 tsp Salt'
         ],
         cookingSteps: [
-            'Mix yeast with warm water and let activate',
-            'Combine flour and salt in a large bowl',
-            'Add yeast mixture and remaining water',
+            'Mix yeast with warm water (100g) and let activate',
+            'Add Flour (100g) to the yeast mixture',
+            'Wait for 12 hours in the fridge',
+            'Add the rest of the ingredients (150g Water, 250g Flour, 5g Yeast, 1 tsp Salt)',
             'Knead until smooth and elastic',
-            'Let rise until doubled in size',
-            'Shape into loaf and let rise again',
-            'Bake at 220°C for 20-30 minutes until golden'
+            'Let rise until doubled in size (12 hours in the fridge or 3 hours outside)',
+            'Shape into loaf',
+            'Bake at 220°C (365°F) for 20-30 minutes until golden'
         ],
         modifications: null,
         videoTutorial: null
@@ -657,7 +658,7 @@ const modalData = {
         servings: '6 servings',
         ingredients: [
             'Pasta: 4 Egg, 400g Flour, 1 tbsp Salt',
-            'Bolognese sauce: 700g Ground beef, 2 Onions, 4 Garlic cloves, Basil, Oregano, Thyme, 1.5lb Crushed tomato',
+            'Bolognese sauce: 700g Ground beef, carrots, celery, 2 Onions, 4 Garlic cloves, Basil, Oregano, Thyme, 1.5lb Crushed tomato',
             'Béchamel: 80g Butter, Flour, Milk, Ground Nutmeg',
             'Cheese on top'
         ],
@@ -668,8 +669,8 @@ const modalData = {
             'Layer pasta, bolognese, and béchamel',
             'Top with cheese and bake for 35-40 minutes'
         ],
-        modifications: 'Add spinach to the pasta. Add celery and carrot to Bolognese sauce. Replace the Beef by vegetables.',
-        videoTutorial: 'https://www.youtube.com/watch?v=example7'
+        modifications: 'Add spinach to the pasta. Replace the Beef by vegetables.',
+        videoTutorial: ''
     },
     'recipe8': {
         title: 'Mousse au chocolat',
@@ -678,15 +679,16 @@ const modalData = {
         description: 'Light and airy chocolate mousse.',
         servings: '6 servings',
         ingredients: [
-            'Chocolate Base: 200g Dark Chocolate, 6 Egg Yolk, Butter',
-            '6 Whipped Egg white'
+            '200g Dark Chocolate',
+            '6 Egg Yolk', 
+            '20g Butter'
         ],
         cookingSteps: [
             'Melt chocolate with butter',
             'Beat egg yolks and fold into chocolate',
             'Whip egg whites until stiff peaks',
             'Gently fold egg whites into chocolate mixture',
-            'Chill for at least 2 hours before serving'
+            'Chill for at least 12 hours before serving'
         ],
         modifications: 'Add rum or Orange flower water.',
         videoTutorial: null
@@ -705,9 +707,9 @@ const modalData = {
         cookingSteps: [
             'Prepare pâte sablée and line tart pan',
             'Mix almond powder, sugar, sour cream and eggs for the filling',
-            'Peel and slice apples thinly',
-            'Arrange apple slices in tart shell',
-            'Pour almond cream over apples',
+            'Peel and slice apples',
+            'Dip apple slices in in almond cream',
+            'Pour the mixture in the tart shell',
             'Bake for 20-30 minutes until golden'
         ],
         modifications: 'Replace apple by rhubarb',
@@ -721,19 +723,21 @@ const modalData = {
         servings: '8 servings',
         ingredients: [
             'Pâte sablée: 250g Flour, 60g sugar, 100g Butter, 2 Egg yolk',
-            'Crème citron: 4 Lemons, 3 Eggs, 1 tbs Flour (corn prefered), 130g sugar',
+            'Crème citron: 4 Lemons, 3 Eggs, 1 tbs corn starch, 130g Sugar, Butter',
             'Meringue: 2 Egg white, 1/2 tbs baking soda, 80g Sugar'
         ],
         cookingSteps: [
+            'Mix corn starch, sugar and eggs',
+            'Heat lemon juice and add the mixture',
+            'Cook until thickened then add butter',
+            'Chill for a couple of hours',
             'Prepare pâte sablée and bake for 15 minutes',
-            'Make lemon curd by heating lemon juice with sugar and eggs',
-            'Add corn flour and cook until thickened',
             'Whip egg whites with sugar and baking soda for meringue',
             'Fill tart shell with lemon curd',
-            'Top with meringue and brown in oven'
+            'Top with meringue and brown with torch'
         ],
         modifications: 'For less acidity you can replace lemon by orange or grapefruit',
-        videoTutorial: '🍋 Ma Tarte citron douce et acidulée - YouTube'
+        videoTutorial: 'https://youtu.be/N7kY8vuCbVI?si=uNaGFatkYI6BUOnc'
     },
     'recipe11': {
         title: 'Eclair au chocolat',
@@ -743,19 +747,24 @@ const modalData = {
         servings: '12 servings',
         ingredients: [
             'Pâte a choux: 125g Flour, 250g Water, 80g Salted Butter, 3 Eggs',
-            'Creme patissiere: 200g Chocolate, 3 tbs Sugar, 2 tbs Flour, 30 cl Milk, 2 Eggs, 50g Butter',
-            'Glaçage: Water, Sugar, Cacao powder'
+            'Creme patissiere: 200g Dark Chocolate, 3 tbs Sugar, 2 tbs Flour, 30 cl Milk, 2 Eggs, 50g Butter',
+            'Glaçage: 100g Chocolate'
         ],
         cookingSteps: [
+            'Preheat oven to 200°C (390°F)',
             'Make choux pastry by heating water and butter, then adding flour',
             'Beat in eggs one by one until smooth',
             'Pipe into éclair shapes and bake for 35-40 minutes',
-            'Make chocolate pastry cream with milk, eggs, and chocolate',
+            'Heat milk and chocolate',
+            'Mix sugar, eggs, flour',
+            'Add hot milk and chocolate',
+            'Cook until thickened then add butter',
+            'Chill for a couple of hours',
             'Fill cooled éclairs with pastry cream',
-            'Make chocolate glaze and dip tops of éclairs'
+            'Melt chocolate and dip tops of éclairs'
         ],
         modifications: null,
-        videoTutorial: null
+        videoTutorial: 'https://youtu.be/QhutMxJPFto?si=0f3Qr9BqWhJ0qBja'
     },
     'recipe12': {
         title: 'Choux a la ganache chocolat',
@@ -768,15 +777,17 @@ const modalData = {
             'Ganache chocolat: 40cl Light cream, 280g Dark chocolate (tablet)'
         ],
         cookingSteps: [
+            'Preheat oven to 200°C (390°F)',
             'Make choux pastry by heating milk, water and butter',
             'Add flour and cook until smooth',
             'Beat in eggs one by one',
             'Pipe small rounds and bake for 35-40 minutes',
             'Make ganache by heating cream and melting chocolate',
+            'Chill for a couple of hours then whip it',
             'Fill cooled choux with ganache'
         ],
         modifications: null,
-        videoTutorial: null
+        videoTutorial: 'https://youtu.be/r4-kzFRYv9M?si=l_Xnq0MoUXr0AEnW'
     },
     'recipe13': {
         title: 'Crêpes',
@@ -788,18 +799,20 @@ const modalData = {
             '1 Egg',
             '3 tbs Flour',
             '1.5 tbs Sugar',
-            '~ 1/3L (12 oz) Milk'
+            '~ 1/3L (12 oz) Milk',
+            'Butter'
         ],
         cookingSteps: [
             'Mix egg, flour, and sugar in a bowl',
             'Gradually add milk while whisking',
             'Let batter rest for 30 minutes',
             'Heat a non-stick pan over medium heat',
+            'Before each pour, wipe the pan with butter',
             'Pour a thin layer of batter and cook until golden',
             'Flip and cook the other side'
         ],
         modifications: 'Add any type of alcohol (rum, beer, anisette, ...) or Add Vanilla',
-        videoTutorial: null
+        videoTutorial: 'https://youtu.be/YbxWMDdVSPY?si=seSZzSXc9b2jfy8a'
     },
     'recipe14': {
         title: 'Gratin de choux fleur',
@@ -847,7 +860,7 @@ const modalData = {
             'Bake for 1 hour until golden and tender'
         ],
         modifications: null,
-        videoTutorial: '🥔 Mon Gratin Dauphinois à partager - YouTube'
+        videoTutorial: 'https://youtu.be/ZkDqkTT9i-k?si=yWskGm6UwVCJJO0s'
     },
     'recipe16': {
         title: 'Quiche (Bastien\'s mom recipe)',
@@ -877,8 +890,8 @@ const modalData = {
         description: 'Traditional buckwheat crepe from Brittany, typically filled with savory ingredients.',
         servings: '4 servings',
         ingredients: [
-            '200g Buckwheat flour',
-            '500ml Water',
+            'Buckwheat flour',
+            'Water',
             '1 tsp Salt',
             '1 Egg',
             'Butter for cooking'
@@ -943,7 +956,7 @@ const modalData = {
             'Bake for 15 minutes until edges are set'
         ],
         modifications: null,
-        videoTutorial: null
+        videoTutorial: 'https://youtu.be/x5VJzLhhJtQ?si=qTVD_5NF4e4CTVLr'
     },
     'recipe20': {
         title: 'Mouelleux au chocolat - Muffin',
@@ -1077,7 +1090,7 @@ const modalData = {
             'Pour béchamel over and top with cheese',
             'Bake for 20-25 minutes until golden'
         ],
-        modifications: 'Replace Endives by Macedoine (carrots, peas, beans, potatoes and onions)',
+        modifications: 'Replace Endives by Leek or Macedoine (carrots, peas, beans, potatoes and onions)',
         videoTutorial: null
     },
     'recipe26': {
@@ -1107,7 +1120,7 @@ const modalData = {
             'Season and serve hot'
         ],
         modifications: null,
-        videoTutorial: null
+        videoTutorial: 'https://youtu.be/F_53yUD3Je4?si=2MDveCoIGMiit-IL'
     },
     'recipe27': {
         title: 'Potée',
@@ -1135,13 +1148,12 @@ const modalData = {
             'Season and serve hot'
         ],
         modifications: null,
-        videoTutorial: '🍲 La potée campagnarde - YouTube'
+        videoTutorial: 'https://youtu.be/n2ZbbbkAVhE?si=myt2Ia3YiXgu0j6I'
     },
     'recipe28': {
         title: 'Pot au feu',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
-        description: 'Traditional French boiled dinner with beef and vegetables.',
+        image: 'https://recettedelicieux.com/wp-content/uploads/2025/08/Untitled-design-2025-08-23T144729.299-530x530.jpg',       description: 'Traditional French boiled dinner with beef and vegetables.',
         servings: '6 servings',
         ingredients: [
             '1kg Beef (shin, brisket)',
@@ -1167,7 +1179,7 @@ const modalData = {
     'recipe29': {
         title: 'Poulet rôti',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/736x/a4/07/d5/a407d54dcc1d2145c06b7d42cef93ade.jpg',
         description: 'Classic French roast chicken with potatoes and seasonal accompaniments.',
         servings: '4 servings',
         ingredients: [
@@ -1192,12 +1204,12 @@ const modalData = {
     'recipe30': {
         title: 'Saussice-Lentille',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/736x/fd/44/47/fd444787cc968a69d631a5c26e1e6497.jpg',
         description: 'French sausage and lentil stew, a hearty winter dish.',
         servings: '4 servings',
         ingredients: [
             '400g Green lentils',
-            '4 Toulouse sausages',
+            '4 sausages (Smoked or not)',
             '2 Carrots',
             '2 Onions',
             '2 cloves Garlic',
@@ -1218,13 +1230,13 @@ const modalData = {
     'recipe31': {
         title: 'Rougaille saucisse',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/61/54/95/615495d4103daf84f2950442abcb6e06.jpg',
         description: 'Creole sausage stew with tomatoes and spices from Réunion Island.',
         servings: '4 servings',
         ingredients: [
             '2 Onions',
             '4 Garlic gloves',
-            '4 Tomatos',
+            '4 Tomatoes',
             '2 Smoked sausages',
             '1/2 lb Lard',
             'Ginger',
@@ -1242,18 +1254,19 @@ const modalData = {
             'Season and serve with rice'
         ],
         modifications: null,
-        videoTutorial: '🏝 Le rougail saucisses - YouTube'
+        videoTutorial: 'https://youtu.be/fnNru4H8GAk?si=777mGZcqGPYniLv0'
     },
     'recipe32': {
         title: 'Blanquette de veau',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/05/27/00/052700ca937a1531aa4b9a8db81cdb76.jpg',
         description: 'Classic French veal stew in white sauce, usually served with rice.',
         servings: '6 servings',
         ingredients: [
             'Bouillon: 1 Leek, 2lb Carrot, 2 Onions, 3 Garlic gloves, 2lb Veal, Laurel, Thyme',
             'Sauce: 100g Butter, Flour, Water from Bouillon, Bouillon concentrated',
-            '1lb of seized Mushrooms'
+            '1lb Mushrooms',
+            'Rice (side dish)'
         ],
         cookingSteps: [
             'Make bouillon: simmer veal with vegetables and herbs for 1h30-2h',
@@ -1263,13 +1276,13 @@ const modalData = {
             'The mix of everything: 10min in the pot (just reheat)',
             'Serve hot with rice'
         ],
-        modifications: 'Veal: any white meat (Chicken)',
-        videoTutorial: '🥕 Ma Blanquette de veau - YouTube'
+        modifications: 'Replace Veal by any white meat (Chicken, Pork, ...)',
+        videoTutorial: 'https://youtu.be/xn1BTnRmEb8?si=AvFQvPb5FknbnTI_'
     },
     'recipe33': {
         title: 'Hachis parmentier',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/736x/89/9b/f0/899bf080a4c7aaf713d5405874b0d4c5.jpg',
         description: 'French shepherd\'s pie with ground meat and mashed potatoes.',
         servings: '6 servings',
         ingredients: [
@@ -1296,7 +1309,7 @@ const modalData = {
     'recipe34': {
         title: 'Riz cantonnais à la française',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/90/fc/67/90fc6789a5e839db5191ebbcf91521fb.jpg',
         description: 'French-style Cantonese fried rice with vegetables and meat.',
         servings: '4 servings',
         ingredients: [
@@ -1324,7 +1337,7 @@ const modalData = {
     'recipe35': {
         title: 'Sauté de porc',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/b9/4c/94/b94c946be37ee34660915501119ac30a.jpg',
         description: 'French pork stir-fry with vegetables and herbs.',
         servings: '4 servings',
         ingredients: [
@@ -1353,7 +1366,7 @@ const modalData = {
     'recipe36': {
         title: 'Chouquettes',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/736x/5b/60/cc/5b60cc976dc723e0ba08392842919dcf.jpg',
         description: 'Light and airy French choux pastry puffs with pearl sugar.',
         servings: '20 servings',
         ingredients: [
@@ -1361,8 +1374,7 @@ const modalData = {
             '250ml Water',
             '80g Butter',
             '3 Eggs',
-            'Pearl sugar',
-            'Pinch of salt'
+            'Pearl sugar'
         ],
         cookingSteps: [
             'Preheat oven to 200°C',
@@ -1402,7 +1414,7 @@ const modalData = {
     'recipe38': {
         title: 'Ratatouille',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/03/e4/63/03e463cd1177ff644b2c42b91b1c43a5.jpg',
         description: 'Traditional Provençal vegetable stew with zucchini, eggplant, and tomatoes.',
         servings: '6 servings',
         ingredients: [
@@ -1430,7 +1442,7 @@ const modalData = {
     'recipe39': {
         title: 'Tiramisu (classic)',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/1200x/ca/48/22/ca4822de7bad9a3e58e9dea6fd6da8ca.jpg',
         description: 'Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream.',
         servings: '8 servings',
         ingredients: [
@@ -1446,7 +1458,7 @@ const modalData = {
             'Make mascarpone cream with eggs and sugar',
             'Dip biscuit in coffee (+amaretto)',
             'Layer biscuits and cream in serving dish',
-            'Chill for several hours',
+            'Chill for 36 hours',
             'Before serving spread cocoa powder on top'
         ],
         modifications: 'You can replace mascarpone by cream cheese/Philadelphia',
@@ -1455,32 +1467,30 @@ const modalData = {
     'recipe40': {
         title: 'Orange Tiramisu',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
-        description: 'Bastien\'s creation: Orange-flavored tiramisu with crumble topping.',
+        image: 'https://i.pinimg.com/1200x/61/a5/02/61a502daa417299804eae3d5f99526af.jpg',
+        description: 'Orange-flavored tiramisu',
         servings: '4 servings',
         ingredients: [
             'Biscuit: 90g sugar, 60g flour, 3 eggs',
             'Cream: 250g Mascarpone, 3 eggs, 85g Sugar',
             'Fresh orange juice',
-            'Rum (optional)',
-            'Crumble topping: 2 orange, 75g Flour, 50g Sugar, 50g Butter'
+            'Rum (optional)'
         ],
         cookingSteps: [
             'Make sponge cake and cut into strips',
             'Biscuit: 25 min at 300°F',
             'Make mascarpone cream',
             'Dip biscuit in fresh orange juice (+ rum)',
-            'Make crumble topping with orange zest',
-            'Layer biscuits, cream, and crumble',
-            'Chill and serve'
+            'Layer biscuits, cream',
+            'Chill for 36 hours'
         ],
-        modifications: 'Add a peach or apricot coulis',
+        modifications: 'Add a peach or apricot coulis, Can be adapted to any fruit',
         videoTutorial: null
     },
     'recipe41': {
         title: 'Gougères',
         category: 'Appetizer',
-        image: 'https://i.pinimg.com/1200x/cb/a8/4f/cba84fd2f187b4d1e54afc3beea630f8.jpg',
+        image: 'https://i.pinimg.com/1200x/b5/15/b4/b515b428d6ec7e93080471dbca60ea1d.jpg',
         description: 'Cheesy French choux pastry puffs, perfect as appetizers.',
         servings: '20 servings',
         ingredients: [
@@ -1506,7 +1516,7 @@ const modalData = {
     'recipe42': {
         title: 'Crème Anglaise',
         category: 'Accompagnement Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/736x/5e/d6/95/5ed695c897da2fa180238f308864fdc1.jpg',
         description: 'Classic French custard sauce, perfect accompaniment for desserts.',
         servings: '6 servings',
         ingredients: [
@@ -1524,12 +1534,12 @@ const modalData = {
             'Strain and cool'
         ],
         modifications: null,
-        videoTutorial: '👑 La crème Anglaise'
+        videoTutorial: 'https://www.youtube.com/watch?v=9tdTWVzyRhQ'
     },
     'recipe43': {
         title: 'Tomates Farcies',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/62/7d/33/627d33fa90092b60346c233e4f6f7cfd.jpg',
         description: 'Traditional French stuffed tomatoes with meat and herbs.',
         servings: '6 servings',
         ingredients: [
@@ -1551,13 +1561,13 @@ const modalData = {
             'Place in baking dish and drizzle with olive oil',
             'Bake for 45 minutes until tender'
         ],
-        modifications: null,
+        modifications: 'Replace tomatoes by Zucchini',
         videoTutorial: null
     },
     'recipe44': {
         title: 'Riz au lait',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/1200x/49/d7/68/49d7681beccca5bd0e51450d24b41f5b.jpg',
         description: 'Classic French rice pudding, creamy and comforting.',
         servings: '6 servings',
         ingredients: [
@@ -1581,7 +1591,7 @@ const modalData = {
     'recipe45': {
         title: 'Quatre-Quart',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/1200x/2e/71/d4/2e71d409d6f9cee2254d94898c132095.jpg',
         description: 'Classic French pound cake with equal parts of four ingredients.',
         servings: '8 servings',
         ingredients: [
@@ -1603,9 +1613,9 @@ const modalData = {
         videoTutorial: null
     },
     'recipe46': {
-        title: 'Marbré',
+        title: 'Marbré chocolat',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/1200x/cd/e8/64/cde864d32ff3f671eeddb80de3608df9.jpg',
         description: 'French marbled cake with vanilla and chocolate swirls.',
         servings: '8 servings',
         ingredients: [
@@ -1633,7 +1643,7 @@ const modalData = {
     'recipe47': {
         title: 'Poulet basquaise',
         category: 'Plat de résistance',
-        image: 'https://i.pinimg.com/1200x/9f/07/dc/9f07dc5de87ab54f33678c47aeb1f099.jpg',
+        image: 'https://i.pinimg.com/1200x/de/b4/32/deb432a03b24dc505f549334cb2c615f.jpg',
         description: 'Basque-style chicken with peppers, tomatoes, and Espelette pepper.',
         servings: '6 servings',
         ingredients: [
@@ -1663,7 +1673,7 @@ const modalData = {
     'recipe48': {
         title: 'Gâteau au citron',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/1200x/45/99/38/4599380cc434b8ac53965f175661e1e0.jpg',
         description: 'Moist and tangy French lemon cake.',
         servings: '8 servings',
         ingredients: [
@@ -1689,7 +1699,7 @@ const modalData = {
     'recipe49': {
         title: 'Cookies',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://recettedelicieux.com/wp-content/uploads/2025/05/Untitled-design-2025-05-25T012941.619.jpg',
         description: 'Classic chocolate chip cookies, soft and chewy.',
         servings: '4 servings',
         ingredients: [
@@ -1716,7 +1726,7 @@ const modalData = {
     'recipe50': {
         title: 'Sablé de Noël',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/1200x/75/45/7d/75457da6a6bb53a1a98e0802b3d827a2.jpg',
         description: 'Traditional French Christmas shortbread cookies with cinnamon.',
         servings: '20 servings',
         ingredients: [
@@ -1740,7 +1750,7 @@ const modalData = {
     'recipe51': {
         title: 'Galette des rois',
         category: 'Dessert',
-        image: 'https://i.pinimg.com/1200x/c1/e3/9f/c1e39f34e02195f0e62128e8ced855f1.jpg',
+        image: 'https://i.pinimg.com/1200x/be/e3/4a/bee34a5efaaef90a3d7e5cdcddbd9484.jpg',
         description: 'Traditional French King\'s Cake for Epiphany, with puff pastry and frangipane.',
         servings: '8 servings',
         ingredients: [
