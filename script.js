@@ -542,7 +542,7 @@ const modalData = {
         description: 'Classic French custard tart with a buttery pastry crust.',
         servings: '8 servings',
         ingredients: [
-            'Pâte brisée: 300g Flour, 150g Butter, 8cl Water, 3 tbsp Sugar',
+            'Pâte sablée: 250g Flour, 100g sugar, 80g Butter, 1 Egg, Cinnamon',
             'Crème patissière: 1L Milk, 4 Eggs, 150g Sugar, 90g Corn flour, Vanilla'
         ],
         cookingSteps: [
@@ -1092,6 +1092,32 @@ const modalData = {
         ],
         modifications: 'Replace Endives by Leek or Macedoine (carrots, peas, beans, potatoes and onions)',
         videoTutorial: null
+    },
+    'recipe25': {
+        title: 'crème brûlée',
+        category: 'Dessert',
+        image: '',
+        description: 'Classic French crème brûlée with a caramelized sugar topping.',
+        servings: '4 servings',
+        ingredients: [
+            '4 Egg yolks',
+            'Cream',
+            'Sugar',
+            'Vanilla extract',
+            'Milk',
+            'Cane sugar'
+        ],
+        cookingSteps: [
+            'Preheat oven to 180°C',
+            'Mix egg yolks and sugar',
+            'Add vanilla extract and milk',
+            'Pour into ramekins',
+            'Bake for 20 minutes',
+            'Caramelize the sugar on top',
+            'Serve with a scoop of vanilla ice cream'
+        ],
+        modifications: null,
+        videoTutorial: 'https://www.youtube.com/watch?v=lROX8gJ8SPE'
     },
     'recipe26': {
         title: 'Boeuf bourgignon',
