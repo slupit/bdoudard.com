@@ -361,7 +361,9 @@ const modalData = {
         purpose: 'My vision for this webapp is to make accessible tools to visualize, clarify and optimize business operations for common users and small businesses. This app can be compared to Airbnb for businesses. Leveraging my operation research knowledge, I am integrating optimization tools so business can make better decisions daily. The webapp was created in September 2025 and is still in development.',
         roadmap: {
             achieved: [
-                
+                'Website frontend with React and Vite',
+                'Website backend with Python and FastAPI',
+                'Database integration with PostgreSQL',
                 'Dashboard with key performance indicators (KPIs)',
                 'Inventory management coupled with demand forecasting systems',
                 'Market Analysis and competitive benchmarking',
