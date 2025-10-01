@@ -356,6 +356,28 @@ const modalData = {
             'Upgrade to real-time parameter and use the model for a shipping company (facility to customer)'
         ]
     },
+    'project4': {
+        title: 'Business Operations Webapp',
+        purpose: 'My vision for this webapp is to make accessible tools to visualize, clarify and optimize business operations for common users and small businesses. This app can be compared to Airbnb for businesses. Leveraging my operation research knowledge, I am integrating optimization tools so business can make better decisions daily. The webapp was created in September 2025 and is still in development.',
+        roadmap: {
+            achieved: [
+                
+                'Dashboard with key performance indicators (KPIs)',
+                'Inventory management coupled with demand forecasting systems',
+                'Market Analysis and competitive benchmarking',
+                'Financial reporting and analytics module',
+                'API integration for third-party services',
+                'Automated workflow notifications'
+            ],
+            next: [
+                'AI integration for app versatility',
+                'Upload data from different sources',
+                'User authentication and role-based access control',
+                'Live demo of the webapp',
+                'Advanced analytics with machine learning predictions'
+            ]
+        }
+    },
     'edu1': {
         title: 'Texas A&M University',
         image: 'https://thebatt.com/wp-content/uploads/2024/10/CJS13047-1200x800.jpg',
@@ -1979,8 +2001,8 @@ function openModal(modalId) {
                 `;
             }
         }
-        // Handle project1 (Personal Website) with purpose and roadmap structure
-        else if (modalId === 'project1' && data.purpose && data.roadmap) {
+        // Handle project1 (Personal Website) and project4 (Business Operations Webapp) with purpose and roadmap structure
+        else if ((modalId === 'project1' || modalId === 'project4') && data.purpose && data.roadmap) {
             // Add purpose section
             modalContent += `
                 <div class="project-section">
