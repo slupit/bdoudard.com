@@ -512,12 +512,12 @@ const modalData = {
                  height: 500
              },
              {
-                 image: 'img/memories/Ticou_bois.JPG',
+                 image: 'img/memories/Ticou_bois.jpg',
                  caption: 'Ticou chillin\' on the wood',
                  height: 250
              },
              {
-                 image: 'img/memories/Moonette.JPG',
+                 image: 'img/memories/Moonette.jpg',
                  caption: '',
                  height: 300,
                  positionX: 0,
