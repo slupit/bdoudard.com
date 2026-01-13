@@ -1,9 +1,9 @@
 // Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
-    hamburger.addEventListener('click', function() {
+    hamburger.addEventListener('click', function () {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (!e.target.closest('.navbar') && navMenu.classList.contains('active')) {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mobile tabs hamburger functionality
     initMobileTabsHamburger();
-    
+
     // Recipe category tabs functionality
     initRecipeCategoryTabs();
 });
@@ -34,12 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // Mobile tabs hamburger functionality
 function initMobileTabsHamburger() {
     const tabsHamburgers = document.querySelectorAll('.tabs-hamburger');
-    
+
     tabsHamburgers.forEach(hamburger => {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function () {
             const tabsMenu = this.parentElement.querySelector('.tabs-menu');
             const isActive = this.classList.contains('active');
-            
+
             // Close all other hamburger menus
             tabsHamburgers.forEach(h => {
                 if (h !== this) {
@@ -47,7 +47,7 @@ function initMobileTabsHamburger() {
                     h.parentElement.querySelector('.tabs-menu').classList.remove('mobile-visible');
                 }
             });
-            
+
             // Toggle current menu
             this.classList.toggle('active');
             tabsMenu.classList.toggle('mobile-visible');
@@ -55,7 +55,7 @@ function initMobileTabsHamburger() {
     });
 
     // Close mobile tabs menu when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (!e.target.closest('.tabs-nav')) {
             tabsHamburgers.forEach(hamburger => {
                 hamburger.classList.remove('active');
@@ -84,16 +84,16 @@ function initRecipeCategoryTabs() {
 
     // Mobile hamburger functionality for category tabs
     if (categoryTabsHamburger && categoryTabsMenu) {
-        categoryTabsHamburger.addEventListener('click', function() {
+        categoryTabsHamburger.addEventListener('click', function () {
             const isActive = this.classList.contains('active');
-            
+
             // Toggle current menu
             this.classList.toggle('active');
             categoryTabsMenu.classList.toggle('mobile-visible');
         });
 
         // Close mobile category tabs menu when clicking outside
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (!e.target.closest('.recipe-category-tabs')) {
                 categoryTabsHamburger.classList.remove('active');
                 categoryTabsMenu.classList.remove('mobile-visible');
@@ -103,38 +103,38 @@ function initRecipeCategoryTabs() {
 
     // Category filtering functionality
     categoryTabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             const selectedCategory = this.getAttribute('data-category');
-            
+
             // Remove active class from all buttons
             categoryTabBtns.forEach(b => b.classList.remove('active'));
-            
+
             // Add active class to clicked button
             this.classList.add('active');
-            
+
             // Filter recipe cards
             recipeCards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
-                
+
                 if (selectedCategory === 'all' || cardCategory === selectedCategory) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');
                 }
             });
-            
+
             // Close mobile menu after selection
             if (categoryTabsHamburger && categoryTabsMenu) {
                 categoryTabsHamburger.classList.remove('active');
                 categoryTabsMenu.classList.remove('mobile-visible');
             }
-            
+
             // Reset card slider position when filtering
             cardSliderPositions['recipes'] = 0;
             updateCardSliderButtons('recipes');
             createPaginationDots('recipes');
             updatePaginationDots('recipes');
-            
+
             // Reset transform
             const container = document.getElementById('recipes-container');
             if (container) {
@@ -162,13 +162,13 @@ function showSlide(index) {
 
 function changeSlide(direction) {
     currentSlide += direction;
-    
+
     if (currentSlide >= totalSlides) {
         currentSlide = 0;
     } else if (currentSlide < 0) {
         currentSlide = totalSlides - 1;
     }
-    
+
     showSlide(currentSlide);
 }
 
@@ -181,25 +181,25 @@ function goToSlide(index) {
 function initHighlightsDots() {
     const dotsContainer = document.getElementById('highlights-dots');
     if (!dotsContainer) return;
-    
+
     // Clear existing dots
     dotsContainer.innerHTML = '';
-    
+
     // If more than 10 slides, show line with active dot
     if (totalSlides > 10) {
         const lineContainer = document.createElement('div');
         lineContainer.className = 'pagination-line-container';
-        
+
         const line = document.createElement('div');
         line.className = 'pagination-line';
-        
+
         const activeDot = document.createElement('div');
         activeDot.className = 'pagination-line-dot active';
-        
+
         lineContainer.appendChild(line);
         lineContainer.appendChild(activeDot);
         dotsContainer.appendChild(lineContainer);
-        
+
         // Add click handler to the line container
         lineContainer.addEventListener('click', (e) => {
             const rect = lineContainer.getBoundingClientRect();
@@ -214,11 +214,11 @@ function initHighlightsDots() {
             const dot = document.createElement('div');
             dot.className = 'pagination-dot';
             if (i === 0) dot.classList.add('active');
-            
+
             dot.addEventListener('click', () => {
                 goToSlide(i);
             });
-            
+
             dotsContainer.appendChild(dot);
         }
     }
@@ -227,12 +227,12 @@ function initHighlightsDots() {
 function updateHighlightsDots() {
     const dotsContainer = document.getElementById('highlights-dots');
     if (!dotsContainer) return;
-    
+
     if (totalSlides > 10) {
         // Update line-based pagination
         const lineContainer = dotsContainer.querySelector('.pagination-line-container');
         const activeDot = dotsContainer.querySelector('.pagination-line-dot');
-        
+
         if (lineContainer && activeDot) {
             const percentage = (currentSlide / (totalSlides - 1)) * 100;
             activeDot.style.left = `${percentage}%`;
@@ -249,9 +249,9 @@ function updateHighlightsDots() {
 // Auto-advance disabled for highlights carousel
 
 // Initialize highlights dots when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initHighlightsDots();
-    
+
     // Ensure carousel is properly initialized
     const slides = document.querySelectorAll('.slide');
     if (slides.length > 0) {
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Tab functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Portfolio tabs
     const portfolioTabBtns = document.querySelectorAll('#portfolio .tab-btn');
     const portfolioTabContents = document.querySelectorAll('#portfolio .tab-content');
@@ -268,11 +268,11 @@ document.addEventListener('DOMContentLoaded', function() {
     portfolioTabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetTab = btn.getAttribute('data-tab');
-            
+
             // Remove active class from all buttons and contents
             portfolioTabBtns.forEach(b => b.classList.remove('active'));
             portfolioTabContents.forEach(content => content.classList.remove('active'));
-            
+
             // Add active class to clicked button and corresponding content
             btn.classList.add('active');
             document.getElementById(targetTab).classList.add('active');
@@ -286,11 +286,11 @@ document.addEventListener('DOMContentLoaded', function() {
     resourcesTabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetTab = btn.getAttribute('data-tab');
-            
+
             // Remove active class from all buttons and contents
             resourcesTabBtns.forEach(b => b.classList.remove('active'));
             resourcesTabContents.forEach(content => content.classList.remove('active'));
-            
+
             // Add active class to clicked button and corresponding content
             btn.classList.add('active');
             document.getElementById(targetTab).classList.add('active');
@@ -483,47 +483,47 @@ const modalData = {
         title: 'Gadzart Journey',
         date: 'Since 2021',
         description: '',
-         pictures: [
-             {
-                 image: 'img/memories/Fignos.jpg',
-                 caption: 'The traditional "Gala des Fignos" welcome the new Gadzart members',
-                 positionX: 0,
-                 positionY: 0,
-                 height: 250
-             },
-             {
-                 image: 'img/memories/Flamme.jpg',
-                 caption: 'Proudly took part in the rekindling of the flame of the unknown soldier, the symbol of the spirit of the nation that should never be extinguished. We were a couple of hundreds Gadzarts.',
-                 positionX: 0,
-                 positionY: -80,
-                 height: 350
-             }
-         ]
+        pictures: [
+            {
+                image: 'img/memories/Fignos.jpg',
+                caption: 'The traditional "Gala des Fignos" welcome the new Gadzart members',
+                positionX: 0,
+                positionY: 0,
+                height: 250
+            },
+            {
+                image: 'img/memories/Flamme.jpg',
+                caption: 'Proudly took part in the rekindling of the flame of the unknown soldier, the symbol of the spirit of the nation that should never be extinguished. We were a couple of hundreds Gadzarts.',
+                positionX: 0,
+                positionY: -80,
+                height: 350
+            }
+        ]
     },
     'memory4': {
         title: 'My Beautiful Cats',
         date: 'Since 2010',
         description: '',
-         pictures: [
-             {
-                 image: 'img/memories/bb_titi.JPG',
-                 caption: '',
-                 positionY: 0,
-                 height: 500
-             },
-             {
-                 image: 'img/memories/Ticou_bois.jpg',
-                 caption: 'Ticou chillin\' on the wood',
-                 height: 250
-             },
-             {
-                 image: 'img/memories/Moonette.jpg',
-                 caption: '',
-                 height: 300,
-                 positionX: 0,
-                 positionY: -200
-             }
-         ]
+        pictures: [
+            {
+                image: 'img/memories/bb_titi.JPG',
+                caption: '',
+                positionY: 0,
+                height: 500
+            },
+            {
+                image: 'img/memories/Ticou_bois.jpg',
+                caption: 'Ticou chillin\' on the wood',
+                height: 250
+            },
+            {
+                image: 'img/memories/Moonette.jpg',
+                caption: '',
+                height: 300,
+                positionX: 0,
+                positionY: -200
+            }
+        ]
     },
     'memory5': {
         title: 'My First Skydive',
@@ -704,7 +704,7 @@ const modalData = {
         servings: '6 servings',
         ingredients: [
             '200g Dark Chocolate',
-            '6 Egg Yolk', 
+            '6 Egg Yolk',
             '20g Butter'
         ],
         cookingSteps: [
@@ -1203,7 +1203,7 @@ const modalData = {
     'recipe28': {
         title: 'Pot au feu',
         category: 'Plat de résistance',
-        image: 'https://recettedelicieux.com/wp-content/uploads/2025/08/Untitled-design-2025-08-23T144729.299-530x530.jpg',       description: 'Traditional French boiled dinner with beef and vegetables.',
+        image: 'https://recettedelicieux.com/wp-content/uploads/2025/08/Untitled-design-2025-08-23T144729.299-530x530.jpg', description: 'Traditional French boiled dinner with beef and vegetables.',
         servings: '6 servings',
         ingredients: [
             '1kg Beef (shin, brisket)',
@@ -1804,13 +1804,13 @@ const modalData = {
         description: 'Traditional French King\'s Cake for Epiphany, with puff pastry and frangipane.',
         servings: '8 servings',
         ingredients: [
-            '2 sheets Puff pastry',
-            'Frangipane: 100g Butter, 100g Sugar, 2 Eggs, 100g Almond flour',
-            '1 fève (small ceramic figure)',
+            'Puff pastry: 375g Flour, 200g Water, 250g Butter',
+            'Frangipane: 70g Butter, 100g Sugar, 2 Eggs, 100g Almond flour',
+            '1 fève',
             'Egg wash'
         ],
         cookingSteps: [
-            'Preheat oven to 200°C',
+            'Preheat oven to 170°C',
             'Make frangipane by creaming butter and sugar',
             'Beat in eggs and almond flour',
             'Roll out puff pastry and cut into circles',
@@ -1818,10 +1818,10 @@ const modalData = {
             'Hide fève in the filling',
             'Cover with second circle and seal edges',
             'Brush with egg wash and score pattern',
-            'Bake for 25-30 minutes until golden'
+            'Bake for 30 minutes until golden'
         ],
         modifications: null,
-        videoTutorial: null
+        videoTutorial: 'https://youtu.be/lwyEHfTxFzs?si=zSNHmk1KypFT00nc'
     }
 };
 
@@ -1832,12 +1832,12 @@ function generateIngredientsHTML(ingredients) {
     const hasMultipleElements = ingredients.some(ingredient => {
         const colonIndex = ingredient.indexOf(':');
         if (colonIndex === -1) return false;
-        
+
         // Check if there are ingredients after the colon (not just a colon at the end)
         const afterColon = ingredient.substring(colonIndex + 1).trim();
         return afterColon.length > 0 && (afterColon.includes(',') || afterColon.length > 10);
     });
-    
+
     if (!hasMultipleElements) {
         // Single element - display as simple list with blue box styling
         return `
@@ -1851,20 +1851,20 @@ function generateIngredientsHTML(ingredients) {
         // Multiple elements - group by element name
         let html = '';
         let hasStandaloneIngredients = false;
-        
+
         ingredients.forEach(ingredient => {
             const colonIndex = ingredient.indexOf(':');
             const afterColon = ingredient.substring(colonIndex + 1).trim();
-            
+
             // Check if this is a grouped ingredient (has colon with ingredients after it)
             if (colonIndex !== -1 && afterColon.length > 0 && (afterColon.includes(',') || afterColon.length > 10)) {
                 // This ingredient has an element name (e.g., "Pâte brisée: 300g Flour, 150g Butter")
                 const elementName = ingredient.substring(0, colonIndex).trim();
                 const elementIngredients = afterColon;
-                
+
                 // Split ingredients by comma and clean them
                 const ingredientList = elementIngredients.split(',').map(ing => ing.trim()).filter(ing => ing);
-                
+
                 html += `
                     <div class="ingredient-element">
                         <h4 class="element-name">${elementName}</h4>
@@ -1883,12 +1883,12 @@ function generateIngredientsHTML(ingredients) {
                 html += `<li>${ingredient}</li>`;
             }
         });
-        
+
         // Close the standalone section if it was opened
         if (hasStandaloneIngredients) {
             html += '</ul></div>';
         }
-        
+
         return html;
     }
 }
@@ -1902,37 +1902,37 @@ function openModal(modalId) {
         let modalContent = `
             <h2>${data.title}</h2>
         `;
-        
+
         // Add category if it exists
         if (data.category) {
             modalContent += `<p class="modal-category">${data.category}</p>`;
         }
-        
+
         // Add company name for experience modals (after title)
         if (modalId.startsWith('exp') && data.company) {
             modalContent += `<p class="modal-company">${data.company}</p>`;
         }
-        
+
         // Add period for experience modals (after company)
         if (modalId.startsWith('exp') && data.datePeriod) {
             modalContent += `<p class="modal-date-period">${data.datePeriod}</p>`;
         }
-        
+
         // Add image if it exists
         if (data.image) {
             modalContent += `<img src="${data.image}" alt="${data.title}">`;
         }
-        
+
         // Add description if it exists
         if (data.description) {
             modalContent += `<p class="modal-description">${data.description}</p>`;
         }
-        
+
         // Add servings if it exists
         if (data.servings) {
             modalContent += `<div class="modal-section"><p>${data.servings}</p></div>`;
         }
-        
+
         // Add ingredients if they exist
         if (data.ingredients && data.ingredients.length > 0) {
             modalContent += `
@@ -1942,7 +1942,7 @@ function openModal(modalId) {
                 </div>
             `;
         }
-        
+
         // Add modifications if they exist (moved right after ingredients)
         if (data.modifications) {
             modalContent += `
@@ -1952,7 +1952,7 @@ function openModal(modalId) {
                 </div>
             `;
         }
-        
+
         // Add cooking steps if they exist
         if (data.cookingSteps && data.cookingSteps.length > 0) {
             modalContent += `
@@ -1964,7 +1964,7 @@ function openModal(modalId) {
                 </div>
             `;
         }
-        
+
         // Add video tutorial if it exists
         if (data.videoTutorial) {
             modalContent += `
@@ -1976,7 +1976,7 @@ function openModal(modalId) {
                 </div>
             `;
         }
-        
+
         // Handle project modals with new structure
         if (modalId.startsWith('project') && data.activities) {
             // Add activities with images and descriptions (for project2, project3)
@@ -1990,7 +1990,7 @@ function openModal(modalId) {
                     `;
                 });
             }
-            
+
             // Add "What to explore next" section for project2 and project3
             if ((modalId === 'project2' || modalId === 'project3') && data.exploreNext) {
                 modalContent += `
@@ -2012,7 +2012,7 @@ function openModal(modalId) {
                     <p class="project-purpose">${data.purpose}</p>
                 </div>
             `;
-            
+
             // Add roadmap section
             modalContent += `
                 <div class="project-section">
@@ -2040,7 +2040,7 @@ function openModal(modalId) {
             if (data.datePeriod) {
                 modalContent += `<p class="modal-date-period">${data.datePeriod}</p>`;
             }
-            
+
             // Add coursework if it exists
             if (data.coursework && data.coursework.length > 0) {
                 modalContent += `
@@ -2052,7 +2052,7 @@ function openModal(modalId) {
                     </div>
                 `;
             }
-            
+
             // Add volunteering if it exists
             if (data.volunteering && data.volunteering.length > 0) {
                 modalContent += `
@@ -2071,28 +2071,28 @@ function openModal(modalId) {
             if (data.date) {
                 modalContent += `<p class="modal-date-period">${data.date}</p>`;
             }
-            
+
             // Add pictures with captions in a grid layout
             if (data.pictures && data.pictures.length > 0) {
                 modalContent += `<div class="memory-gallery">`;
-                 data.pictures.forEach((picture, index) => {
-                     // Build custom positioning style if provided
-                     let positionStyle = '';
-                     if (picture.positionX !== undefined || picture.positionY !== undefined) {
-                         const x = picture.positionX !== undefined ? `${picture.positionX}px` : 'center';
-                         const y = picture.positionY !== undefined ? `${picture.positionY}px` : 'center';
-                         positionStyle = `object-position: ${x} ${y};`;
-                     }
-                     
-                     // Build custom height style if provided
-                     let heightStyle = '';
-                     let containerClass = 'picture-container';
-                     if (picture.height !== undefined) {
-                         heightStyle = `height: ${picture.height}px;`;
-                         containerClass += ' custom-height';
-                     }
-                     
-                     modalContent += `
+                data.pictures.forEach((picture, index) => {
+                    // Build custom positioning style if provided
+                    let positionStyle = '';
+                    if (picture.positionX !== undefined || picture.positionY !== undefined) {
+                        const x = picture.positionX !== undefined ? `${picture.positionX}px` : 'center';
+                        const y = picture.positionY !== undefined ? `${picture.positionY}px` : 'center';
+                        positionStyle = `object-position: ${x} ${y};`;
+                    }
+
+                    // Build custom height style if provided
+                    let heightStyle = '';
+                    let containerClass = 'picture-container';
+                    if (picture.height !== undefined) {
+                        heightStyle = `height: ${picture.height}px;`;
+                        containerClass += ' custom-height';
+                    }
+
+                    modalContent += `
                          <div class="memory-picture">
                              <div class="${containerClass}" style="${heightStyle}">
                                  <img src="${picture.image}" alt="Memory ${index + 1}" style="${positionStyle}">
@@ -2100,7 +2100,7 @@ function openModal(modalId) {
                              <p class="picture-caption">${picture.caption}</p>
                          </div>
                      `;
-                 });
+                });
                 modalContent += `</div>`;
             }
         }
@@ -2127,14 +2127,14 @@ function openModal(modalId) {
             </ul>
         `;
         }
-        
+
         modalBody.innerHTML = modalContent;
-        
+
         // Add memory-modal class for memory modals
         if (modalId.startsWith('memory')) {
             modal.classList.add('memory-modal');
         }
-        
+
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
@@ -2142,7 +2142,7 @@ function openModal(modalId) {
 
 function closeModal() {
     const modal = document.getElementById('modal');
-    
+
     // Stop video playback if it's a video modal
     if (modal.classList.contains('video-modal')) {
         const iframe = modal.querySelector('iframe');
@@ -2151,7 +2151,7 @@ function closeModal() {
             iframe.src = 'about:blank';
         }
     }
-    
+
     modal.style.display = 'none';
     modal.classList.remove('video-modal'); // Remove video modal class
     modal.classList.remove('memory-modal'); // Remove memory modal class
@@ -2168,17 +2168,17 @@ function openVideoModal(modalId) {
         let modalContent = `
             <h2>${data.title}</h2>
         `;
-        
+
         // Add date if it exists
         if (data.date) {
             modalContent += `<p class="modal-date-period">${data.date}</p>`;
         }
-        
+
         // Add description if it exists
         if (data.description) {
             modalContent += `<p class="modal-description">${data.description}</p>`;
         }
-        
+
         // Add video embed
         if (data.videoUrl) {
             modalContent += `
@@ -2194,21 +2194,21 @@ function openVideoModal(modalId) {
                 </div>
             `;
         }
-        
+
         modalBody.innerHTML = modalContent;
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        
+
         // Add special styling for video modal
         modal.classList.add('video-modal');
-        
+
         // Store the video URL for potential cleanup
         modal.setAttribute('data-video-url', data.videoUrl);
     }
 }
 
 // Close modal when clicking outside of it
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
     const modal = document.getElementById('modal');
     if (event.target === modal) {
         closeModal();
@@ -2216,7 +2216,7 @@ window.addEventListener('click', function(event) {
 });
 
 // Close modal with Escape key
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         closeModal();
     }
@@ -2238,7 +2238,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Navbar background change on scroll
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
         navbar.style.backgroundColor = 'rgba(47, 72, 88, 0.95)';
@@ -2255,7 +2255,7 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -2265,7 +2265,7 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Observe elements for animation
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const animatedElements = document.querySelectorAll('.card, .slide-content, .section-title');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -2280,16 +2280,16 @@ const cardSliderPositions = {};
 
 function initCardSliders() {
     const cardContainers = document.querySelectorAll('.card-container');
-    
+
     cardContainers.forEach(container => {
         const containerId = container.id;
         // Remove '-container' suffix to get the base ID
         const baseId = containerId.replace('-container', '');
         cardSliderPositions[baseId] = 0;
-        
+
         // Set initial transform
         container.style.transform = 'translateX(0px)';
-        
+
         updateCardSliderButtons(baseId);
         createPaginationDots(baseId);
     });
@@ -2298,32 +2298,32 @@ function initCardSliders() {
 function moveCardSlider(containerId, direction) {
     const container = document.getElementById(containerId + '-container');
     if (!container) return;
-    
+
     const cards = container.querySelectorAll('.card:not(.hidden)');
     const totalCards = cards.length;
     const cardsPerView = getCardsPerView();
     const maxPosition = Math.max(0, totalCards - cardsPerView);
-    
+
     // Initialize position if not set
     if (cardSliderPositions[containerId] === undefined) {
         cardSliderPositions[containerId] = 0;
     }
-    
+
     // Move one card at a time
     cardSliderPositions[containerId] += direction;
-    
+
     // Clamp position within bounds
     if (cardSliderPositions[containerId] < 0) {
         cardSliderPositions[containerId] = 0;
     } else if (cardSliderPositions[containerId] > maxPosition) {
         cardSliderPositions[containerId] = maxPosition;
     }
-    
+
     // Calculate transform value
     const cardWidth = 300; // Fixed card width
     const gap = 32; // Gap between cards
     const cardStep = cardWidth + gap;
-    
+
     let transformValue;
     if (cardsPerView === 1) {
         // Single card mode - center the card
@@ -2336,9 +2336,9 @@ function moveCardSlider(containerId, direction) {
         // Multiple cards mode - simple positioning
         transformValue = -cardSliderPositions[containerId] * cardStep;
     }
-    
+
     container.style.transform = `translateX(${transformValue}px)`;
-    
+
     updateCardSliderButtons(containerId);
     updatePaginationDots(containerId);
 }
@@ -2346,15 +2346,15 @@ function moveCardSlider(containerId, direction) {
 function updateCardSliderButtons(containerId) {
     const container = document.getElementById(containerId + '-container');
     if (!container) return;
-    
+
     const cards = container.querySelectorAll('.card:not(.hidden)');
     const totalCards = cards.length;
     const cardsPerView = getCardsPerView();
     const maxPosition = Math.max(0, totalCards - cardsPerView);
-    
+
     const prevBtn = container.parentElement.querySelector('.prev');
     const nextBtn = container.parentElement.querySelector('.next');
-    
+
     if (prevBtn) {
         prevBtn.disabled = cardSliderPositions[containerId] === 0;
     }
@@ -2368,11 +2368,11 @@ function getCardsPerView() {
     const cardWidth = 300; // Fixed card width
     const gap = 32; // Gap between cards
     const containerPadding = 32; // 1rem padding on each side
-    
+
     // Calculate how many cards can fit
     const availableWidth = screenWidth - containerPadding;
     const cardsPerView = Math.floor((availableWidth + gap) / (cardWidth + gap));
-    
+
     // Simple logic: 3 cards when possible, otherwise 1 centered card
     if (cardsPerView >= 3) {
         return 3;
@@ -2385,7 +2385,7 @@ function getCardsPerView() {
 document.addEventListener('DOMContentLoaded', initCardSliders);
 
 // Update card slider buttons on window resize
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     Object.keys(cardSliderPositions).forEach(containerId => {
         const container = document.getElementById(containerId + '-container');
         if (container) {
@@ -2394,7 +2394,7 @@ window.addEventListener('resize', function() {
             const totalCards = cards.length;
             const cardsPerView = getCardsPerView();
             const maxPosition = Math.max(0, totalCards - cardsPerView);
-            
+
             // Clamp position to ensure first card is accessible
             if (cardSliderPositions[containerId] > maxPosition) {
                 cardSliderPositions[containerId] = maxPosition;
@@ -2402,12 +2402,12 @@ window.addEventListener('resize', function() {
             if (cardSliderPositions[containerId] < 0) {
                 cardSliderPositions[containerId] = 0;
             }
-            
+
             // Recalculate transform with proper centering
             const cardWidth = 300; // Fixed card width
             const gap = 32; // Gap between cards
             const cardStep = cardWidth + gap;
-            
+
             let transformValue;
             if (cardsPerView === 1) {
                 // Single card mode - center the card
@@ -2420,10 +2420,10 @@ window.addEventListener('resize', function() {
                 // Multiple cards mode - simple positioning
                 transformValue = -cardSliderPositions[containerId] * cardStep;
             }
-            
+
             container.style.transform = `translateX(${transformValue}px)`;
         }
-        
+
         updateCardSliderButtons(containerId);
         createPaginationDots(containerId);
         updatePaginationDots(containerId);
@@ -2438,12 +2438,12 @@ let touchEndY = 0;
 let isDragging = false;
 
 // Main carousel swipe
-document.querySelector('.carousel-wrapper').addEventListener('touchstart', function(e) {
+document.querySelector('.carousel-wrapper').addEventListener('touchstart', function (e) {
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
 });
 
-document.querySelector('.carousel-wrapper').addEventListener('touchend', function(e) {
+document.querySelector('.carousel-wrapper').addEventListener('touchend', function (e) {
     touchEndX = e.changedTouches[0].screenX;
     touchEndY = e.changedTouches[0].screenY;
     handleCarouselSwipe();
@@ -2453,7 +2453,7 @@ function handleCarouselSwipe() {
     const swipeThreshold = 50;
     const diffX = touchStartX - touchEndX;
     const diffY = touchStartY - touchEndY;
-    
+
     // Only handle horizontal swipes
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > swipeThreshold) {
         if (diffX > 0) {
@@ -2469,45 +2469,45 @@ function handleCarouselSwipe() {
 // Card carousel swipe functionality
 function initCardCarouselSwipe() {
     const cardContainers = document.querySelectorAll('.card-container');
-    
+
     cardContainers.forEach(container => {
         let startX = 0;
         let currentX = 0;
         let isDragging = false;
         let startTransform = 0;
-        
-        container.addEventListener('touchstart', function(e) {
+
+        container.addEventListener('touchstart', function (e) {
             startX = e.touches[0].clientX;
             isDragging = true;
             this.classList.add('swiping');
-            
+
             // Get current transform value
             const transform = this.style.transform;
             startTransform = transform ? parseFloat(transform.match(/-?\d+\.?\d*/)[0]) : 0;
         });
-        
-        container.addEventListener('touchmove', function(e) {
+
+        container.addEventListener('touchmove', function (e) {
             if (!isDragging) return;
-            
+
             currentX = e.touches[0].clientX;
             const diffX = currentX - startX;
             const newTransform = startTransform + diffX;
-            
+
             this.style.transform = `translateX(${newTransform}px)`;
         });
-        
-        container.addEventListener('touchend', function(e) {
+
+        container.addEventListener('touchend', function (e) {
             if (!isDragging) return;
-            
+
             isDragging = false;
             this.classList.remove('swiping');
-            
+
             const diffX = currentX - startX;
             const swipeThreshold = 50;
-            
+
             if (Math.abs(diffX) > swipeThreshold) {
                 const containerId = this.id.replace('-container', '');
-                
+
                 if (diffX > 0) {
                     // Swipe right - previous
                     moveCardSlider(containerId, -1);
@@ -2523,15 +2523,15 @@ function initCardCarouselSwipe() {
                 const totalCards = cards.length;
                 const cardsPerView = getCardsPerView();
                 const maxPosition = Math.max(0, totalCards - cardsPerView);
-                
+
                 // Ensure position is within bounds
                 const clampedPosition = Math.max(0, Math.min(currentPosition, maxPosition));
                 cardSliderPositions[containerId] = clampedPosition;
-                
+
                 const cardWidth = 300; // Fixed card width
                 const gap = 32; // Gap between cards
                 const cardStep = cardWidth + gap;
-                
+
                 let transformValue;
                 if (cardsPerView === 1) {
                     // Single card mode - center the card
@@ -2544,7 +2544,7 @@ function initCardCarouselSwipe() {
                     // Multiple cards mode - simple positioning
                     transformValue = -clampedPosition * cardStep;
                 }
-                
+
                 this.style.transform = `translateX(${transformValue}px)`;
             }
         });
@@ -2578,36 +2578,36 @@ document.addEventListener('DOMContentLoaded', lazyLoadImages);
 function createPaginationDots(containerId) {
     const container = document.getElementById(containerId + '-container');
     const dotsContainer = document.getElementById(containerId + '-dots');
-    
+
     if (!container || !dotsContainer) return;
-    
+
     const cards = container.querySelectorAll('.card:not(.hidden)');
     const totalCards = cards.length;
     const cardsPerView = getCardsPerView();
-    
+
     // Calculate number of pages needed for one-card-at-a-time scrolling
     const totalPages = Math.max(1, totalCards - cardsPerView + 1);
-    
+
     // Clear existing dots
     dotsContainer.innerHTML = '';
-    
+
     // Only show dots if there are multiple pages
     if (totalPages > 1) {
         // If more than 10 pages, show line with active dot
         if (totalPages > 10) {
             const lineContainer = document.createElement('div');
             lineContainer.className = 'pagination-line-container';
-            
+
             const line = document.createElement('div');
             line.className = 'pagination-line';
-            
+
             const activeDot = document.createElement('div');
             activeDot.className = 'pagination-line-dot active';
-            
+
             lineContainer.appendChild(line);
             lineContainer.appendChild(activeDot);
             dotsContainer.appendChild(lineContainer);
-            
+
             // Add click handler to the line container
             lineContainer.addEventListener('click', (e) => {
                 const rect = lineContainer.getBoundingClientRect();
@@ -2622,11 +2622,11 @@ function createPaginationDots(containerId) {
                 const dot = document.createElement('div');
                 dot.className = 'pagination-dot';
                 if (i === 0) dot.classList.add('active');
-                
+
                 dot.addEventListener('click', () => {
                     goToSwipe(containerId, i);
                 });
-                
+
                 dotsContainer.appendChild(dot);
             }
         }
@@ -2636,20 +2636,20 @@ function createPaginationDots(containerId) {
 function updatePaginationDots(containerId) {
     const container = document.getElementById(containerId + '-container');
     const dotsContainer = document.getElementById(containerId + '-dots');
-    
+
     if (!container || !dotsContainer) return;
-    
+
     const cards = container.querySelectorAll('.card:not(.hidden)');
     const totalCards = cards.length;
     const cardsPerView = getCardsPerView();
     const totalPages = Math.max(1, totalCards - cardsPerView + 1);
     const currentPosition = cardSliderPositions[containerId] || 0;
-    
+
     if (totalPages > 10) {
         // Update line-based pagination
         const lineContainer = dotsContainer.querySelector('.pagination-line-container');
         const activeDot = dotsContainer.querySelector('.pagination-line-dot');
-        
+
         if (lineContainer && activeDot) {
             const percentage = (currentPosition / (totalPages - 1)) * 100;
             activeDot.style.left = `${percentage}%`;
@@ -2658,7 +2658,7 @@ function updatePaginationDots(containerId) {
         // Update individual dots (original behavior)
         const dots = dotsContainer.querySelectorAll('.pagination-dot');
         const activeDotIndex = currentPosition;
-        
+
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === activeDotIndex);
         });
@@ -2668,27 +2668,27 @@ function updatePaginationDots(containerId) {
 function goToSwipe(containerId, swipeIndex) {
     const container = document.getElementById(containerId + '-container');
     if (!container) return;
-    
+
     const cards = container.querySelectorAll('.card:not(.hidden)');
     const totalCards = cards.length;
     const cardsPerView = getCardsPerView();
-    
+
     // Calculate max position to ensure last card is fully displayed
     const maxPosition = Math.max(0, totalCards - cardsPerView);
-    
+
     // Set position directly to swipe index (one card at a time)
     cardSliderPositions[containerId] = Math.min(swipeIndex, maxPosition);
-    
+
     // Ensure position is within bounds
     if (cardSliderPositions[containerId] < 0) {
         cardSliderPositions[containerId] = 0;
     }
-    
+
     // Apply transform with proper centering
     const cardWidth = 300; // Fixed card width
     const gap = 32; // Gap between cards
     const cardStep = cardWidth + gap;
-    
+
     let transformValue;
     if (cardsPerView === 1) {
         // Single card mode - center the card
@@ -2701,9 +2701,9 @@ function goToSwipe(containerId, swipeIndex) {
         // Multiple cards mode - simple positioning
         transformValue = -cardSliderPositions[containerId] * cardStep;
     }
-    
+
     container.style.transform = `translateX(${transformValue}px)`;
-    
+
     // Update buttons and dots
     updateCardSliderButtons(containerId);
     updatePaginationDots(containerId);

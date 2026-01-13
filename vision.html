@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Vision - Manifeste Politique</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Manifeste politique présentant mes propositions et mesures concrètes pour l'économie, le social, l'environnement, la santé, l'éducation et la démocratie.">
+    <meta name="keywords"
+        content="manifeste, politique, propositions, mesures, économie, social, environnement, santé, éducation, démocratie">
+    <meta name="author" content="Bastien Doudard">
+
+    <!-- Prevent image indexing by search engines -->
+    <meta name="robots" content="noimageindex">
+    <meta name="googlebot" content="noimageindex">
+    <meta name="bingbot" content="noimageindex">
+    <link rel="icon" type="image/x-icon" href="img/logo/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="vision.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="nav-link nav-logo-link" aria-label="Home">
+                    <span class="logo-swap">
+                        <img src="img/logo/Logo_2_V1.png" alt="bdoudard.com" class="logo logo-v1" width="50"
+                            height="50">
+                        <img src="img/logo/Logo_2_V2.png" alt="" class="logo logo-v2" width="50" height="50"
+                            data-noindex>
+                    </span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#introduction" class="nav-link">Introduction</a></li>
+                <li><a href="#manifeste" class="nav-link">Manifeste</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Introduction -->
+    <section id="introduction" class="vision-hero">
+        <div class="container">
+            <h1 class="vision-title">Ma Vision pour la France</h1>
+            <p class="vision-subtitle">Un manifeste pour construire ensemble une société plus juste, plus durable et
+                plus démocratique.</p>
+
+            <!-- 
+            ============================================
+            PERSONNALISER CETTE SECTION:
+            Modifiez le titre et le sous-titre ci-dessus
+            Ajoutez votre photo ou une image représentative
+            ============================================
+            -->
+        </div>
+    </section>
+
+    <!-- Manifeste Section -->
+    <section id="manifeste" class="manifeste-section">
+        <div class="container">
+            <h2 class="section-title">Mes Propositions</h2>
+
+            <!-- Navigation des catégories -->
+            <div class="category-nav">
+                <button class="category-btn active" data-category="economie">
+                    <i class="fas fa-coins"></i>
+                    <span>Économie & Finance</span>
+                </button>
+                <button class="category-btn" data-category="social">
+                    <i class="fas fa-users"></i>
+                    <span>Social & Travail</span>
+                </button>
+                <button class="category-btn" data-category="environnement">
+                    <i class="fas fa-leaf"></i>
+                    <span>Environnement & Énergie</span>
+                </button>
+                <button class="category-btn" data-category="sante">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Santé</span>
+                </button>
+                <button class="category-btn" data-category="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Éducation & Culture</span>
+                </button>
+                <button class="category-btn" data-category="democratie">
+                    <i class="fas fa-landmark"></i>
+                    <span>Démocratie & Institutions</span>
+                </button>
+            </div>
+
+            <!-- ================================================================
+                 CATÉGORIE: ÉCONOMIE & FINANCE
+                 
+                 Cette catégorie regroupe toutes les mesures liées à:
+                 - Fiscalité
+                 - Budget de l'État
+                 - Politique monétaire
+                 - Commerce et entreprises
+                 ================================================================ -->
+            <div class="category-content active" id="economie">
+                <div class="category-header">
+                    <h3><i class="fas fa-coins"></i> Économie & Finance</h3>
+                    <p class="category-intro">Des mesures pour une économie plus équitable et un système financier au
+                        service de tous.</p>
+                </div>
+
+                <!-- ============================================
+                     MESURE #1 - ÉCONOMIE
+                     
+                     TEMPLATE DE MESURE:
+                     Copiez ce bloc pour ajouter de nouvelles mesures
+                     ============================================ -->
+                <article class="mesure-card" id="eco-mesure-1">
+                    <!-- Box résumé de la mesure -->
+                    <div class="mesure-resume">
+                        <div class="mesure-numero">1</div>
+                        <div class="mesure-header">
+                            <h4 class="mesure-titre">
+                                <!-- TITRE DE LA MESURE: Soyez concis et percutant -->
+                                Titre de la mesure économique
+                            </h4>
+                            <div class="mesure-objectifs">
+                                <!-- OBJECTIFS: Liste des principaux objectifs (3-5 max) -->
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 1</span>
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 2</span>
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 3</span>
+                            </div>
+                        </div>
+                        <button class="mesure-toggle" aria-expanded="false">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+
+                    <!-- Description détaillée (caché par défaut, s'ouvre au clic) -->
+                    <div class="mesure-details">
+                        <!-- ARGUMENTAIRE: Paragraphes explicatifs -->
+                        <div class="mesure-argumentaire">
+                            <h5>Pourquoi cette mesure ?</h5>
+                            <p>
+                                <!-- Paragraphe 1: Contexte et problématique -->
+                                Décrivez ici le contexte et la problématique que cette mesure vise à résoudre.
+                                Expliquez pourquoi c'est important et urgent d'agir.
+                            </p>
+                            <p>
+                                <!-- Paragraphe 2: Solution proposée -->
+                                Détaillez la solution que vous proposez. Comment cette mesure va-t-elle fonctionner ?
+                                Quels sont les mécanismes prévus ?
+                            </p>
+                            <p>
+                                <!-- Paragraphe 3: Impact attendu -->
+                                Décrivez les impacts positifs attendus de cette mesure sur la société, l'économie
+                                ou l'environnement selon le cas.
+                            </p>
+                        </div>
+
+                        <!-- MÉDIAS: Images, graphiques, photos -->
+                        <div class="mesure-medias">
+                            <h5>Illustrations</h5>
+                            <div class="media-gallery">
+                                <!-- 
+                                IMAGE LOCALE:
+                                <figure class="media-item">
+                                    <img src="img/manifeste/votre-image.jpg" alt="Description de l'image">
+                                    <figcaption>Légende de l'image ou du graphique</figcaption>
+                                </figure>
+                                
+                                IMAGE EXTERNE:
+                                <figure class="media-item">
+                                    <img src="https://exemple.com/image.jpg" alt="Description de l'image">
+                                    <figcaption>Source: Nom de la source</figcaption>
+                                </figure>
+                                -->
+                                <figure class="media-item">
+                                    <img src="https://via.placeholder.com/600x400?text=Graphique+ou+Image"
+                                        alt="Graphique exemple">
+                                    <figcaption>Légende: Description du graphique ou de l'image</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <!-- VIDÉOS: YouTube, Dailymotion, X (Twitter) -->
+                        <div class="mesure-videos">
+                            <h5>Vidéos explicatives</h5>
+                            <div class="video-gallery">
+                                <!-- 
+                                ================================================
+                                VIDÉO YOUTUBE:
+                                1. Aller sur la vidéo YouTube
+                                2. Cliquer sur Partager > Intégrer
+                                3. Copier l'URL src de l'iframe
+                                4. Remplacer l'URL ci-dessous
+                                
+                                Format: https://www.youtube.com/embed/VIDEO_ID
+                                ================================================
+                                -->
+                                <div class="video-item">
+                                    <div class="video-wrapper">
+                                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                            title="Titre de la vidéo YouTube" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                    <p class="video-caption">Description de la vidéo YouTube</p>
+                                </div>
+
+                                <!-- 
+                                ================================================
+                                VIDÉO DAILYMOTION:
+                                1. Aller sur la vidéo Dailymotion
+                                2. Cliquer sur Partager > Intégrer
+                                3. Copier l'URL src de l'iframe
+                                
+                                Format: https://www.dailymotion.com/embed/video/VIDEO_ID
+                                ================================================
+                                <div class="video-item">
+                                    <div class="video-wrapper">
+                                        <iframe 
+                                            src="https://www.dailymotion.com/embed/video/x84b0z9" 
+                                            title="Titre de la vidéo Dailymotion"
+                                            frameborder="0" 
+                                            allow="autoplay; fullscreen" 
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                    <p class="video-caption">Description de la vidéo Dailymotion</p>
+                                </div>
+                                -->
+
+                                <!-- 
+                                ================================================
+                                VIDÉO X (TWITTER):
+                                1. Aller sur le tweet contenant la vidéo
+                                2. Cliquer sur les trois points > Intégrer le Tweet
+                                3. Utiliser le code d'intégration (blockquote)
+                                
+                                Note: Les vidéos X nécessitent le script Twitter
+                                ================================================
+                                <div class="video-item video-twitter">
+                                    <blockquote class="twitter-tweet">
+                                        <a href="https://twitter.com/utilisateur/status/ID_DU_TWEET"></a>
+                                    </blockquote>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+
+                        <!-- SOURCES: Citations et références -->
+                        <div class="mesure-sources">
+                            <h5><i class="fas fa-book"></i> Sources & Références</h5>
+                            <ul class="sources-list">
+                                <!-- 
+                                AJOUTER VOS SOURCES:
+                                - Rapports officiels
+                                - Articles scientifiques
+                                - Études statistiques
+                                - Articles de presse de qualité
+                                -->
+                                <li>
+                                    <a href="https://exemple.com/source1" target="_blank" rel="noopener noreferrer">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Nom de la source 1 - Titre du document (Année)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://exemple.com/source2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Nom de la source 2 - Titre du document (Année)
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="source-offline">
+                                        <i class="fas fa-book"></i>
+                                        Auteur, "Titre du livre", Éditions, Année, p. XX-XX
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <!-- FIN MESURE #1 - ÉCONOMIE -->
+
+                <!-- ============================================
+                     MESURE #2 - ÉCONOMIE (Exemple supplémentaire)
+                     
+                     Dupliquez ce bloc pour chaque nouvelle mesure
+                     ============================================ -->
+                <article class="mesure-card" id="eco-mesure-2">
+                    <div class="mesure-resume">
+                        <div class="mesure-numero">2</div>
+                        <div class="mesure-header">
+                            <h4 class="mesure-titre">Deuxième mesure économique</h4>
+                            <div class="mesure-objectifs">
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif A</span>
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif B</span>
+                            </div>
+                        </div>
+                        <button class="mesure-toggle" aria-expanded="false">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="mesure-details">
+                        <div class="mesure-argumentaire">
+                            <h5>Pourquoi cette mesure ?</h5>
+                            <p>Contenu de la deuxième mesure économique...</p>
+                        </div>
+                        <div class="mesure-sources">
+                            <h5><i class="fas fa-book"></i> Sources & Références</h5>
+                            <ul class="sources-list">
+                                <li><a href="#" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Source exemple</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- FIN CATÉGORIE ÉCONOMIE -->
+
+            <!-- ================================================================
+                 CATÉGORIE: SOCIAL & TRAVAIL
+                 
+                 Cette catégorie regroupe toutes les mesures liées à:
+                 - Emploi et droit du travail
+                 - Protection sociale
+                 - Retraites
+                 - Logement
+                 - Lutte contre la pauvreté
+                 ================================================================ -->
+            <div class="category-content" id="social">
+                <div class="category-header">
+                    <h3><i class="fas fa-users"></i> Social & Travail</h3>
+                    <p class="category-intro">Des mesures pour améliorer les conditions de vie et de travail de tous les
+                        citoyens.</p>
+                </div>
+
+                <article class="mesure-card" id="soc-mesure-1">
+                    <div class="mesure-resume">
+                        <div class="mesure-numero">1</div>
+                        <div class="mesure-header">
+                            <h4 class="mesure-titre">Titre de la mesure sociale</h4>
+                            <div class="mesure-objectifs">
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 1</span>
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 2</span>
+                            </div>
+                        </div>
+                        <button class="mesure-toggle" aria-expanded="false">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="mesure-details">
+                        <div class="mesure-argumentaire">
+                            <h5>Pourquoi cette mesure ?</h5>
+                            <p>Contenu de la mesure sociale à personnaliser...</p>
+                        </div>
+                        <div class="mesure-sources">
+                            <h5><i class="fas fa-book"></i> Sources & Références</h5>
+                            <ul class="sources-list">
+                                <li><a href="#" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Source</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- FIN CATÉGORIE SOCIAL -->
+
+            <!-- ================================================================
+                 CATÉGORIE: ENVIRONNEMENT & ÉNERGIE
+                 
+                 Cette catégorie regroupe toutes les mesures liées à:
+                 - Transition écologique
+                 - Énergies renouvelables
+                 - Biodiversité
+                 - Transport durable
+                 - Agriculture
+                 ================================================================ -->
+            <div class="category-content" id="environnement">
+                <div class="category-header">
+                    <h3><i class="fas fa-leaf"></i> Environnement & Énergie</h3>
+                    <p class="category-intro">Des mesures pour la transition écologique et la préservation de notre
+                        planète.</p>
+                </div>
+
+                <article class="mesure-card" id="env-mesure-1">
+                    <div class="mesure-resume">
+                        <div class="mesure-numero">1</div>
+                        <div class="mesure-header">
+                            <h4 class="mesure-titre">Titre de la mesure environnementale</h4>
+                            <div class="mesure-objectifs">
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 1</span>
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 2</span>
+                            </div>
+                        </div>
+                        <button class="mesure-toggle" aria-expanded="false">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="mesure-details">
+                        <div class="mesure-argumentaire">
+                            <h5>Pourquoi cette mesure ?</h5>
+                            <p>Contenu de la mesure environnementale à personnaliser...</p>
+                        </div>
+                        <div class="mesure-sources">
+                            <h5><i class="fas fa-book"></i> Sources & Références</h5>
+                            <ul class="sources-list">
+                                <li><a href="#" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Source</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- FIN CATÉGORIE ENVIRONNEMENT -->
+
+            <!-- ================================================================
+                 CATÉGORIE: SANTÉ
+                 
+                 Cette catégorie regroupe toutes les mesures liées à:
+                 - Hôpital public
+                 - Médecine de ville
+                 - Prévention
+                 - Sécurité sociale
+                 - Dépendance
+                 ================================================================ -->
+            <div class="category-content" id="sante">
+                <div class="category-header">
+                    <h3><i class="fas fa-heartbeat"></i> Santé</h3>
+                    <p class="category-intro">Des mesures pour un système de santé accessible, efficace et humain.</p>
+                </div>
+
+                <article class="mesure-card" id="san-mesure-1">
+                    <div class="mesure-resume">
+                        <div class="mesure-numero">1</div>
+                        <div class="mesure-header">
+                            <h4 class="mesure-titre">Titre de la mesure santé</h4>
+                            <div class="mesure-objectifs">
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 1</span>
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 2</span>
+                            </div>
+                        </div>
+                        <button class="mesure-toggle" aria-expanded="false">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="mesure-details">
+                        <div class="mesure-argumentaire">
+                            <h5>Pourquoi cette mesure ?</h5>
+                            <p>Contenu de la mesure santé à personnaliser...</p>
+                        </div>
+                        <div class="mesure-sources">
+                            <h5><i class="fas fa-book"></i> Sources & Références</h5>
+                            <ul class="sources-list">
+                                <li><a href="#" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Source</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- FIN CATÉGORIE SANTÉ -->
+
+            <!-- ================================================================
+                 CATÉGORIE: ÉDUCATION & CULTURE
+                 
+                 Cette catégorie regroupe toutes les mesures liées à:
+                 - École et université
+                 - Formation professionnelle
+                 - Recherche
+                 - Culture et patrimoine
+                 - Sport
+                 ================================================================ -->
+            <div class="category-content" id="education">
+                <div class="category-header">
+                    <h3><i class="fas fa-graduation-cap"></i> Éducation & Culture</h3>
+                    <p class="category-intro">Des mesures pour une éducation de qualité et une culture accessible à
+                        tous.</p>
+                </div>
+
+                <article class="mesure-card" id="edu-mesure-1">
+                    <div class="mesure-resume">
+                        <div class="mesure-numero">1</div>
+                        <div class="mesure-header">
+                            <h4 class="mesure-titre">Titre de la mesure éducation</h4>
+                            <div class="mesure-objectifs">
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 1</span>
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 2</span>
+                            </div>
+                        </div>
+                        <button class="mesure-toggle" aria-expanded="false">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="mesure-details">
+                        <div class="mesure-argumentaire">
+                            <h5>Pourquoi cette mesure ?</h5>
+                            <p>Contenu de la mesure éducation à personnaliser...</p>
+                        </div>
+                        <div class="mesure-sources">
+                            <h5><i class="fas fa-book"></i> Sources & Références</h5>
+                            <ul class="sources-list">
+                                <li><a href="#" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Source</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- FIN CATÉGORIE ÉDUCATION -->
+
+            <!-- ================================================================
+                 CATÉGORIE: DÉMOCRATIE & INSTITUTIONS
+                 
+                 Cette catégorie regroupe toutes les mesures liées à:
+                 - Réforme constitutionnelle
+                 - Décentralisation
+                 - Justice
+                 - Sécurité
+                 - Europe et international
+                 ================================================================ -->
+            <div class="category-content" id="democratie">
+                <div class="category-header">
+                    <h3><i class="fas fa-landmark"></i> Démocratie & Institutions</h3>
+                    <p class="category-intro">Des mesures pour renforcer notre démocratie et moderniser nos
+                        institutions.</p>
+                </div>
+
+                <article class="mesure-card" id="dem-mesure-1">
+                    <div class="mesure-resume">
+                        <div class="mesure-numero">1</div>
+                        <div class="mesure-header">
+                            <h4 class="mesure-titre">Titre de la mesure institutionnelle</h4>
+                            <div class="mesure-objectifs">
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 1</span>
+                                <span class="objectif-tag"><i class="fas fa-target"></i> Objectif 2</span>
+                            </div>
+                        </div>
+                        <button class="mesure-toggle" aria-expanded="false">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="mesure-details">
+                        <div class="mesure-argumentaire">
+                            <h5>Pourquoi cette mesure ?</h5>
+                            <p>Contenu de la mesure institutionnelle à personnaliser...</p>
+                        </div>
+                        <div class="mesure-sources">
+                            <h5><i class="fas fa-book"></i> Sources & Références</h5>
+                            <ul class="sources-list">
+                                <li><a href="#" target="_blank" rel="noopener noreferrer"><i
+                                            class="fas fa-external-link-alt"></i> Source</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- FIN CATÉGORIE DÉMOCRATIE -->
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:bastien.doudard@gmail.com"
+                            class="contact-link">bastien.doudard@gmail.com</a></p>
+                </div>
+                <div class="social-links">
+                    <h3>Suivez-moi</h3>
+                    <div class="social-icons">
+                        <a href="https://github.com/slupit" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/bastien-doudard/" class="social-icon"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/bastien_doudard/" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2025 Bastien Doudard - Ma Vision Politique</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script pour intégration Twitter/X -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <!-- Script principal -->
+    <script src="script.js"></script>
+    <script src="vision.js"></script>
+</body>
+
+</html>
