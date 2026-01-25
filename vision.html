@@ -39,7 +39,11 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#introduction" class="nav-link">Introduction</a></li>
-                <li><a href="#manifeste" class="nav-link">Manifeste</a></li>
+                <li><a href="#grandes-lignes" class="nav-link">Grandes Lignes</a></li>
+                <li><a href="#manifeste" class="nav-link">Mesures</a></li>
+                <li><a href="#schema" class="nav-link">Structure</a></li>
+                <li><a href="#entites" class="nav-link">Entités</a></li>
+                <li><a href="#annexe" class="nav-link">Annexe</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -63,6 +67,48 @@
             Ajoutez votre photo ou une image représentative
             ============================================
             -->
+        </div>
+    </section>
+
+    <!-- Grandes Lignes Section -->
+    <section id="grandes-lignes" class="grandes-lignes-section">
+        <div class="container">
+            <h2 class="section-title">Les Grandes Lignes</h2>
+            <p class="category-intro" style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
+                Les principes fondamentaux qui guident l'ensemble de cette vision politique.
+            </p>
+
+            <div class="grandes-lignes-grid">
+                <div class="grande-ligne-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h4>Faible Imposition</h4>
+                    <p>Une fiscalité simplifiée et allégée pour favoriser l'initiative et la création de richesse.</p>
+                </div>
+
+                <div class="grande-ligne-card">
+                    <i class="fas fa-dove"></i>
+                    <h4>Liberté</h4>
+                    <p>Garantir les libertés individuelles et économiques comme fondement de notre société.</p>
+                </div>
+
+                <div class="grande-ligne-card">
+                    <i class="fas fa-vote-yea"></i>
+                    <h4>Démocratie</h4>
+                    <p>Renforcer la participation citoyenne et la transparence des institutions.</p>
+                </div>
+
+                <div class="grande-ligne-card">
+                    <i class="fas fa-flag"></i>
+                    <h4>Souveraineté</h4>
+                    <p>Préserver l'indépendance décisionnelle et les intérêts nationaux.</p>
+                </div>
+
+                <div class="grande-ligne-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Stabilité</h4>
+                    <p>Assurer un cadre institutionnel et économique prévisible et durable.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -144,49 +190,82 @@
 
                     <!-- Description détaillée (caché par défaut, s'ouvre au clic) -->
                     <div class="mesure-details">
-                        <!-- ARGUMENTAIRE: Paragraphes explicatifs -->
-                        <div class="mesure-argumentaire">
+                        <!-- ARGUMENTAIRE: Paragraphes explicatifs avec références inline -->
+                        <div class="mesure-argumentaire content-flow">
                             <h5>Pourquoi cette mesure ?</h5>
+
+                            <!-- 
+                            ================================================
+                            EXEMPLE D'IMAGE POSITIONNÉE À DROITE:
+                            L'image flotte à droite, le texte s'écoule à gauche
+                            Utilisez class="media-item media-right" 
+                            ================================================
+                            -->
+                            <figure class="media-item media-right">
+                                <img src="https://via.placeholder.com/300x200?text=Image+Droite"
+                                    alt="Exemple d'image positionnée à droite">
+                                <figcaption>Image flottant à droite avec texte autour</figcaption>
+                            </figure>
+
                             <p>
-                                <!-- Paragraphe 1: Contexte et problématique -->
+                                <!-- Paragraphe 1: Contexte avec référence inline -->
                                 Décrivez ici le contexte et la problématique que cette mesure vise à résoudre.
+                                Selon les dernières études<span class="ref-inline">1<span class="ref-popover">
+                                        <div class="ref-popover-title">Référence 1</div>
+                                        <div class="ref-popover-content">
+                                            <a href="https://exemple.com/source1" target="_blank">
+                                                Nom de la source 1 - Titre du document (Année)
+                                            </a>
+                                        </div>
+                                    </span></span>, cette situation nécessite une action urgente.
                                 Expliquez pourquoi c'est important et urgent d'agir.
                             </p>
+
+                            <!-- 
+                            ================================================
+                            EXEMPLE D'IMAGE POSITIONNÉE À GAUCHE:
+                            L'image flotte à gauche, le texte s'écoule à droite
+                            Utilisez class="media-item media-left" 
+                            ================================================
+                            -->
+                            <figure class="media-item media-left">
+                                <img src="https://via.placeholder.com/300x200?text=Image+Gauche"
+                                    alt="Exemple d'image positionnée à gauche">
+                                <figcaption>Image flottant à gauche avec texte autour</figcaption>
+                            </figure>
+
                             <p>
-                                <!-- Paragraphe 2: Solution proposée -->
+                                <!-- Paragraphe 2: Solution proposée avec référence inline -->
                                 Détaillez la solution que vous proposez. Comment cette mesure va-t-elle fonctionner ?
+                                Les experts s'accordent<span class="ref-inline">2<span class="ref-popover">
+                                        <div class="ref-popover-title">Référence 2</div>
+                                        <div class="ref-popover-content">
+                                            <a href="https://exemple.com/source2" target="_blank">
+                                                Nom de la source 2 - Étude détaillée (Année)
+                                            </a>
+                                        </div>
+                                    </span></span> sur l'efficacité de cette approche.
                                 Quels sont les mécanismes prévus ?
                             </p>
+
                             <p>
                                 <!-- Paragraphe 3: Impact attendu -->
                                 Décrivez les impacts positifs attendus de cette mesure sur la société, l'économie
                                 ou l'environnement selon le cas.
                             </p>
-                        </div>
 
-                        <!-- MÉDIAS: Images, graphiques, photos -->
-                        <div class="mesure-medias">
-                            <h5>Illustrations</h5>
-                            <div class="media-gallery">
-                                <!-- 
-                                IMAGE LOCALE:
-                                <figure class="media-item">
-                                    <img src="img/manifeste/votre-image.jpg" alt="Description de l'image">
-                                    <figcaption>Légende de l'image ou du graphique</figcaption>
-                                </figure>
-                                
-                                IMAGE EXTERNE:
-                                <figure class="media-item">
-                                    <img src="https://exemple.com/image.jpg" alt="Description de l'image">
-                                    <figcaption>Source: Nom de la source</figcaption>
-                                </figure>
-                                -->
-                                <figure class="media-item">
-                                    <img src="https://via.placeholder.com/600x400?text=Graphique+ou+Image"
-                                        alt="Graphique exemple">
-                                    <figcaption>Légende: Description du graphique ou de l'image</figcaption>
-                                </figure>
-                            </div>
+                            <!-- 
+                            ================================================
+                            EXEMPLE D'IMAGE CENTRÉE:
+                            L'image est centrée, pas de texte autour
+                            Utilisez class="media-item media-center" 
+                            ================================================
+                            -->
+                            <figure class="media-item media-center">
+                                <img src="https://via.placeholder.com/600x300?text=Image+Centrée"
+                                    alt="Exemple d'image centrée">
+                                <figcaption>Image centrée - pleine largeur sans texte autour</figcaption>
+                            </figure>
                         </div>
 
                         <!-- VIDÉOS: YouTube, Dailymotion, X (Twitter) -->
@@ -214,49 +293,20 @@
                                     </div>
                                     <p class="video-caption">Description de la vidéo YouTube</p>
                                 </div>
-
-                                <!-- 
-                                ================================================
-                                VIDÉO DAILYMOTION:
-                                1. Aller sur la vidéo Dailymotion
-                                2. Cliquer sur Partager > Intégrer
-                                3. Copier l'URL src de l'iframe
-                                
-                                Format: https://www.dailymotion.com/embed/video/VIDEO_ID
-                                ================================================
-                                <div class="video-item">
-                                    <div class="video-wrapper">
-                                        <iframe 
-                                            src="https://www.dailymotion.com/embed/video/x84b0z9" 
-                                            title="Titre de la vidéo Dailymotion"
-                                            frameborder="0" 
-                                            allow="autoplay; fullscreen" 
-                                            allowfullscreen>
-                                        </iframe>
-                                    </div>
-                                    <p class="video-caption">Description de la vidéo Dailymotion</p>
-                                </div>
-                                -->
-
-                                <!-- 
-                                ================================================
-                                VIDÉO X (TWITTER):
-                                1. Aller sur le tweet contenant la vidéo
-                                2. Cliquer sur les trois points > Intégrer le Tweet
-                                3. Utiliser le code d'intégration (blockquote)
-                                
-                                Note: Les vidéos X nécessitent le script Twitter
-                                ================================================
-                                <div class="video-item video-twitter">
-                                    <blockquote class="twitter-tweet">
-                                        <a href="https://twitter.com/utilisateur/status/ID_DU_TWEET"></a>
-                                    </blockquote>
-                                </div>
-                                -->
                             </div>
                         </div>
 
-                        <!-- SOURCES: Citations et références -->
+                        <!-- CONCLUSION: Résumé/synthèse de la mesure -->
+                        <div class="mesure-conclusion">
+                            <h5><i class="fas fa-check-circle"></i> Conclusion</h5>
+                            <p>
+                                Résumez ici les points clés de la mesure et son impact attendu.
+                                Cette section permet de synthétiser l'argumentaire pour les lecteurs
+                                qui souhaitent une vue d'ensemble rapide.
+                            </p>
+                        </div>
+
+                        <!-- SOURCES: Citations et références (liste complète) -->
                         <div class="mesure-sources">
                             <h5><i class="fas fa-book"></i> Sources & Références</h5>
                             <ul class="sources-list">
@@ -270,19 +320,19 @@
                                 <li>
                                     <a href="https://exemple.com/source1" target="_blank" rel="noopener noreferrer">
                                         <i class="fas fa-external-link-alt"></i>
-                                        Nom de la source 1 - Titre du document (Année)
+                                        [1] Nom de la source 1 - Titre du document (Année)
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://exemple.com/source2" target="_blank" rel="noopener noreferrer">
                                         <i class="fas fa-external-link-alt"></i>
-                                        Nom de la source 2 - Titre du document (Année)
+                                        [2] Nom de la source 2 - Étude détaillée (Année)
                                     </a>
                                 </li>
                                 <li>
                                     <span class="source-offline">
                                         <i class="fas fa-book"></i>
-                                        Auteur, "Titre du livre", Éditions, Année, p. XX-XX
+                                        [3] Auteur, "Titre du livre", Éditions, Année, p. XX-XX
                                     </span>
                                 </li>
                             </ul>
@@ -566,6 +616,168 @@
             </div>
             <!-- FIN CATÉGORIE DÉMOCRATIE -->
 
+        </div>
+    </section>
+
+    <!-- Schéma de Structure Section -->
+    <section id="schema" class="schema-section">
+        <div class="container">
+            <h2 class="section-title">Schéma de Structure</h2>
+            <p class="category-intro" style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
+                Organisation et articulation des différentes entités du projet.
+            </p>
+
+            <div class="schema-container">
+                <!-- Remplacez par votre image/diagramme -->
+                <div class="schema-placeholder">
+                    <i class="fas fa-sitemap"></i>
+                    <p>Insérez ici votre schéma de structure organisationnelle.</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                        Utilisez une image: <code>&lt;img src="img/schema.png" alt="Schéma de structure"&gt;</code>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Résumé des Entités Section -->
+    <section id="entites" class="entites-section">
+        <div class="container">
+            <h2 class="section-title">Résumé des Entités</h2>
+            <p class="category-intro" style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
+                Les quatre piliers institutionnels qui garantissent le bon fonctionnement du système.
+            </p>
+
+            <div class="entites-grid">
+                <!-- MVV Card -->
+                <div class="entite-card">
+                    <div class="entite-card-header">
+                        <div class="entite-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4>MVV</h4>
+                    </div>
+                    <p>Mission, Vision, Valeurs - Le cadre directeur qui guide toutes les décisions et actions.</p>
+                    <ul>
+                        <li>Définit les objectifs à long terme</li>
+                        <li>Établit les principes fondateurs</li>
+                        <li>Oriente la stratégie globale</li>
+                    </ul>
+                </div>
+
+                <!-- Board Card -->
+                <div class="entite-card">
+                    <div class="entite-card-header">
+                        <div class="entite-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h4>Board</h4>
+                    </div>
+                    <p>L'organe décisionnel central responsable de la gouvernance stratégique.</p>
+                    <ul>
+                        <li>Prend les décisions majeures</li>
+                        <li>Valide les orientations</li>
+                        <li>Représente les parties prenantes</li>
+                    </ul>
+                </div>
+
+                <!-- Supervision Card -->
+                <div class="entite-card">
+                    <div class="entite-card-header">
+                        <div class="entite-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h4>Supervision</h4>
+                    </div>
+                    <p>L'entité chargée du suivi et de l'accompagnement des opérations.</p>
+                    <ul>
+                        <li>Surveille l'exécution</li>
+                        <li>Accompagne les équipes</li>
+                        <li>Identifie les risques</li>
+                    </ul>
+                </div>
+
+                <!-- Contrôle Card -->
+                <div class="entite-card">
+                    <div class="entite-card-header">
+                        <div class="entite-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Contrôle</h4>
+                    </div>
+                    <p>L'instance indépendante garantissant la conformité et la transparence.</p>
+                    <ul>
+                        <li>Vérifie la conformité</li>
+                        <li>Audite les processus</li>
+                        <li>Garantit la transparence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Annexe Section -->
+    <section id="annexe" class="annexe-section">
+        <div class="container">
+            <h2 class="section-title">Annexe</h2>
+            <div class="annexe-intro">
+                <p>Documents complémentaires, études détaillées et ressources additionnelles.</p>
+            </div>
+
+            <!-- Annexe Article 1 -->
+            <article class="annexe-card" id="annexe-1">
+                <div class="annexe-resume">
+                    <div class="annexe-numero">A1</div>
+                    <div class="annexe-header">
+                        <h4 class="annexe-titre">Titre de l'article annexe 1</h4>
+                    </div>
+                    <button class="annexe-toggle" aria-expanded="false">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="annexe-details">
+                    <div class="annexe-content">
+                        <p>Contenu détaillé de l'article annexe. Vous pouvez y inclure des analyses approfondies,
+                            des données statistiques, des études de cas ou tout autre contenu complémentaire.</p>
+                        <p>Ce format permet d'organiser les informations supplémentaires de manière claire
+                            et accessible, tout en gardant la page principale concise.</p>
+                    </div>
+                    <div class="mesure-sources">
+                        <h5><i class="fas fa-book"></i> Sources & Références</h5>
+                        <ul class="sources-list">
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i> Source de l'annexe
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Annexe Article 2 -->
+            <article class="annexe-card" id="annexe-2">
+                <div class="annexe-resume">
+                    <div class="annexe-numero">A2</div>
+                    <div class="annexe-header">
+                        <h4 class="annexe-titre">Titre de l'article annexe 2</h4>
+                    </div>
+                    <button class="annexe-toggle" aria-expanded="false">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="annexe-details">
+                    <div class="annexe-content">
+                        <p>Contenu du deuxième article annexe...</p>
+                    </div>
+                    <div class="mesure-sources">
+                        <h5><i class="fas fa-book"></i> Sources & Références</h5>
+                        <ul class="sources-list">
+                            <li><a href="#" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i> Source
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 

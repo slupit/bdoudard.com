@@ -190,5 +190,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // ============================================
+    // TOGGLE DES ANNEXES (Accordéon)
+    // ============================================
+    const annexeCards = document.querySelectorAll('.annexe-card');
+
+    annexeCards.forEach(card => {
+        const resume = card.querySelector('.annexe-resume');
+        const toggle = card.querySelector('.annexe-toggle');
+
+        const handleAnnexeToggle = function (e) {
+            e.preventDefault();
+            card.classList.toggle('open');
+            const isOpen = card.classList.contains('open');
+            if (toggle) {
+                toggle.setAttribute('aria-expanded', isOpen);
+            }
+        };
+
+        if (resume) {
+            resume.addEventListener('click', handleAnnexeToggle);
+        }
+    });
+
     console.log('Vision.js chargé avec succès!');
 });
