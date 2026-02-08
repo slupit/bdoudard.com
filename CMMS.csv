@@ -1,0 +1,82 @@
+ID,Category,Functionality,MoSCoW,RACI_MNT,RACI_IT,RACI_SC,RACI_PRD,RACI_MGMT,Comments
+1,Work Request & Ticketing,Ticket creation by operators (ticketing),Must,R,A,I,R,I,Entry point for maintenance demand
+2,Work Request & Ticketing,Ticket qualification and validation workflow,Must,R,A,I,C,I,
+3,Work Order Management,Manual work order creation,Must,R,A,I,I,I,
+4,Work Order Management,Automatic conversion of ticket to work order,Must,R,A,I,I,I,
+5,Work Order Management,Work order status tracking (open/in progress/on hold/closed),Must,R,A,I,C,I,
+6,Work Order Management,Work order prioritization rules,Must,R,A,I,C,I,
+7,Work Order Management,Scheduling and planning of work orders,Must,R,A,I,C,I,
+8,Work Order Management,Assignment of work orders to technicians or teams,Must,R,A,I,I,I,
+9,Work Order Management,Documentation of tasks to perform,Must,R,A,I,I,I,Clear step-by-step tasks
+10,Work Order Management,Documentation of work performed,Must,R,A,I,I,I,What was really done
+11,Work Order Management,Maintenance history per work order,Must,R,A,I,I,I,
+12,Work Order Management,Failure cause and action coding,Must,R,A,I,C,I,
+13,Work Order Management,Downtime recording linked to work orders,Must,R,A,I,C,I,
+14,Work Order Management,Emergency work order handling,Must,R,A,I,C,I,
+15,Work Order Management,Work order templates,Should,R,A,I,I,I,
+16,Work Order Management,Remote maintenance support (photos/video/chat),Could,R,A,I,I,I,
+17,Work Order Management,Digital signatures on work order closure,Should,R,A,I,I,I,
+
+18,Asset Management,Hierarchical asset structure (site/line/machine),Must,R,A,I,C,I,
+19,Asset Management,Linked equipment and parent-child assets,Must,R,A,I,I,I,
+20,Asset Management,Asset technical data management,Must,R,A,I,I,I,
+21,Asset Management,Asset fault history,Must,R,A,I,I,I,
+22,Asset Management,Asset maintenance history,Must,R,A,I,I,I,
+23,Asset Management,Asset criticality classification,Must,R,A,I,C,I,
+24,Asset Management,Operating counters (hours/cycles),Must,R,A,I,C,I,
+25,Asset Management,Asset warranty tracking,Should,R,A,I,I,I,
+26,Asset Management,Asset lifecycle tracking,Should,R,A,I,I,I,
+27,Asset Management,QR code / barcode asset identification,Should,R,A,I,I,I,
+
+28,Preventive Maintenance,Time-based preventive maintenance plans,Must,R,A,I,I,I,
+29,Preventive Maintenance,Usage-based preventive maintenance plans,Must,R,A,I,C,I,
+30,Preventive Maintenance,Preventive maintenance scheduling,Must,R,A,I,C,I,
+31,Preventive Maintenance,Automatic generation of PM work orders,Must,R,A,I,I,I,
+32,Preventive Maintenance,Preventive maintenance compliance tracking,Must,R,A,I,I,I,
+33,Preventive Maintenance,Maintenance plan templates,Should,R,A,I,I,I,
+34,Preventive Maintenance,Stock reservation ahead of planned maintenance,Must,R,A,R,I,I,Your explicit requirement
+35,Preventive Maintenance,Seasonal or campaign-based maintenance,Could,R,A,I,I,I,
+
+36,Spare Parts & Inventory,Spare part master data management,Must,R,C,A,I,I,
+37,Spare Parts & Inventory,Stock level tracking,Must,R,C,A,I,I,
+38,Spare Parts & Inventory,Stock movement tracking (in/out/transfer),Must,R,C,A,I,I,
+39,Spare Parts & Inventory,Spare part consumption per work order,Must,R,C,A,I,I,
+40,Spare Parts & Inventory,Minimum/maximum stock rules,Must,R,C,A,I,I,
+41,Spare Parts & Inventory,Automatic replenishment alerts,Should,R,C,A,I,I,
+42,Spare Parts & Inventory,Multi-warehouse management,Should,R,C,A,I,I,
+43,Spare Parts & Inventory,Lot/serial number tracking,Should,R,C,A,I,I,
+44,Spare Parts & Inventory,Spare part compatibility with assets,Should,R,A,C,I,I,
+
+45,Documentation & Knowledge,Technical documentation attached to assets,Must,R,A,I,I,I,
+46,Documentation & Knowledge,Documentation attached to work orders,Must,R,A,I,I,I,
+47,Documentation & Knowledge,Version control of documents,Should,R,A,I,I,I,
+48,Documentation & Knowledge,Maintenance procedures and checklists,Must,R,A,I,I,I,
+49,Documentation & Knowledge,Knowledge base / troubleshooting guides,Could,R,A,I,I,I,
+
+50,Human Resources & Teams,Technician profile management,Must,R,A,I,I,I,
+51,Human Resources & Teams,Skill and certification tracking,Must,R,A,I,I,I,
+52,Human Resources & Teams,Skill-based work assignment,Should,R,A,I,I,I,
+53,Human Resources & Teams,Shift and availability management,Should,R,A,I,I,I,
+54,Human Resources & Teams,International team support (language, UI),Must,R,A,I,I,I,Your explicit requirement
+
+55,Suppliers & Subcontracting,Subcontractor master data,Must,R,C,A,I,I,
+56,Suppliers & Subcontracting,Subcontracted work order management,Must,R,A,C,I,I,
+57,Suppliers & Subcontracting,Subcontractor authorization & access control,Must,R,A,C,I,I,
+58,Suppliers & Subcontracting,Contract and SLA tracking,Should,R,C,A,I,I,
+59,Suppliers & Subcontracting,External service cost tracking,Must,R,C,A,I,I,
+
+60,Reporting & KPIs,Standard maintenance dashboards,Must,R,A,I,I,I,
+61,Reporting & KPIs,Preventive vs corrective ratio,Must,R,A,I,I,I,
+62,Reporting & KPIs,MTBF / MTTR calculation,Must,R,A,I,I,I,
+63,Reporting & KPIs,Maintenance cost by asset,Must,R,A,C,I,I,
+64,Reporting & KPIs,Custom report creation,Should,R,A,I,I,I,
+65,Reporting & KPIs,Export to Excel / BI tools,Should,R,A,I,I,I,
+
+66,Integration,ERP integration (costs, purchasing),Should,R,C,A,I,I,
+67,Integration,MES integration (counters, downtime),Should,R,A,I,C,I,
+68,Integration,PDM integration (technical documents),Could,R,A,I,I,I,
+69,Integration,API for custom interfaces,Could,R,A,I,I,I,
+
+70,Security & Governance,Role-based access control,Must,R,A,I,I,I,
+71,Security & Governance,Audit trail of maintenance actions,Must,R,A,I,I,I,
+72,Security & Governance,Data backup and recovery,Must,C,A,I,I,R,
